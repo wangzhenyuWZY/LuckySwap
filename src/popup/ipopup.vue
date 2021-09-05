@@ -113,7 +113,7 @@ export default {
 >>> .dialog_selct {
   width: 480px;
   height: 273px;
-  background: #ffffff;
+  background: #142028;
   border-radius: 20px;
 }
 >>> .dialog_selct .el-icon-close {
@@ -158,24 +158,24 @@ export default {
   font-size: 20px;
   font-family: Roboto-Medium, Roboto;
   font-weight: 500;
-  color: #0f1730;
+  color: #fff;
   line-height: 24px;
 }
 .select_size {
   font-size: 20px;
-  color: #0f1730;
+  color: #fff;
   font-weight: normal;
 }
 .currency_list {
   width: 416px;
   height: 80px;
-  background: #f4f8fb;
+  background: #23323C;
   border-radius: 16px;
   overflow-y: scroll;
   margin-bottom: 32px;
 }
 .con-but {
-  background: #f4f8fb;
+  background: #23323C;
   height: 24px;
   font-size: 20px;
   font-family: roboto-mediumitalic;

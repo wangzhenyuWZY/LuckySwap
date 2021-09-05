@@ -5,7 +5,7 @@
       <div class="from_select">
         <span class="from_icon" @click.stop="iconHlep" v-show="imgUrl!==null"> <img :src="requierImg()" alt=""> </span>
         <span class="from_size" :class="showSelect ? '' : 'show_size'">{{text?text:$t('Exc.ops')}}</span>
-        <img src="@/assets/img/icon_down.svg" alt="" />
+        <img src="@/assets/img/icon_down.png" alt="" />
       </div>
       <!-- <ul class="select_model" :class="className" @click="addClass">
         <li v-for="(item,index) in tokenList" :key="index" @click="selectClick(item)">
@@ -116,7 +116,7 @@ export default {
       justify-items: center;
       min-width: 100%;
       height: 72px;
-      background: #F4F5FA;
+      background: #23323C;
       border-radius: 16px;
       cursor: pointer;
       position: relative;
@@ -167,7 +167,7 @@ export default {
     .from_size {
       font-size: 18px;
       font-family: roboto-mediumitalic;
-      color: #0F1730;
+      color: #fff;
       // margin-left: 8px;
       // margin-right: 6px;
     }
@@ -201,7 +201,7 @@ export default {
     overflow: hidden;
     .balance_size{
 
-        color: #0F1730;
+        color: #fff;
 
         // position: absolute;
     }

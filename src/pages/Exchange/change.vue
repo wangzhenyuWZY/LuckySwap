@@ -168,14 +168,14 @@ export default {
 .receive__Pool {
   margin-top: 24px;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
   text-align: center;
   padding: 16px 0;
 }
 .receive__size {
   margin-top: 16px;
   font-size: 16px;
-  color: #878b97;
+  color: #fff;
   padding-bottom: 24px;
   margin-bottom: 24px;
   font-weight: 400;
@@ -189,7 +189,7 @@ export default {
   padding-top: 5px;
 }
 .conversion {
-  color: #0f1730;
+  color: #fff;
 
   font-size: 18px;
   text-align: right;
@@ -221,7 +221,7 @@ export default {
 .changes_rece {
   display: flex;
   justify-content: space-between;
-  color: #0f1730;
+  color: #fff;
 }
 .changes_rece span {
   font-size: 16px;
@@ -247,7 +247,7 @@ export default {
 }
 .Price_text {
   font-size: 16px;
-  color: #0f1730;
+  color: #fff;
   margin-top: 24px;
   margin-bottom: 16px;
   text-align: center;

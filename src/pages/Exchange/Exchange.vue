@@ -640,15 +640,15 @@ export default {
     font-size: 16px;
     .lt{
       font-size: 16px;
-      color: #a6aeb7;
+      color: #fff;
     }
     .rg{
       font-size: 16px;
-      color: #a6aeb7;
+      color: #fff;
     }
     .rec_red{
        font-size: 16px;
-       color: #a6aeb7;
+       color: #fff;
     }
   }
 }
@@ -701,8 +701,10 @@ export default {
     font-size: 32px;
     font-family: roboto-mediumitalic;
     font-weight: 400;
-    color: #0f1730;
+    color: #fff;
     text-align: center;
+    background:url(../../assets/img/icon_add.png) no-repeat center;
+    background-size:100% 100%;
   }
   // .add_marg{
   //   margin-left: 40px;
@@ -717,7 +719,7 @@ export default {
     }
     span:nth-child(1) {
       float: left;
-      color: #0f1730;
+      color: #fff;
     }
     span:nth-child(2) {
       float: right;
@@ -747,7 +749,8 @@ export default {
       text-align: center;
       line-height: 40px;
       border-radius: 50%;
-      background: #f4f6fc;
+      background: url(../../assets/img/backico.png) no-repeat center;
+      background-size:100% 100%;
       cursor: pointer;
     }
   }
@@ -822,7 +825,7 @@ export default {
 }
 .Price_text {
   font-size: 20px;
-  color: #0f1730;
+  color: #fff;
   margin-top: 30px;
   margin-bottom: 16px;
   text-align: center;
@@ -924,7 +927,7 @@ export default {
   }
   .Price_text {
     font-size: 20px;
-    color: #0f1730;
+    color: #fff;
     margin-top: 41px;
     margin-bottom: 16px;
     text-align: center;
@@ -940,7 +943,7 @@ export default {
       line-height: 50px;
       border-bottom: 1px solid #e5ebf2;
       font-size: 20px;
-      color: #0f1730;
+      color: #fff;
     }
   }
   .pre_list {
@@ -950,7 +953,7 @@ export default {
       float: left;
       text-align: center;
       font-size: 18px;
-      color: #0f1730;
+      color: #fff;
       p:nth-child(1) {
         line-height: 25px;
         height: 25px;

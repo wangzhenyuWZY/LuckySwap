@@ -285,7 +285,7 @@ color: #0F1730;
   }
   span:nth-child(1) {
     float: left;
-    color: #0f1730;
+    color: #fff;
   }
   span:nth-child(2) {
     float: right;
@@ -315,7 +315,8 @@ color: #0F1730;
         text-align: center;
         line-height: 40px;
         border-radius: 50%;
-          background: #F4F6FC;
+        background: url(../../assets/img/backico.png) no-repeat center;
+      background-size:100% 100%;
           font-size: 18px;
         cursor: pointer;
   }
@@ -337,7 +338,7 @@ color: #0F1730;
 .received {
   display: flex;
   justify-content: space-between;
-  color: #0f1730;
+  color: #fff;
 
   span {
     display: inline-block;

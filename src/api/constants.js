@@ -1,8 +1,8 @@
 import axios from 'axios'
 const qs = require('qs')
 const server = {
-  development: 'http://47.242.236.26:8010/',
-  production: 'https://api.abelo.finance/'
+  development: 'http://54.151.206.77:8083/',
+  production: 'http://54.151.206.77:8083/'
 }
 
 const jsonUrl = (json) => {

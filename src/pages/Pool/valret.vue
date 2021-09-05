@@ -126,7 +126,7 @@ export default {
 .alert_size {
   font-size: 20px;
   font-weight: normal;
-  color: #0f1730;
+  color: #fff;
   margin-top: 44px;
 }
 .alert_dtail {

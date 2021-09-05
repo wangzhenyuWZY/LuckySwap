@@ -10,8 +10,12 @@ module.exports = {
     CWet: 'Connect to a wallet',
     tlick: 'Tronlink wallet',
     hitky: 'Haven t installed TronLink yet?',
-    che: 'Click here>>'
-
+    che: 'Click here>>',
+    nav1: 'Invest',
+    nav2: 'Trade',
+    nav3: 'Liquidity',
+    nav4: 'NFT',
+    nav5: 'IDO'
   },
   home: {
     TopPairs: 'Top Pairs',

@@ -637,7 +637,7 @@ ul {
         font-size: 18px;
         font-family: roboto-mediumitalic;
         font-weight: normal;
-        color: #0f1730;
+        color: #fff;
         line-height: 21px;
       }
     }

@@ -91,7 +91,7 @@
   width: 480px;
   height: 506px;
   border-radius: 20px;
-  margin-top: 119px;
+  margin-top: 50px;
 }
 
 .pool-box1 {
@@ -137,16 +137,15 @@
 .title {
   height: 72px;
   line-height: 72px;
-  border-bottom: 1px solid #e5ebf2;
   padding: 12px 20px;
   overflow: hidden;
   display: flex;
   align-items: center;
   .content_text {
     height: 22px;
-    font-size: 22px;
+    font-size: 18px;
     font-family: roboto-mediumitalice;
-    color: #070A0E;
+    color: #FFFFFF;
     line-height: 22px;
     margin-left: 8px;
   }
@@ -166,7 +165,7 @@
 }
 
 .box_sizes {
-  background: #f4f5fa;
+  background: #23323C;
   border-radius: 16px;
   // padding: 29px 0;
   font-family: roboto-mediumitalic;
@@ -195,7 +194,7 @@
   .alert_size {
     font-size: 18px;
     font-family: roboto-mediumitalic;
-    color: #e5ebf2;
+    color: #fff;
     margin-top: 7px;
     text-align: center;
   }

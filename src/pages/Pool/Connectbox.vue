@@ -26,7 +26,7 @@
               {{$t('pool.stkk4')}} <br>
               {{$t('pool.stkk5')}} <br>
             </div>
-            <img src="@/assets/img/icon_instructions.svg" alt="">
+            <img src="@/assets/img/icon_instructions.png" alt="">
           </el-tooltip>
 
         </div>
@@ -829,13 +829,13 @@ export default {
 </style>
 <style lang="scss" scoped>
 .connect_pd {
-  padding-top: 120px;
+  padding-top: 50px;
   padding-bottom: 100px;
 }
 .xzk {
   height: 56px;
   border-radius: 16px;
-  // border: 1px solid #0F1730;;
+  // border: 1px solid #0F1730;
   margin-bottom: 32px;
   .fees {
     height: 56px;
@@ -857,6 +857,7 @@ export default {
       font-family: Roboto-Medium, Roboto;
       font-weight: 500;
       margin: 0 8px;
+      color:#fff;
     }
     img {
       width: 28px;
@@ -912,7 +913,7 @@ export default {
     font-size: 18px;
     font-family: roboto-mediumitalic;
     font-weight: 400;
-    color: #0f1730;
+    color: #fff;
   }
 }
 
@@ -931,13 +932,13 @@ export default {
     float: left;
     text-align: center;
     font-size: 18px;
-    color: #0f1730;
+    color: #fff;
     p:nth-child(1) {
       line-height: 25px;
       height: 25px;
     }
     p:nth-child(2) {
-      color: #878b97;
+      color: #fff;
       margin-top: 8px;
       font-size: 16px;
     }

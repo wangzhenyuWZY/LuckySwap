@@ -15,14 +15,14 @@ v-for="(idx, index) in tag"
       </div>
       <div class="nav-right fl_rg">
         <div class="nav-butt">
-          <div class="login_wallet" v-if="!connectFlag&&moble" @click="btnClick">
+          <!-- <div class="login_wallet" v-if="!connectFlag&&moble" @click="btnClick">
             <img class="wallet_img" src="@/assets/img/icon_wallet_green.svg" alt="">
             <span class="wallet_addrs">{{$t('nav.CWet')}}</span>
-          </div>
+          </div> -->
           <!-- <el-button class="from_botton nav_btn " v-if="!connectFlag" @click="btnClick">{{$t('nav.CWet')}}</el-button> -->
-          <div class="login_wallet" v-if="connectFlag&&moble">
+          <div class="login_wallet" v-if="moble">
             <img class="wallet_img" src="@/assets/img/icon_wallet_green.svg" alt="">
-            <span class="wallet_addrs">{{walletAddres.address|address}}</span>
+            <span class="wallet_addrs">{{defaultAddress}}</span>
           </div>
         </div>
         <div class="nav_merge" v-show="!moble">
@@ -30,23 +30,23 @@ v-for="(idx, index) in tag"
         </div>
         <el-drawer title="我是标题" :visible.sync="drawer" :show-close="false" custom-class="drawer_body" :with-header="false" @click="tolerPop=false">
           <div class="drawer_logo">
-            <div class="lt_logo"> <img :src="dark?require('../../assets/img/dark/logo.svg'):require('../../assets/img/dark/logo.svg')" alt="" />
+            <div class="lt_logo"> <img :src="dark?require('../../assets/img/logo.png'):require('../../assets/img/logo.png')" alt="" />
             </div>
             <div class="rg_colse"> <img src="../../assets/img/icon_colse_nor.svg" alt="" @click.stop="drawer = false"> </div>
           </div>
           <div class="drawer_btn">
             <div class="nav-butt">
-              <div class="login_wallet drawer_wallet" v-if="!connectFlag" @click.stop="btnClick">
+              <!-- <div class="login_wallet drawer_wallet" v-if="!connectFlag" @click.stop="btnClick">
                 <img class="wallet_img" src="@/assets/img/icon_wallet_green.svg" alt="">
                 <span class="wallet_addrs">{{$t('nav.CWet')}}</span>
-              </div>
+              </div> -->
               <!-- <el-button class="from_botton nav_btn " v-if="!connectFlag" @click.stop="btnClick">
                 {{$t('nav.CWet')}}
               </el-button> -->
-              <div class="login_wallet drawer_wallet" v-if="connectFlag">
+              <div class="login_wallet drawer_wallet">
                 <img class="wallet_img" src="@/assets/img/icon_wallet_green.svg" alt="">
-                <span class="wallet_addrs">{{walletAddres.address|address}}</span>
-                <span class="conversion" v-show="moble">{{walletAddres.balance}}TRX</span>
+                <span class="wallet_addrs">{{defaultAddress}}</span>
+                <!-- <span class="conversion" v-show="moble">{{walletAddres.balance}}TRX</span> -->
               </div>
             </div>
           </div>
@@ -87,11 +87,13 @@ v-for="(idx, index) in tag"
 </template>
 
 <script>
+import {plusXing} from '@/utils/tronwebFn'
 import { mapState } from 'vuex'
 import { IsPc } from '../../utils/index'
 export default {
   data() {
     return {
+      defaultAddress:'',
       tolerPop: false,
       num: 0,
       key: '31',
@@ -114,34 +116,43 @@ export default {
           name: this.$t('nav.home1')
         },
         {
+          path: '/inverst',
+          name: this.$t('nav.nav1')
+        },
+        {
           path: '/exchange',
-          name: this.$t('nav.Exchange')
+          name: this.$t('nav.nav2')
         },
         {
           path: '/pool',
-          name: this.$t('nav.Pool')
-        },
-        {
-          path: '/foxdex',
-          name: this.$t('nav.FoxDex')
+          name: this.$t('nav.nav3')
         },
         {
           path: '/wtrx',
           name: this.$t('nav.WTRX')
         },
         {
-          path: '/stake',
-          name: this.$t('nav.Stake')
+          path: '/',
+          name: this.$t('nav.nav4')
+        },
+        {
+          path: '/',
+          name: this.$t('nav.nav5')
         }
       ]
     }
   },
 
   created() {
+    let that = this
     this.moble = IsPc()
+    this.$initTronWeb().then(function(tronWeb) {
+      let defaultAddress = window.tronWeb.defaultAddress.base58
+      that.defaultAddress = plusXing(defaultAddress,5,5)
+    })
   },
   computed: {
-    ...mapState(['walletAddres', 'connectFlag', 'dark'])
+    ...mapState(['connectFlag', 'dark'])
 
   },
   watch: {
@@ -156,19 +167,15 @@ export default {
         var a = [
           {
             path: '/',
-            name: this.$t('nav.home1')
+            name: this.$t('nav.nav1')
           },
           {
             path: '/exchange',
-            name: this.$t('nav.Exchange')
+            name: this.$t('nav.nav2')
           },
           {
             path: '/pool',
-            name: this.$t('nav.Pool')
-          },
-          {
-            path: '/foxdex',
-            name: this.$t('nav.FoxDex')
+            name: this.$t('nav.nav3')
           },
           {
             path: '/wtrx',
@@ -177,6 +184,14 @@ export default {
           {
             path: '/stake',
             name: this.$t('nav.Stake')
+          },
+          {
+            path: '/',
+            name: this.$t('nav.nav4')
+          },
+          {
+            path: '/',
+            name: this.$t('nav.nav5')
           }
         ]
         console.log(a)
@@ -289,15 +304,6 @@ export default {
       const num1 = parseInt((num - 20) - this.childrenNode[n] / 2)
       return num1
     }
-  },
-  filters: {
-    address(n) {
-      if (!n) return ''
-      const pop = n.slice(0, 6)
-      const len = n.substring(n.length - 4)
-      const str = pop + '....' + len
-      return str
-    }
   }
 
 }
@@ -314,7 +320,7 @@ export default {
 </style>
 <style lang="scss" scoped>
 .setPanel {
-  background: #fff;
+  background: #142028;
   padding: 24px 20px;
   border-radius: 20px;
   box-sizing: border-box;
@@ -326,13 +332,13 @@ export default {
 }
 .setPanel h2 {
   font-size: 18px;
-  color: #070a0e;
+  color: #fff;
   line-height: 100%;
   padding-bottom: 18px;
 }
 .setPanel .totletitle {
   font-size: 16px;
-  color: #878b97;
+  color: #fff;
   line-height: 100%;
   padding-bottom: 11px;
 }
@@ -355,9 +361,9 @@ export default {
   line-height: 36px;
   text-align: center;
   border-radius: 32px;
-  background: #f6f7fb;
+  background: #23323C;
   font-size: 16px;
-  color: #878b97;
+  color: #fff;
   margin-left: 12px;
   cursor: pointer;
 }
@@ -401,7 +407,7 @@ export default {
   .lt_logo {
     padding-left: 0.3rem;
     img {
-      width: 3.5rem;
+      width: 5rem;
     }
   }
   .rg_colse {
@@ -457,12 +463,8 @@ export default {
 .bimg {
   position: absolute;
   width: 100%;
-  height: 380px;
-  background-image: url(../../assets/img/BG1.png);
-  background-repeat: no-repeat;
-  background-size: 100% 380px;
+  height: 64px;
   z-index: -1;
-  border-radius: 0 0 16px 16px;
 }
 .nav {
   position: relative;
@@ -515,11 +517,10 @@ export default {
   float: left;
   display: flex;
   align-items: center;
-  width: 180px;
+  width: 297px;
   height: 64px;
-  margin-top: 6px;
   margin-left: 38px;
-  background: url("../../assets/img/dark/logo.svg") no-repeat;
+  background: url("../../assets/img/logo.png") no-repeat;
   background-size: 100% 100%;
   // .logop{
   //   font-family: 'roboto-mediumitalice';
@@ -534,7 +535,7 @@ export default {
 }
 .active {
   font-family: roboto-mediumitalic;
-  color: #fc6446;
+  color: #D9191A;
 }
 .active-bar {
   position: absolute;
@@ -542,7 +543,7 @@ export default {
   bottom: 15px;
   width: 40px;
   height: 3px;
-  background: #fc6446;
+  background: #D9191A;
   border-radius: 3px;
   transition: transform 0.6s;
 }
@@ -616,7 +617,7 @@ export default {
     }
     .logo {
       // transform: scale(0.9);
-      margin-left: 0px;
+      margin-left: 10px;
       img {
         width: 3rem;
         height: auto;
@@ -626,6 +627,7 @@ export default {
   }
   .nav-right {
     padding-right: 15px;
+    margin-top:10px;
     .nav_merge {
       margin-left: 14px;
     }
@@ -706,7 +708,7 @@ export default {
 // 换色系
 .dark {
   .logo {
-    background: url("../../assets/img/dark/logo.svg") no-repeat;
+    background: url("../../assets/img/logo.png") no-repeat;
     background-size: 100% 100%;
   }
   .active {

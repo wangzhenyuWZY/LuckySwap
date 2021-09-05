@@ -121,7 +121,7 @@ export default {
          display: flex;
          justify-items: center;
          align-items: center;
-         background: #F4F5FA;
+         background: #23323C;
              border-radius: 16px;
       .input_max{
         width: 56px;
@@ -130,10 +130,10 @@ export default {
         line-height: 28px;
         text-align: center;
         cursor: pointer;
-          background: #ffffff;
+          background: #142028;
         border-radius: 18px;
         font-size: 14px;
-        color: #fc6446;
+        color: #C80202;
       }
     }
     .input_rg {
@@ -208,14 +208,14 @@ export default {
   box-sizing: border-box;
   outline: none;
   height: 72px;
-background: #F6F7FB;
+background: #23323C;
   width: 100%;
   border: none;
   border-radius: 16px;
   font-size: 20px;
   padding-left: 16px;
   font-weight: 500;
-  color: #070A0E;
+  color: #fff;
   flex: 1;
 }
 .globle_input::placeholder{

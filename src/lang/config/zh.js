@@ -10,8 +10,12 @@ module.exports = {
     CWet: '连接到钱包',
     tlick: 'Tronlink钱包',
     hitky: '还没有安装TronLink吗？',
-    che: '点击这里>>'
-
+    che: '点击这里>>',
+    nav1: 'Invest',
+    nav2: 'Trade',
+    nav3: 'Liquidity',
+    nav4: 'NFT',
+    nav5: 'IDO'
   },
   home: {
     TopPairs: '交易对',

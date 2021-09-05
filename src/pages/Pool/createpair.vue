@@ -53,12 +53,12 @@ src="@/assets/img/icon_instructions.svg"
                         :balance="token1.balance"
                        v-model="firstTokenNum"></frominput>
           </div>
-          <div class="ctx_2   fl_lt">
+          <!-- <div class="ctx_2   fl_lt">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
                        v-model="firstTokenWeight"></frominput>
-          </div>
+          </div> -->
           <div class="ctx_3 fl_lt">
             <setselect
 :balance="token1.balance"
@@ -69,7 +69,7 @@ src="@/assets/img/icon_instructions.svg"
         </div>
 
         <div class="from_contentIcon">
-          <i class="el-icon-plus tran_icon"></i>
+          <i class="tran_icon"></i>
         </div>
         <div class="setInput  clearfix">
           <div class="ctx_1    fl_lt">
@@ -81,12 +81,12 @@ src="@/assets/img/icon_instructions.svg"
                        :balance="token2.balance"
                        ></frominput>
           </div>
-          <div class="ctx_2   fl_lt">
+          <!-- <div class="ctx_2   fl_lt">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
                        v-model="secondTokenWeight"></frominput>
-          </div>
+          </div> -->
           <div class="ctx_3 fl_lt">
             <setselect
 @click="showSelect(1)"
@@ -108,7 +108,7 @@ class="Price_text"
 src="@/assets/img/icon_slect.png"
                alt="">
         </div>
-          <div class="setInput pair_input clearfix">
+          <!-- <div class="setInput pair_input clearfix">
 
          <span class="ctw"> <div class="ctx_1 fl_lt ">
             <frominput
@@ -133,7 +133,7 @@ src="@/assets/img/icon_slect.png"
             v-model="lp">
             </frominput>
           </div>
-        </div>
+        </div> -->
         <div class="whe clearfix">
 
           <span
@@ -528,7 +528,7 @@ export default {
 
 .createpair {
 
-  padding-top: 120px;
+  padding-top: 50px;
 
   .whe {
     padding-bottom: 40px;
@@ -540,9 +540,9 @@ export default {
     vertical-align: sub;
   }
   .ctx_1 {
-    width: 180px;
+    width: 260px;
     display: inline-block;
-
+    margin-right:12px;
   }
   .ctx_2 {
     width: 76px;
@@ -602,7 +602,7 @@ export default {
     }
     span:nth-child(1) {
       float: left;
-      color: #0f1730;
+      color: #fff;
     }
     span:nth-child(2) {
       float: right;
@@ -644,7 +644,8 @@ export default {
       text-align: center;
       line-height: 40px;
       border-radius: 50%;
-      background: #f4f6fc;
+      background: url(../../assets/img/backico.png) no-repeat center;
+      background-size:100% 100%;
       cursor: pointer;
     }
   }
@@ -665,7 +666,7 @@ export default {
   .received {
     display: flex;
     justify-content: space-between;
-    color: #0f1730;
+    color: #fff;
 
     span {
       display: inline-block;
@@ -704,10 +705,12 @@ export default {
   .from_contentIcon {
     margin: 16px 0;
     .tran_icon {
-      transform: rotate(-90deg);
-      color: #0f1730;
-      font-size: 32px;
-      font-weight: bold;
+      background:url(../../assets/img/icon_add.png) no-repeat center;
+      background-size:100% 100%;
+      width:32px;
+      height:32px;
+      display:block;
+      margin:0 auto;
     }
   }
   .Receive {
@@ -796,7 +799,7 @@ export default {
   }
   .Price_text {
     font-size: 20px;
-    color: #0f1730;
+    color: #fff;
     margin-top: 49px;
     margin-bottom: 17px;
     text-align: center;
@@ -812,7 +815,7 @@ export default {
       line-height: 50px;
       border-bottom: 1px solid #e5ebf2;
       font-size: 20px;
-      color: #0f1730;
+      color: #fff;
     }
   }
   .pre_list {
@@ -822,7 +825,7 @@ export default {
       float: left;
       text-align: center;
       font-size: 18px;
-      color: #0f1730;
+      color: #fff;
       p:nth-child(1) {
         line-height: 25px;
         height: 25px;
@@ -909,7 +912,7 @@ export default {
       font-size: 0.37rem !important;
     }
     .ctx_1 {
-      width: 40%;
+      width: 60%;
     }
     .whe {
       display: flex;

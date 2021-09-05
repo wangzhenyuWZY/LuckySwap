@@ -195,13 +195,14 @@ export default {
 }
 >>> .dialog_selct {
   border-radius: 20px;
+  background:#142028;
 }
 >>> .dialog_selct .el-icon-close {
   font-size: 28px;
-  color: #0f1730;
+  color: #fff;
 }
 >>> .dialog_selct .el-icon-close:hover {
-  color: #0f1730;
+  color: #fff;
 }
 >>> .el-dialog__body {
   padding: 0;
@@ -221,13 +222,15 @@ export default {
 }
 >>> .search__input .el-input__inner {
   border-radius: 32px;
-  border: 1px solid#FC6446;
   border-radius: 32px;
   padding-left: 14px;
   font-size: 18px;
+  background:#23323C;
+  border:none;
+  color:#fff;
 }
 >>> .search__input .el-input__inner::placeholder {
-  color: #000;
+  color: #fff;
   opacity: 0.7;
   font-size: 16px;
 }
@@ -246,7 +249,7 @@ export default {
 }
 .select_size {
   font-size: 20px;
-  color: #0f1730;
+  color: #fff;
 
   font-weight: normal;
 }
@@ -266,7 +269,7 @@ export default {
   background: #f4f5fa;
   border-radius: 32px;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
   padding-left: 8px;
   margin-bottom: 12px;
 }
@@ -279,7 +282,7 @@ export default {
 .bases_currency {
   display: inline-block;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
 }
 .select__sorting {
   display: flex;
@@ -296,7 +299,7 @@ export default {
 }
 .currency_list {
   height: 256px;
-  background: #f4f5fa;
+  background: #23323C;
   border-radius: 16px;
   overflow-y: scroll;
   margin-bottom: 31px;

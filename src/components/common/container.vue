@@ -43,7 +43,7 @@ export default {
 }
 .toal_bg {
 
-  background: #FFFFFF;
+  background: #142028;
   border-radius: 20px;
   box-sizing: border-box;
   // margin-top: 115px;

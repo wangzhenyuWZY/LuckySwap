@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
  line-height: 1;
+ background:#000000;
 }
 ol, ul {
  list-style: none;
@@ -74,7 +75,7 @@ img{
     border-radius: 32px;
     height: 56px;
     text-align: center;
-    background: linear-gradient(122deg, #FA7447 0%, #FE4943 100%);
+    background: #C80202;
     margin:0 auto;
     padding: 0;
     font-size: 18px;
@@ -90,16 +91,16 @@ img{
 .from_botton:hover ,.from_botton:focus{
     color: #fff ;
     border-color:#FC6446;
-    background: linear-gradient(122deg, #FA7447 0%, #FE4943 100%);
+    background: #C80202;
 }.from_botton.is-disabled:focus{
-    background: #F4F5FA;
+    background: #23323C;
 
     color: #fff;
 }
 .from_botton.is-disabled,.from_botton.is-disabled:hover{
-    background: #F4F5FA;
-    border: 1px solid #f4f5fa;
-    color: #B7BFC8;
+    background: #23323C;
+    border: 1px solid #23323C;
+    color: #fff;
 }
 .green_btns:hover{
     color: #FC6446 ;
@@ -163,23 +164,23 @@ img{
     color: #0F1730;
 }
 .green_btn{
-    background: linear-gradient(122deg, #FA7447 0%, #FE4943 100%);
+    background: #23323C;
     padding: 0 12px;
     
 }　
 .green_btn:active,.green_btn:focus,.green_btn:hover{
     color: #FFFFFF;
-    background: linear-gradient(122deg, #FA7447 0%, #FE4943 100%);
+    background: #23323C;
     border: none;
 }
 .fff_button{
     padding: 0 12px;
-    color: #070A0E;
-    background: #F6F7FB;
+    color: #fff;
+    background: #C80202;
 }
 .fff_button:active,.fff_button:focus,.fff_button:hover{
-    color: #070A0E;
-    background: #F6F7FB;
+    color: #fff;
+    background: #C80202;
     border: none;
 }
 .fl_lt{
@@ -246,7 +247,7 @@ img{
     color: #0f1730;
   }
 .box_sizes{
-    background: #f4f5fa;
+    background: #23323C;
       border-radius: 16px;
       font-family: Roboto-Regular, Roboto;
   }
@@ -256,6 +257,12 @@ img{
 // element
 .el-dialog__wrapper{
     overflow: hidden;
+}
+.el-dialog,.el-dialog, .el-pager li{
+    background:#142028;
+}
+.el-dialog__header{
+    color:#fff;
 }
 @media screen and (max-width: 750px) {
     #app{

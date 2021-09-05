@@ -320,6 +320,7 @@ export default {
     margin-top: 24px;
     text-align: center;
     font-size: 16px;
+    color:#fff;
     .acrued_img {
       width: 24px;
       height: 24px;
@@ -346,7 +347,7 @@ export default {
       font-size: 16px;
     }
     .lt {
-      color: #878b97;
+      color: #fff;
       img {
         width: 24px;
         margin-right: 4px;
@@ -396,8 +397,9 @@ export default {
 }
 .dark {
   .pool-box1 {
-    background: url(../../assets/img/dark/bg_pool.png) no-repeat;
-    background-size: 100% 100%;
+    background: #142028;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
   .pool-box2 .pool-p2 .pool-p3 {
     color: #fa7447;

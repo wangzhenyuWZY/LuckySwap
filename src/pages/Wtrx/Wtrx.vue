@@ -269,7 +269,7 @@ export default {
 
 <style lang="scss" scoped>
 .wtrx {
-  color: #0f1730;
+  color: #fff;
 }
 .wtrx-box {
   height: 800px;
@@ -290,7 +290,7 @@ export default {
 .wtrx-left {
   margin-right: 15px;
   border-radius: 20px;
-  background: #ffffff;
+  background: #142028;
   width: 400px;
   height: 386px;
   top: 240px;
@@ -305,7 +305,7 @@ export default {
     font-size: 22px;
     font-family: roboto-mediumitalic;
     font-weight: 500;
-    color: #0f1730;
+    color: #fff;
     line-height: 22px;
   }
   .trx-a {
@@ -316,7 +316,7 @@ export default {
       font-size: 18px;
       font-family: roboto;
       font-weight: 400;
-      color: #0f1730;
+      color: #fff;
       line-height: 18px;
 
       .trx-a2 {
@@ -324,7 +324,7 @@ export default {
         font-size: 18px;
         font-family: Roboto-Regular, Roboto;
         font-weight: 400;
-        color: #0f1730;
+        color: #fff;
         line-height: 18px;
       }
     }
@@ -336,14 +336,14 @@ export default {
       font-size: 18px;
       font-family: roboto;
       font-weight: 400;
-      color: #0f1730;
+      color: #fff;
       line-height: 18px;
       .trx-b2 {
         height: 18px;
         font-size: 18px;
         font-family: Roboto-Regular, Roboto;
         font-weight: 400;
-        color: #0f1730;
+        color: #fff;
         line-height: 18px;
       }
     }
@@ -361,14 +361,14 @@ export default {
   line-height: 18px;
   width: 320px;
   height: 48px;
-  background: #f4f5fa;
+  background: #23323C;
   border-radius: 24px;
 }
 .wtrx-right {
   width: 400px;
   height: 386px;
   border-radius: 20px;
-  background: #fff;
+  background: #142028;
   margin-left: 15px;
   display: flex;
   flex-direction: column;
@@ -379,7 +379,7 @@ export default {
     font-size: 22px;
     font-family: roboto-mediumitalic;
     font-weight: 500;
-    color: #0f1730;
+    color: #fff;
     line-height: 22px;
   }
   .wtrx-a {
@@ -390,14 +390,14 @@ export default {
       font-size: 18px;
       font-family: roboto;
       font-weight: 400;
-      color: #0f1730;
+      color: #fff;
       line-height: 18px;
       .wtrx-a2 {
         height: 18px;
         font-size: 18px;
         font-family: roboto;
         font-weight: 400;
-        color: #0f1730;
+        color: #fff;
         line-height: 18px;
       }
     }
@@ -409,14 +409,14 @@ export default {
       font-size: 18px;
       font-family: roboto;
       font-weight: 400;
-      color: #0f1730;
+      color: #fff;
       line-height: 18px;
       .wtrx-b2 {
         height: 21px;
         font-size: 18px;
         font-family: Roboto-Regular, Roboto;
         font-weight: 400;
-        color: #0f1730;
+        color: #fff;
         line-height: 21px;
       }
     }
@@ -432,7 +432,7 @@ export default {
   margin-top: 12px;
   width: 320px;
   height: 48px;
-  background: #f4f5fa;
+  background: #23323C;
   border-radius: 24px;
   padding-left: 50px;
 }
@@ -455,14 +455,14 @@ export default {
   margin-top: 42px;
   text-align: center;
   line-height: 21px;
-  color: #0f1730;
+  color: #fff;
 }
 .wtrx-bottom p:nth-child(2) {
   font-family: roboto;
   font-weight: 400;
   margin-top: 8px;
   font-size: 16px;
-  color: #a2a5ae;
+  color: #fff;
   text-align: center;
   line-height: 22px;
 }
@@ -471,7 +471,7 @@ export default {
   font-weight: 500;
   margin-top: 20px;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
   text-align: center;
 }
 .wtrx-bottom p:nth-child(4) {
@@ -479,7 +479,7 @@ export default {
   font-weight: 400;
   margin-top: 8px;
   font-size: 16px;
-  color: #a2a5ae;
+  color: #fff;
   text-align: center;
   line-height: 22px;
 }

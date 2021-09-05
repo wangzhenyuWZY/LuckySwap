@@ -25,6 +25,7 @@
       </div>
 
     </div> -->
+    <p class="sherotitle">SheroSwap is a protocol for programmable liquidity and support usdt trading pairs on TRON</p>
     <div class="c-box2">
       <div class="b2-top">
         <samp class="top1">{{$t('home.TopPairs')}}</samp>
@@ -46,7 +47,7 @@ v-if="mobile"
 :data="pairList"
 header-cell-class-name="adddd"
 header-row-class-name="tabe_tr"
-                  :header-row-style="{backgroundColor:'#F4F8FB',color:'#606266'}"
+                  :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
 cell-class-name="dddsadsa"
 style="width: 100%">
           <el-table-column prop="full_name" :label="$t('home.Name')">
@@ -129,7 +130,7 @@ v-if="!mobile"
 :data="pairList"
 header-cell-class-name="adddd"
 header-row-class-name="tabe_tr"
-                  :header-row-style="{backgroundColor:'#F4F8FB',color:'#606266'}"
+                  :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
 cell-class-name="dddsadsa"
 style="width: 100%">
           <el-table-column prop="full_name" width="110px" label="name">
@@ -213,12 +214,13 @@ export default {
     }
   },
   mounted() {
-    // this.getVolPrice24()
+    this.getVolPrice24()
   },
   methods: {
     async init() {
       // const that = this
       // const pairList = []
+      debugger
       for (let index = 0; index < this.pairList.length; index++) {
         const el = this.pairList[index]
         // getTokenDenormalizedWeight(el.token1.address,el.address).then((response) => {
@@ -248,6 +250,7 @@ export default {
     },
     async getVolPrice24() { // 获取24小时量和价格
       const res = await api.get24HourTradingVolume()
+      debugger
       if (res.data.code == 0) {
         this.pairList = res.data.data
         // this.pairList.forEach((rsp)=>{
@@ -292,6 +295,15 @@ export default {
 }
 </script>
 <style  lang="scss" scoped>
+.sherotitle{
+  font-size:32px;
+  color:#fff;
+  line-height:38px;
+  padding-bottom:56px;
+  text-align:center;
+  width:720px;
+  margin:0 auto;
+}
 .reqimg {
   display: flex;
   align-items: center;
@@ -317,7 +329,7 @@ export default {
   }
 }
 .container {
-  padding-top: 120px;
+  padding-top: 70px;
 }
 .t-img {
   width: 22px;
@@ -423,7 +435,7 @@ export default {
   height: 960px;
   border-radius: 16px;
   overflow: hidden;
-  background: #ffffff;
+  background: #142028;
 
   .b2-top {
     height: 80px;
@@ -467,7 +479,7 @@ export default {
   }
   .table {
     height: 760px;
-    background: #ffffff;
+    background: #142028;
 
     .tabe_tr {
       /* background-image: linear-gradient(131deg, #FFA61B 0%, #F3330E 100%) ; */
@@ -501,7 +513,16 @@ export default {
 }
 >>> .el-table__row {
   height: 72px;
-  background: #ffffff;
+  background: #142028;
+}
+.el-table{
+  color:#fff;
+}
+.el-table, .el-table__expanded-cell,.el-table--enable-row-hover .el-table__body tr:hover>td{
+  background:#142028;
+}
+.el-table--border::after, .el-table--group::after, .el-table::before{
+  background-color:#142028;
 }
 
 @media screen and (max-width: 750px) {

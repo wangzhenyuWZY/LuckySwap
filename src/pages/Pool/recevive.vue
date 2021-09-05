@@ -153,14 +153,14 @@ img {
 .receive__Pool {
   margin-top: 24px;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
   text-align: center;
   padding: 16px 0;
 }
 .receive__size {
   margin-top: 16px;
   font-size: 16px;
-  color: #878b97;
+  color: #fff;
   padding-bottom: 24px;
   margin-bottom: 24px;
   border-bottom: 1px solid #e5ebf2;
@@ -177,7 +177,7 @@ img {
   float: right;
 }
 .conversion {
-  color: #0f1730;
+  color: #fff;
 
   font-size: 18px;
   text-align: right;

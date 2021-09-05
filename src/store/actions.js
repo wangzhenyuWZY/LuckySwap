@@ -4,10 +4,8 @@ const action = {
   async connectWallett({ commit }, flag) {
     if (flag === false) return
     try {
-      web3.eth.getAccounts().then(res=>{
-          let defaultAccount = res[0]
-          commit(types.CONNECT_WALLET, defaultAccount)
-      });
+      const res = await window.tronWeb.trx.getAccount(window.tronWeb.defaultAddress.base58)
+      commit(types.CONNECT_WALLET, res)
     } catch (error) {
       console.log(error)
     }

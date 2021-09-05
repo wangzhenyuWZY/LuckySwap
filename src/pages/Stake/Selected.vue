@@ -303,16 +303,15 @@ export default {
   .title {
     height: 71px;
     line-height: 71px;
-    border-bottom: 1px solid #e5ebf2;
     padding: 0 32px;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     .content_text {
-      font-size: 20px;
+      font-size: 18px;
       font-family: roboto-mediumitalice;
       // font-weight: normal;
-      color: #0f1730;
+      color: #FFFFFF;
       margin-left: 12px;
     }
 
@@ -339,7 +338,8 @@ export default {
         text-align: center;
         line-height: 40px;
         border-radius: 50%;
-        background: #f4f6fc;
+        background: url(../../assets/img/backico.png) no-repeat center;
+      background-size:100% 100%;
         font-size: 18px;
         cursor: pointer;
       }
@@ -387,11 +387,11 @@ export default {
   .received {
     display: flex;
     justify-content: space-between;
-    color: #0f1730;
+    color: #fff;
     .lt {
       span {
         font-size: 16px;
-        color: #0f1730;
+        color: #fff;
 
         // color: #0F1730;
       }
@@ -399,7 +399,7 @@ export default {
     .rg {
       span {
         font-size: 16px;
-        color: #0f1730;
+        color: #fff;
       }
     }
     span {

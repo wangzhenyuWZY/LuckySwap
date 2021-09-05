@@ -9,6 +9,7 @@
         <!-- <willRecevive/> -->
               <!-- <liquidity/> -->
     <!-- <vAlret/> -->
+    <p class="swapinfo">SheroSwap is a protocol for programmable liquidity and support usdt trading pairs on TRON</p>
       <router-view></router-view>
     <!-- <liquidity/> -->
     <!-- <Pool1/> -->
@@ -59,8 +60,24 @@ export default {
     line-height: 28px;
 
 }
+.swapinfo{
+  font-size:32px;
+  color:#fff;
+  line-height:38px;
+  text-align:center;
+  width:720px;
+  margin:0 auto;
+  padding-top:70px;
+}
 @import '@/styles/pool.scss';
 @media screen and (max-width: 750px) {
+  .swapinfo{
+    width:90%;
+    padding-top:0;
+    font-size:0.5rem;
+    line-height:25px;
+    padding-bottom:20px;
+  }
   .pool-box{
     width: 100%;
     margin-top: 10px;

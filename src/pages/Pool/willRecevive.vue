@@ -169,7 +169,7 @@ export default {
 .receive__Pool {
   margin-top: 24px;
   font-size: 18px;
-  color: #0f1730;
+  color: #fff;
   text-align: center;
   padding: 16px 0;
 }
@@ -188,7 +188,7 @@ export default {
   padding-top: 5px;
 }
 .conversion {
-  color: #0f1730;
+  color: #fff;
 
   font-size: 18px;
   text-align: right;

@@ -122,14 +122,14 @@ export default {
   outline: none;
   height: 96px;
   width: 100%;
-  background: #0f1522;
+  background: #23323C;
   border: none;
   border-radius: 16px;
   font-size: 48px;
   padding-left: 16px;
   font-family: PFDinTextCompPro-Regular, PFDinTextCompPro;
   font-weight: 400;
-  color: #b7bfc8;
+  color: #fff;
 }
 .margintop {
   width: 320px;
@@ -139,7 +139,6 @@ export default {
 .title {
   height: 71px;
   line-height: 71px;
-  border-bottom: 1px solid #0f1522;
   padding: 0 32px;
   overflow: hidden;
   display: flex;
@@ -158,10 +157,10 @@ export default {
   }
 }
 .content_text {
-  font-size: 20px;
+  font-size: 18px;
   font-family: roboto-mediumitalic;
   font-weight: normal;
-  color: #eeeef0;
+  color: #FFFFFF;
 }
 .box_size {
   background: #0f1522;

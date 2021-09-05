@@ -5,6 +5,17 @@ module.exports = {
   lintOnSave: true,
   productionSourceMap: false,
   publicPath: './',
+  devServer: {
+    proxy: {
+        '/api': {
+            // target: 'https://www.kakanft.com',
+            target: 'http://54.151.206.77:8083/',
+            // target: 'http://localhost:9100',
+            ws: true,
+            changeOrigin: true
+        }
+    }
+  },
   css: {
     extract: true,
     sourceMap: false,
