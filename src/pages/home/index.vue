@@ -28,8 +28,14 @@
     <p class="sherotitle">SheroSwap is a protocol for programmable liquidity and support usdt trading pairs on TRON</p>
     <div class="c-box2">
       <div class="b2-top">
-        <samp class="top1">{{$t('home.TopPairs')}}</samp>
-
+        <samp class="top1">Investment pools</samp>
+        <div class="filter">
+          <i></i>
+          <input>
+        </div>
+        <p class="hottoken">
+          Popular:  <a>SHERO</a> <a>SUN</a> <a>OSK</a>  <a>USDT</a> <a>DAI</a> <a>WTRX</a>
+        </p>
         <!-- <template slot-scope="scope">
               <div>
                 <img :src="$requierImg(scope.row.token1.name,1)"
@@ -50,29 +56,31 @@ header-row-class-name="tabe_tr"
                   :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
 cell-class-name="dddsadsa"
 style="width: 100%">
-          <el-table-column prop="full_name" :label="$t('home.Name')">
+          <el-table-column prop="full_name" :label="$t('home.Name')" width="110px">
             <template slot-scope="scope">
               <div class="reqimg">
-                <span>
+                <span class="logos">
                   <img :src="$requierImg(scope.row.base_token_name)" alt="" />
                   <img :src="$requierImg(scope.row.trade_token_name)" alt="" />
                 </span>
-                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}/
-                  {{scope.row.base_token_name.toLocaleUpperCase()}}</span>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="trade_token_liquidity" :label="$t('home.Assets')">
+          <el-table-column prop="full_name" :label="$t('home.Name')">
             <template slot-scope="scope">
-              <div>
+              <div class="reqimg block">
+                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50</i></span>
+                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50</i></span>
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="trade_token_liquidity" :label="$t('home.Assets')" width="180px">
+            <template slot-scope="scope">
+              <div class="liquiditybox">
                 {{scope.row.trade_token_liquidity| setAssets  }}
                 {{scope.row.trade_token_name.toLocaleUpperCase()}}
               </div>
-            </template>
-          </el-table-column>
-          <el-table-column prop="base_token_liquidity" :label="$t('home.Assets')">
-            <template slot-scope="scope">
-              <div>
+              <div class="liquiditybox">
                 {{scope.row.base_token_liquidity | setAssets }}
                 {{scope.row.base_token_name.toLocaleUpperCase()}}
               </div>
@@ -220,7 +228,6 @@ export default {
     async init() {
       // const that = this
       // const pairList = []
-      debugger
       for (let index = 0; index < this.pairList.length; index++) {
         const el = this.pairList[index]
         // getTokenDenormalizedWeight(el.token1.address,el.address).then((response) => {
@@ -229,7 +236,6 @@ export default {
         // getTokenDenormalizedWeight(el.token2.address,el.address).then((response) => {
         //   el.token2.widget = parseInt(response,16)/Math.pow(10,el.decimals)
         // })
-        debugger
         const res = await getBalanceInPool(el, el.token1)
         const res1 = await getBalanceInPool(el, el.token2)
         // let res2 = await getLpBalanceInPool(el);
@@ -250,7 +256,6 @@ export default {
     },
     async getVolPrice24() { // 获取24小时量和价格
       const res = await api.get24HourTradingVolume()
-      debugger
       if (res.data.code == 0) {
         this.pairList = res.data.data
         // this.pairList.forEach((rsp)=>{
@@ -304,14 +309,45 @@ export default {
   width:720px;
   margin:0 auto;
 }
+.liquiditybox{
+  width:169px;
+  height:28px;
+  line-height:28px;
+  background:#23323C;
+  font-size:16px;
+  color:#fff;
+  text-align:center;
+  border-radius:4px;
+  margin-bottom:4px;
+}
 .reqimg {
   display: flex;
   align-items: center;
+  &.block{
+    display:block;
+    span{
+      display:block;
+      float:none;
+      width:96px;
+      height:28px;
+      background:#23323C;
+      border-radius:4px;
+      font-size:16px;
+      color:#fff;
+      line-height:28px;
+      text-align:center;
+      margin-bottom:4px;
+      i{
+        color:#878B97;
+        padding-left:3px;
+      }
+    }
+  }
   span {
     overflow: hidden;
     float: left;
     position: relative;
-    &:nth-child(1) {
+    &.logos{
       width: 40px;
       height: 25px;
     }
@@ -439,16 +475,44 @@ export default {
 
   .b2-top {
     height: 80px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    .hottoken{
+      font-size:18px;
+      color:#fff;
+      line-height:21px;
+    }
+    .filter{
+      width:480px;
+      height:48px;
+      line-height:48px;
+      background:#23323C;
+      display:flex;
+      border-radius:28px;
+      align-items: center;
+      i{
+        width:24px;
+        height:24px;
+        background:url(../../assets/img/icon_searching.png) no-repeat center;
+        background-size:100% 100%;
+        margin:0 15px;
+      }
+      input{
+        font-size:18px;
+        color:#fff;
+        line-height:48px;
+        background:none;
+        width:80%;
+      }
+    }
     .top1 {
-      margin-top: 30px;
       margin-left: 30px;
-      float: left;
-      height: 22px;
-      font-size: 20px;
+      font-size: 28px;
       font-family: roboto-mediumitalice;
       font-weight: 500;
-      color: #0f1730;
-      line-height: 23px;
+      color: #FFFFFF;
+      line-height: 33px;
     }
     .top-inp {
       width: 583px;
@@ -508,9 +572,10 @@ export default {
   /* margin-left: 30px; */
 }
 >>> .adddd {
-  background-color: #f4f8fb;
+  background-color: #23323C;
   margin-left: 20px;
 }
+
 >>> .el-table__row {
   height: 72px;
   background: #142028;

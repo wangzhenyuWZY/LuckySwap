@@ -1,6 +1,6 @@
 <template>
   <div class="change">
-
+   
     <el-dialog title="" :visible.sync="showAlert" :width="mobile?'480px':'90%'" custom-class="dialog_recevive" :before-close="handleClose">
       <span slot="title" class="select_size">
         <span>{{$t('confirm')}} {{$t('Exc.Swap')}}</span>

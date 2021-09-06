@@ -264,6 +264,12 @@ img{
 .el-dialog__header{
     color:#fff;
 }
+.el-table--enable-row-hover .el-table__body tr:hover>td{
+    background:#142028;
+}
+.el-table td, .el-table th.is-leaf{
+    border:none;
+  }
 @media screen and (max-width: 750px) {
     #app{
         .container{

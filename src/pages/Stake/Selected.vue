@@ -194,7 +194,6 @@ export default {
       console.log(e)
     },
     Approve() {
-      debugger
       this.$emit('Approve')
     },
     amount() {

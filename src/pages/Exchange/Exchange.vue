@@ -1,7 +1,11 @@
 <template>
   <div>
+    <div class="tradeBanner">
+      <img src="../../assets/img/banner1.png">
+    </div>
     <div class="container exchange ">
       <container top="40" :mobile="isPc">
+         
         <div slot="body">
           <div class="setInput clearfix">
             <div class="ctx_1 fl_lt">
@@ -629,7 +633,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/color.scss";
-
+.tradeBanner{
+  text-align:center;
+  margin-top:40px;
+  padding:0 15px;
+  img{
+    max-width:100%;
+  }
+}
 .provider1{
   // margin-top: -50px;
   background: #070A0E;
@@ -654,7 +665,7 @@ export default {
 }
 
 .exchange {
-  padding-top: 120px;
+  padding-top: 56px;
 
   .slott {
     background-color: #fff;

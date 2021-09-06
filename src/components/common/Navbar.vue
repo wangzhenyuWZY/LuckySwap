@@ -11,7 +11,7 @@ v-for="(idx, index) in tag"
 @click="handelActive(idx.path, index)"
                 :class="navIndex == index ?'active':''">{{ idx.name }}</span>
         </div>
-        <div class="active-bar" :style="{ transform: `translateX(${key}px)` }"></div>
+        <!-- <div class="active-bar" :style="{ transform: `translateX(${key}px)` }"></div> -->
       </div>
       <div class="nav-right fl_rg">
         <div class="nav-butt">
@@ -115,10 +115,10 @@ export default {
           path: '/',
           name: this.$t('nav.home1')
         },
-        {
-          path: '/inverst',
-          name: this.$t('nav.nav1')
-        },
+        // {
+        //   path: '/inverst',
+        //   name: this.$t('nav.nav1')
+        // },
         {
           path: '/exchange',
           name: this.$t('nav.nav2')
@@ -167,7 +167,7 @@ export default {
         var a = [
           {
             path: '/',
-            name: this.$t('nav.nav1')
+            name: this.$t('nav.home1')
           },
           {
             path: '/exchange',
@@ -301,7 +301,7 @@ export default {
       for (let index = 0; index <= n; index++) {
         num = (this.childrenNode[index] + num) * 1
       }
-      const num1 = parseInt((num - 20) - this.childrenNode[n] / 2)
+      const num1 = parseInt((num - 40) - this.childrenNode[n] / 2)
       return num1
     }
   }
@@ -536,6 +536,18 @@ export default {
 .active {
   font-family: roboto-mediumitalic;
   color: #D9191A;
+  position:relative;
+  &:after{
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    left:50%;
+    width:40px;
+    height:3px;
+    border-radius:3px;
+    background:#FFFFFF;
+    margin-left:-20px;
+  }
 }
 .active-bar {
   position: absolute;
