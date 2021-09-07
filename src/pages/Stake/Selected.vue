@@ -341,6 +341,9 @@ export default {
       background-size:100% 100%;
         font-size: 18px;
         cursor: pointer;
+        &:before{
+        color:#fff;
+      }
       }
     }
   }

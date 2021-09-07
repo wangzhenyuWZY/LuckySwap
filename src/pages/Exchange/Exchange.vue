@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="tradeBanner">
       <img src="../../assets/img/banner1.png">
     </div>
@@ -46,11 +46,12 @@
             </div>
           </div>
           <div class="Price_text" v-show="connectFlag">
-            <span>{{$t('Exc.Price')}}:</span>
+            <!-- <span>1{{$t('Exc.Price')}}:</span> -->
+            <span> 1{{token2.name}} = </span>
             <span>{{spotPrice.toFixed(4)}} </span>
+            
+            <!-- <span> {{$t('Exc.per')}}</span> -->
             <span> {{token1.name}} </span>
-            <span> {{$t('Exc.per')}}</span>
-            <span> {{token2.name}} </span>
             <img src="@/assets/img/icon_slect.png" alt="" @click="convert">
           </div>
           <div class="whe" :class="connectFlag?'login_text':'outlogin'">
@@ -638,8 +639,12 @@ export default {
   margin-top:40px;
   padding:0 15px;
   img{
-    max-width:100%;
+    max-width:480px;
   }
+}
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
 }
 .provider1{
   // margin-top: -50px;
@@ -763,6 +768,9 @@ export default {
       background: url(../../assets/img/backico.png) no-repeat center;
       background-size:100% 100%;
       cursor: pointer;
+      &:before{
+        color:#fff;
+      }
     }
   }
   .margintop {
@@ -1031,16 +1039,6 @@ export default {
     margin-top: -70px;
     position: relative;
   }
-  .position::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: #ffffff;
-    border-radius: 0 0 24px 24px;
-  }
   .connect_boxs {
     background: #070a0e;
     border-radius: 0 0 20px 20px;
@@ -1051,6 +1049,11 @@ export default {
 }
 
 @media screen and (max-width: 750px) {
+  .tradeBanner{
+    img{
+      max-width:100%;
+    }
+  }
   .exchange {
     margin-top: 0px;
     padding-bottom: 30px;

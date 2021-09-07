@@ -8,11 +8,11 @@
           </router-link>
           <span class="content_text fl_lt">{{$t('pool.al')}}</span>
           <div class="text_btn conct_btn fl_lt">
-            <el-button class="from_botton connect_btns" :class="iSingle?'green_btn':'fff_button'" @click="iSingle=true" type="small">
+            <el-button class="from_botton connect_btns" :class="!iSingle?'green_btn':'fff_button'" @click="iSingle=true" type="small">
               {{$t('pool.assets1')}}</el-button>
           </div>
           <div class="text_btn fl_lt">
-            <el-button class=" from_botton connect_btns" :class="!iSingle?'green_btn':'fff_button'" @click="iSingle=false" type="small">
+            <el-button class=" from_botton connect_btns" :class="iSingle?'green_btn':'fff_button'" @click="iSingle=false" type="small">
               {{$t('pool.assets2')}}</el-button>
           </div>
 
@@ -40,7 +40,7 @@
               <img v-show="showFees(token2)" :src="requierImg(token2.name)" alt="">
             </span>
             <span class="fees_zies">{{token1.name}}-{{token2.name}} </span>
-            <img src="@/assets/img/icon_down.svg" alt="">
+            <img src="../../assets/img/icon_down.png" alt="">
           </div>
         </div>
         <div class="setInput clearfix">
@@ -409,9 +409,18 @@ export default {
       const that = this
       if (this.token1Num && this.token1Num !== 0) {
         if (this.token1Balance && this.token1denormalizedWeight && this.lpTotal && this.totalDenormalizedWeight) {
-          const poolOut = calcPoolOutGivenSingleIn(this.token1Balance, this.token1denormalizedWeight, Decimal(this.lpTotal).div(Decimal(Math.pow(10, 18))), this.totalDenormalizedWeight, this.token1Num, Decimal(this.foxDex).div(Decimal(Math.pow(10, 18))))
+          const poolOut = calcPoolOutGivenSingleIn(
+            this.token1Balance,
+            this.token1denormalizedWeight,
+            Decimal(this.lpTotal).div(Decimal(Math.pow(10, 18))),
+            this.totalDenormalizedWeight,
+            this.token1Num,
+            Decimal(this.foxDex).div(Decimal(Math.pow(10, 18)))
+          )
           const plus = Decimal(poolOut).plus(Decimal(this.lpTotal).div(Decimal(Math.pow(10, 18))))
-          const share = Decimal(poolOut).div(plus).mul(100)
+          const share = Decimal(poolOut)
+            .div(plus)
+            .mul(100)
           this.share = share.toFixed(2)
         } else {
           getTokenDenormalizedWeight(this.token1.address, this.pair.address).then((response) => {
@@ -754,6 +763,8 @@ export default {
             this.justPrice = justPrice / Math.pow(10, Math.abs(differ))
           } else if (differ !== 0 && differ < 0) {
             this.justPrice = justPrice * Math.pow(10, Math.abs(differ))
+          }else{
+            this.justPrice = justPrice
           }
         } else {
           const reversePrice = parseInt(transaction.constant_result[0], 16) / Math.pow(10, this.pair.decimals)
@@ -762,6 +773,8 @@ export default {
             this.reversePrice = reversePrice / Math.pow(10, Math.abs(differ))
           } else if (differ !== 0 && differ < 0) {
             this.reversePrice = reversePrice * Math.pow(10, Math.abs(differ))
+          }else{
+            this.reversePrice = reversePrice
           }
         }
         // name == 'justPrice' ? this.justPrice = parseInt(transaction.constant_result[0], 16) / Math.pow(10, this.pair.decimals) : this.reversePrice = parseInt(transaction.constant_result[0], 16) / Math.pow(10, this.pair.decimals)
@@ -831,6 +844,10 @@ export default {
 .connect_pd {
   padding-top: 50px;
   padding-bottom: 100px;
+}
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#FFFFFF;
 }
 .xzk {
   height: 56px;
@@ -932,13 +949,14 @@ export default {
     float: left;
     text-align: center;
     font-size: 18px;
-    color: #fff;
+    color: #a6aeb7;
     p:nth-child(1) {
       line-height: 25px;
       height: 25px;
+      color:#fff;
     }
     p:nth-child(2) {
-      color: #fff;
+      color: #a6aeb7;
       margin-top: 8px;
       font-size: 16px;
     }

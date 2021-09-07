@@ -242,7 +242,7 @@ module.exports = {
   Tnos: 'Transaction Settings',
   Sete: 'Slippage tolerance',
   pt: 'Pool Tokens',
-  snop: 'Search paste address(do not search name)',
+  snop: 'Search name or paste address',
   dex1: 'Token burn',
   dex2: 'Total supply',
   dex3: 'Circulationg supply',

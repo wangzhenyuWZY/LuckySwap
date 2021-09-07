@@ -74,6 +74,7 @@ v-for="(idx, index) in tag"
         <div class="setPanel" v-show="tolerPop">
           <h2> {{$t('Tnos')}}</h2>
           <p class="totletitle"> {{$t('Sete')}} <i></i></p>
+          <input class="changeToler" @input="changeToler(toler)" v-model="toler">
           <div class="tolerTab">
             <span @click="changeToler(0.01);num=1" :class="num==1?'active':''">1%</span>
             <span @click="changeToler(0.05);num=2" :class="num==2?'active':''">5%</span>
@@ -99,6 +100,7 @@ export default {
       key: '31',
       navIndex: 0,
       drawer: false,
+      toler: '',
       childrenNode: [
         85, 118, 71, 84, 87, 80],
       childrenNode1: [
@@ -309,6 +311,17 @@ export default {
 }
 </script>
 <style >
+.changeToler{
+  width:100%;
+  height:36px;
+  background:#23323C;
+  border-radius:15px;
+  line-height:36px;
+  padding-left:10px;
+  box-sizing: border-box;
+  font-size:18px;
+  color:#fff;
+}
 .nav .drawer_body {
   width: 69% !important;
   background: #070a0e;

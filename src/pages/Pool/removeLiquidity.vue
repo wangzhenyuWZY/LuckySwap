@@ -319,6 +319,9 @@ color: #0F1730;
       background-size:100% 100%;
           font-size: 18px;
         cursor: pointer;
+        &:before{
+        color:#fff;
+      }
   }
 }
 .margintop {

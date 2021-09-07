@@ -53,12 +53,12 @@ src="@/assets/img/icon_instructions.svg"
                         :balance="token1.balance"
                        v-model="firstTokenNum"></frominput>
           </div>
-          <!-- <div class="ctx_2   fl_lt">
+          <div class="ctx_2   fl_lt">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
                        v-model="firstTokenWeight"></frominput>
-          </div> -->
+          </div>
           <div class="ctx_3 fl_lt">
             <setselect
 :balance="token1.balance"
@@ -81,12 +81,12 @@ src="@/assets/img/icon_instructions.svg"
                        :balance="token2.balance"
                        ></frominput>
           </div>
-          <!-- <div class="ctx_2   fl_lt">
+          <div class="ctx_2   fl_lt">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
                        v-model="secondTokenWeight"></frominput>
-          </div> -->
+          </div>
           <div class="ctx_3 fl_lt">
             <setselect
 @click="showSelect(1)"
@@ -108,7 +108,7 @@ class="Price_text"
 src="@/assets/img/icon_slect.png"
                alt="">
         </div>
-          <!-- <div class="setInput pair_input clearfix">
+          <div class="setInput pair_input clearfix">
 
          <span class="ctw"> <div class="ctx_1 fl_lt ">
             <frominput
@@ -133,7 +133,7 @@ src="@/assets/img/icon_slect.png"
             v-model="lp">
             </frominput>
           </div>
-        </div> -->
+        </div>
         <div class="whe clearfix">
 
           <span
@@ -540,9 +540,8 @@ export default {
     vertical-align: sub;
   }
   .ctx_1 {
-    width: 260px;
+    width: 180px;
     display: inline-block;
-    margin-right:12px;
   }
   .ctx_2 {
     width: 76px;
@@ -647,6 +646,9 @@ export default {
       background: url(../../assets/img/backico.png) no-repeat center;
       background-size:100% 100%;
       cursor: pointer;
+      &:before{
+        color:#fff;
+      }
     }
   }
   .margintop {

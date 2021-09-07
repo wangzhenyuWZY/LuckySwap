@@ -88,24 +88,18 @@ img{
     // background: #FC6446;
     vertical-align: middle;
 }
-.from_botton:hover ,.from_botton:focus{
-    color: #fff ;
-    border-color:#FC6446;
-    background: #C80202;
-}.from_botton.is-disabled:focus{
+.from_botton.is-disabled:focus{
     background: #23323C;
 
     color: #fff;
 }
-.from_botton.is-disabled,.from_botton.is-disabled:hover{
-    background: #23323C;
-    border: 1px solid #23323C;
-    color: #fff;
+.el-button:focus, .el-button:hover{
+    background:none;
 }
-.green_btns:hover{
-    color: #FC6446 ;
+.pool-butt2 .el-button:focus,.pool-butt2 .el-button:hover{
+    background:#070a0e;
+    color:#FFFFFF;
 }
-
 .black_botton{
     border: 1px solid #0F1730;
     background: none;
@@ -130,29 +124,12 @@ img{
   color:#FC6446;
   padding: 0;
 }
-
-
-.nav_btn:focus{
-    color:#FC6446;
-    background: none;
+.el-tooltip__popper.is-light{
+    background:#23323C;
+    font-size: 14px;
+    color: #878b97;
 }
 
-.nav_btn:hover{
-    color:#FC6446;
-    background: none;
-    border: 1px solid#FC6446;
-}
-
-.red_button:hover{
-    background: none;
-    border: 1px solid#FC6446;
-    color:#FC6446;
-}
-.nav_btn:active {
-    color:#FC6446;
-    background: none;
-    border: 1px solid#FC6446;
-}
 .black_botton:active{
     color: #0F1730;
     border: 1px solid #0F1730;
@@ -177,11 +154,6 @@ img{
     padding: 0 12px;
     color: #fff;
     background: #C80202;
-}
-.fff_button:active,.fff_button:focus,.fff_button:hover{
-    color: #fff;
-    background: #C80202;
-    border: none;
 }
 .fl_lt{
     float: left;

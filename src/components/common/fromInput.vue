@@ -193,7 +193,7 @@ export default {
     }
     .show_size {
       font-family: roboto-mediumitalic;
-      color: #FC6446;
+      color: #fff;
     }
   }
   .from_icon {

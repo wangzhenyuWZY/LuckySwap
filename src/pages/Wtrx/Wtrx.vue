@@ -271,6 +271,10 @@ export default {
 .wtrx {
   color: #fff;
 }
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 .wtrx-box {
   height: 800px;
   /* background: #cccc; */

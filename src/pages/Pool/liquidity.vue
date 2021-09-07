@@ -3,7 +3,7 @@
     <div class="pool_bg clearfix">
       <div class="pool-box1">
         <p>{{$t('pool.Lpr')}}</p>
-        <p>
+        <p class="tipbox">
           {{$t('pool.Lpr2')}}
         </p>
         <p v-show="false"> {{$t('pool.Rmpl')}}</p>
@@ -400,6 +400,8 @@ export default {
     background: #142028;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    padding:0 15px;
+    height:auto;
   }
   .pool-box2 .pool-p2 .pool-p3 {
     color: #fa7447;
@@ -407,5 +409,13 @@ export default {
   .fees .accrued_btn .btn_lt button {
     background: linear-gradient(122deg, #fa7447 0%, #fe4943 100%);
   }
+}
+.pool-box1 .tipbox{
+  background: #23323C;
+    border-radius: 16px;
+   padding:10px 20px;
+   color:#878b97;
+   font-size:14px;
+   margin-bottom:10px;
 }
 </style>

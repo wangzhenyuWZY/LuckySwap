@@ -52,7 +52,8 @@ export default {
   }
 }
 .footer1{
-  margin-top: -35px;
+  border-radius:15px;
+  overflow:hidden;
 }
 
 @media screen and (max-width: 750px)  {
