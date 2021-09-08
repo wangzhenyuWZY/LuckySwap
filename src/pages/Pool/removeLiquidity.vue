@@ -248,6 +248,9 @@ export default {
 </script>
 
 <style lang="scss"  >
+.box_sizes{
+  background:#23323C;
+}
 .removeLq{
   padding-top: 120px;
 }
@@ -370,7 +373,7 @@ color: #0F1730;
     font-weight: normal;
     color: #ffffff;
     font-size: 20px;
-    background: #0f1730;
+    background: #142028;
     text-align: center;
     cursor: pointer;
   }
@@ -456,10 +459,10 @@ color: #0F1730;
     margin: auto;
   }
   .el-slider__bar {
-    background: #0f1730;
+    background: #142028;
   }
   .el-slider__runway {
-    background: #0f1730;
+    background: #142028;
   }
 }
 @media screen and (max-width: 750px) {

@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <div class="tradeBanner">
-      <img src="../../assets/img/banner1.png">
+      <p>Programmable Liquidity </p>
+      <p>Swap TRC-USDT on SheroSwap</p>
     </div>
-    <div class="container exchange ">
+    <div class="exchange ">
       <container top="40" :mobile="isPc">
          
         <div slot="body">
@@ -45,14 +46,14 @@
                          @click="showSelect(1)" />
             </div>
           </div>
-          <div class="Price_text" v-show="connectFlag">
+          <div class="Price_text" v-show="spotPrice">
             <!-- <span>1{{$t('Exc.Price')}}:</span> -->
             <span> 1{{token2.name}} = </span>
             <span>{{spotPrice.toFixed(4)}} </span>
             
             <!-- <span> {{$t('Exc.per')}}</span> -->
             <span> {{token1.name}} </span>
-            <img src="@/assets/img/icon_slect.png" alt="" @click="convert">
+            <!-- <img src="@/assets/img/icon_slect.png" alt="" @click="convert"> -->
           </div>
           <div class="whe" :class="connectFlag?'login_text':'outlogin'">
             <div class="connect_btn clearfix">
@@ -638,9 +639,16 @@ export default {
   text-align:center;
   margin-top:40px;
   padding:0 15px;
-  img{
-    max-width:480px;
+  p{
+    font-size:32px;
+  line-height:38px;
+  padding-bottom:20px;
+  color:#fff;
+  font-weight:bold;
   }
+}
+.box_sizes{
+  background:none;
 }
 .el-button:focus, .el-button:hover{
   background:#C80202;
@@ -648,7 +656,6 @@ export default {
 }
 .provider1{
   // margin-top: -50px;
-  background: #070A0E;
   border-radius: 0 0 20px 20px;
   .received{
     
@@ -670,7 +677,6 @@ export default {
 }
 
 .exchange {
-  padding-top: 56px;
 
   .slott {
     background-color: #fff;
@@ -687,8 +693,7 @@ export default {
   .whe {
     width: 100%;
     margin: 0 auto;
-    // padding-bottom: 28px;
-    margin-bottom: 38px;
+    padding-bottom: 28px;
   }
   .whe_img {
     vertical-align: sub;
@@ -847,7 +852,7 @@ export default {
   color: #fff;
   margin-top: 30px;
   margin-bottom: 16px;
-  text-align: center;
+  text-align: right;
   > img {
     vertical-align: sub;
     margin-left: 4px;
@@ -949,7 +954,7 @@ export default {
     color: #fff;
     margin-top: 41px;
     margin-bottom: 16px;
-    text-align: center;
+    text-align: right;
     > img {
       vertical-align: sub;
       margin-left: 4px;
@@ -1040,7 +1045,7 @@ export default {
     position: relative;
   }
   .connect_boxs {
-    background: #070a0e;
+    background: #23323C;
     border-radius: 0 0 20px 20px;
     width: 100%;
     z-index: -1;
@@ -1050,8 +1055,11 @@ export default {
 
 @media screen and (max-width: 750px) {
   .tradeBanner{
-    img{
-      max-width:100%;
+    margin-top:0;
+    p{
+      line-height:18px;
+      font-size:16px;
+      padding-bottom:10px;
     }
   }
   .exchange {

@@ -42,7 +42,8 @@ export default {
   padding-bottom: 230px;
 }
 .toal_bg {
-
+  position:relative;
+  z-index:2;
   background: #142028;
   border-radius: 20px;
   box-sizing: border-box;
@@ -52,8 +53,13 @@ export default {
   }
 }
 .footer1{
-  border-radius:15px;
+  border-radius:20px;
   overflow:hidden;
+  background:#23323C;
+position: relative;
+    top: -30px;
+    padding-top: 30px;
+    z-index: 1;
 }
 
 @media screen and (max-width: 750px)  {

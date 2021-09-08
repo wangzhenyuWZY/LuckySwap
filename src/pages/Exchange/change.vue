@@ -28,13 +28,13 @@
         </div>
       </div>
       <div class="receive__size">{{$t('oiei')}}</div>
-      <div class="Price_text">
+      <div class="Price_text" v-show="spotPrice">
         <span>{{$t('Exc.Price')}}: </span>
         <span>{{spotPrice.toFixed(8)}} </span>
         <span> {{token1.name}} </span>
         <span>{{$t('Exc.per')}} </span>
         <span> {{token2.name}} </span>
-        <img src="@/assets/img/icon_slect.png" alt="">
+        <!-- <img src="@/assets/img/icon_slect.png" alt=""> -->
       </div>
       <div class="box_sizes">
         <div class="provider receove_Share ">
@@ -159,6 +159,10 @@ export default {
 >>> .el-dialog__wrapper {
   overflow: auto;
 }
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 .title__num {
   font-size: 40px;
   font-weight: normal;
@@ -250,7 +254,7 @@ export default {
   color: #fff;
   margin-top: 24px;
   margin-bottom: 16px;
-  text-align: center;
+  text-align: right;
 }
 .Price_text > img {
   vertical-align: sub;

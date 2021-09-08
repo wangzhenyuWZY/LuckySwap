@@ -25,17 +25,28 @@
       </div>
 
     </div> -->
-    <p class="sherotitle">SheroSwap is a protocol for programmable liquidity and support usdt trading pairs on TRON</p>
+    <div class="homeTop">
+      <div class="homeleft">
+        <h2>Programmable Liquidity </h2>
+        <h2>Swap TRC-USDT on SheroSwap</h2>
+        <p>Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi.</p>
+        <router-link to="/" class="lauchbtn">Launch app</router-link>
+      </div>
+      <div class="homeright">
+        <div class="infobox">Liquidity creator can define  token weights & swap fees.</div>
+        <div class="infobox">SheroSwap supports the addition of USDT 
+liquidity, USDT trading pairs can be created.</div>
+        <div class="infobox">Users can add liquidity for a single token, which lowers the threshold of experiencing DEX while minimizes the impermanent loss.</div>
+      </div>
+    </div>
+    
     <div class="c-box2">
       <div class="b2-top">
-        <samp class="top1">Investment pools</samp>
+        <samp class="top1">Investment Pools</samp>
         <div class="filter">
           <i></i>
-          <input>
+          <input placeholder="Filter by token">
         </div>
-        <p class="hottoken">
-          Popular:  <a>SHERO</a> <a>SUN</a> <a>OSK</a>  <a>USDT</a> <a>DAI</a> <a>WTRX</a>
-        </p>
         <!-- <template slot-scope="scope">
               <div>
                 <img :src="$requierImg(scope.row.token1.name,1)"
@@ -69,8 +80,8 @@ style="width: 100%">
           <el-table-column prop="full_name" :label="$t('home.Name')">
             <template slot-scope="scope">
               <div class="reqimg block">
-                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50</i></span>
-                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50</i></span>
+                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50%</i></span>
+                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50%</i></span>
               </div>
             </template>
           </el-table-column>
@@ -118,17 +129,19 @@ style="width: 100%">
             </template>
             <span></span>
           </el-table-column>
-          <el-table-column :label="$t('operation')">
+          <el-table-column :label="$t('operation')" width="230px">
             <template slot-scope="scope">
-              <router-link :to="{ path: '/exchange', query: { pairAddress:scope.row.contract_address }}" style="padding-bottom:10px;">
-                <p class="homeb1"> <span> {{$t('homeb1')}}</span> </p>
-                <!-- <el-button size="mini" round></el-button> -->
-              </router-link>
-             
-              <router-link :to="{ path: '/pool/connectpool', query: { pairAddress:scope.row.contract_address }}">
-               <p class="homeb2"> <span> {{$t('homeb2')}}</span></p>
-                <!-- <el-button size="mini" round>{{$t('homeb2')}}</el-button> -->
-              </router-link>
+              <div class="btnbox">
+                <router-link :to="{ path: '/pool/connectpool', query: { pairAddress:scope.row.contract_address }}">
+                <p class="homeb2"> <span> {{$t('homeb2')}}</span></p>
+                  <!-- <el-button size="mini" round>{{$t('homeb2')}}</el-button> -->
+                </router-link>
+                <router-link :to="{ path: '/exchange', query: { pairAddress:scope.row.contract_address }}">
+                  <p class="homeb1"> <span> {{$t('nav.nav2')}}</span> </p>
+                  <!-- <el-button size="mini" round></el-button> -->
+                </router-link>
+              </div>
+              
             </template>
             <span></span>
           </el-table-column>
@@ -140,41 +153,82 @@ header-cell-class-name="adddd"
 header-row-class-name="tabe_tr"
                   :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
 cell-class-name="dddsadsa"
-style="width: 100%">
-          <el-table-column prop="full_name" width="110px" label="name">
+style="width: 1400px">
+          <el-table-column prop="full_name" :label="$t('home.Name')" width="80px">
             <template slot-scope="scope">
-              <div class="table_size">
-
-                {{scope.$index+1}}
-                <!-- <img :src="$requierImg(scope.row.trade_token_name,0)"
-                   alt="" />
-                   <img :src="$requierImg(scope.row.base_token_name,0)"
-                   alt="" /> -->
-                {{scope.row.trade_token_name.toLocaleUpperCase()}}-{{scope.row.base_token_name.toLocaleUpperCase()}}
+              <div class="reqimg">
+                <span class="logos">
+                  <img :src="$requierImg(scope.row.base_token_name)" alt="" />
+                  <img :src="$requierImg(scope.row.trade_token_name)" alt="" />
+                </span>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="trade_token_name" label="Assets">
+          <el-table-column prop="full_name" :label="$t('home.Name')" width="160px">
             <template slot-scope="scope">
-              <div class="table_size">
-                <p>
-                  <span style="color:#FC6446">{{scope.row.trade_token_liquidity | setAssets}}</span>
-                  {{scope.row.trade_token_name.toLocaleUpperCase()}}
-                </p>
-                <p>
-                  <span style="color:#FC6446">{{scope.row.base_token_liquidity | setAssets}}</span>
-                  {{scope.row.base_token_name.toLocaleUpperCase()}}
-                </p>
-
+              <div class="reqimg block">
+                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50%</i></span>
+                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50%</i></span>
               </div>
             </template>
           </el-table-column>
-
-          <el-table-column prop="pair_quantity" label="liquidity">
+          <el-table-column prop="trade_token_liquidity" :label="$t('home.Assets')" width="180px">
             <template slot-scope="scope">
-              <div class="table_size">
-                {{scope.row.pair_quantity ? scope.row.pair_quantity  : "--"}}
+              <div class="liquiditybox">
+                {{scope.row.trade_token_liquidity| setAssets  }}
+                {{scope.row.trade_token_name.toLocaleUpperCase()}}
               </div>
+              <div class="liquiditybox">
+                {{scope.row.base_token_liquidity | setAssets }}
+                {{scope.row.base_token_name.toLocaleUpperCase()}}
+              </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="pair_quantity" :label="$t('home.Liquidity')" width="120px">
+            <template slot-scope="scope">
+              <div>
+                {{scope.row.pair_quantity | setAssets }}
+              </div>
+            </template>
+            <span></span>
+          </el-table-column>
+          <el-table-column prop="trade_price" :label="$t('home.price')" width="120px">
+            <template slot-scope="scope">
+              <div>
+                {{scope.row.trade_price ? scope.row.trade_price  : "--"}}
+              </div>
+            </template>
+            <span></span>
+          </el-table-column>
+          <el-table-column prop="base_quantity_24" :label="$t('home.Volume')" width="80px">
+            <template slot-scope="scope">
+              <div>
+                {{scope.row.base_quantity_24 ? scope.row.base_quantity_24  : "--"}}
+              </div>
+            </template>
+            <span></span>
+          </el-table-column>
+          <el-table-column prop="Change" :label="$t('home.Change')" width="130px">
+            <template slot-scope="scope">
+              <div>
+                {{scope.row.price_change_24 ? (scope.row.price_change_24*100).toFixed(2)  : "--"}}%
+              </div>
+            </template>
+            <span></span>
+          </el-table-column>
+          <el-table-column :label="$t('operation')" width="230px">
+            <template slot-scope="scope">
+              <div class="btnbox">
+                <router-link :to="{ path: '/pool/connectpool', query: { pairAddress:scope.row.contract_address }}">
+                <p class="homeb2"> <span> {{$t('homeb2')}}</span></p>
+                  <!-- <el-button size="mini" round>{{$t('homeb2')}}</el-button> -->
+                </router-link>
+                <router-link :to="{ path: '/exchange', query: { pairAddress:scope.row.contract_address }}">
+                  <p class="homeb1"> <span> {{$t('nav.nav2')}}</span> </p>
+                  <!-- <el-button size="mini" round></el-button> -->
+                </router-link>
+              </div>
+              
             </template>
             <span></span>
           </el-table-column>
@@ -299,7 +353,87 @@ export default {
   }
 }
 </script>
+<style scope>
+  >>> .cell {
+  /* margin-left: 30px; */
+}
+>>> .adddd {
+  background-color: #23323C;
+  margin-left: 20px;
+}
+
+>>> .el-table__row {
+  height: 72px;
+  background: #142028;
+}
+>>> .cell {
+    margin-left: 0;
+    font-size: 0.3rem !important;
+  }
+  .el-table{
+  color:#fff;
+}
+.el-table, .el-table__expanded-cell,.el-table--enable-row-hover .el-table__body tr:hover>td{
+  background:#142028;
+}
+.el-table--border::after, .el-table--group::after, .el-table::before{
+  background-color:#142028;
+}
+.el-table tr{
+  background-color:#142028;
+}
+.el-table th{
+  background-color:#23323C;
+}
+</style>
 <style  lang="scss" scoped>
+.homeTop{
+  display:flex;
+  justify-content: center;
+  padding-bottom:64px;
+  .homeleft{
+    width:670px;
+    margin-right:87px;
+    padding-top:20px;
+    h2{
+      font-size:48px;
+      color:#FFFFFF;
+      line-height:57px;
+      font-weight: bold;
+      padding-bottom:16px;
+    }
+    p{
+      font-size:20px;
+      color:#FFFFFF;
+      line-height:28px;
+      padding-bottom:24px;
+    }
+    .lauchbtn{
+      display:block;
+      width:256px;
+      height:56px;
+      background:#C80202;
+      line-height:56px;
+      text-align:center;
+      border-radius:28px;
+      font-size:20px;
+      color:#fff;
+    }
+  }
+  .homeright{
+    .infobox{
+      padding:28px;
+      box-sizing: border-box;
+      width:440px;
+      background:#142028;
+      border-radius:16px;
+      font-size:20px;
+      line-height:28px;
+      color:#fff;
+      margin-bottom:24px;
+    }
+  }
+}
 .sherotitle{
   font-size:32px;
   color:#fff;
@@ -372,18 +506,29 @@ export default {
   height: 22px;
   margin-left: 207px;
 }
+.btnbox{
+  display:flex;
+}
 .homeb1{
    color: #fc6446;
-  span{
-    border-bottom: 2px solid #fc6446;
-  }
+   border: 1px solid #C80202;
+   border-radius: 4px;
+   line-height:37px;
+   width:72px;
+   height:37px;
+   text-align:center;
+   color:#fff;
+   box-sizing: border-box;
 }
 .homeb2{
-  margin-top: 3px;
-   color: #fc6446;
-  span{
-    border-bottom: 2px solid #fc6446;
-  } 
+background: #C80202;
+border-radius: 4px;
+width: 128px;
+font-size:16px;
+color:#fff;
+line-height:37px;
+text-align:center;
+margin-right:8px;
 }
 
 // .el-button{
@@ -477,7 +622,7 @@ export default {
     height: 80px;
     display:flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     .hottoken{
       font-size:18px;
       color:#fff;
@@ -491,6 +636,7 @@ export default {
       display:flex;
       border-radius:28px;
       align-items: center;
+      margin-right:24px;
       i{
         width:24px;
         height:24px;
@@ -567,28 +713,8 @@ export default {
   }
 }
 </style>
-<style  scoped>
->>> .cell {
-  /* margin-left: 30px; */
-}
->>> .adddd {
-  background-color: #23323C;
-  margin-left: 20px;
-}
+<style lang="scss" scoped>
 
->>> .el-table__row {
-  height: 72px;
-  background: #142028;
-}
-.el-table{
-  color:#fff;
-}
-.el-table, .el-table__expanded-cell,.el-table--enable-row-hover .el-table__body tr:hover>td{
-  background:#142028;
-}
-.el-table--border::after, .el-table--group::after, .el-table::before{
-  background-color:#142028;
-}
 
 @media screen and (max-width: 750px) {
   .container {
@@ -602,17 +728,59 @@ export default {
     height: auto;
   }
   .c-box2 .b2-top {
-    height: 40px;
+    height:auto;
     line-height: 40px;
+    display:block;
+    .top1{
+      margin-left:0;
+      font-size:22px;
+      text-align:center;
+      width:100%;
+      margin-bottom:20px;
+      display:block;
+      margin-top:18px;
+    }
+    .filter{
+      width:100%;
+      height:36px;
+      line-height:36px;
+      margin-bottom:25px;
+    }
   }
-  .c-box2 .b2-top .top1 {
-    margin-top: 0;
-    line-height: 40px;
-  }
-
-  >>> .cell {
-    margin-left: 0;
-    font-size: 0.3rem !important;
+  .homeTop{
+    display:block;
+    padding:0 20px;
+    .homeleft{
+      width:100%;
+      h2{
+        font-size:24px;
+        line-height:29px;
+        text-align:center;
+        padding-bottom:12px;
+      }
+      p{
+        font-size:15px;
+        line-height:18px;
+        padding-bottom:12px;
+      }
+      .lauchbtn{
+        width:128px;
+        height:28px;
+        line-height:28px;
+        font-size:10px;
+        margin:0 auto 28px;
+      }
+    }
+    .homeright{
+      .infobox{
+        width:100%;
+        padding:20px;
+        font-size:15px;
+        line-height:22px;
+        margin-bottom:18px;
+      }
+    }
   }
 }
+
 </style>

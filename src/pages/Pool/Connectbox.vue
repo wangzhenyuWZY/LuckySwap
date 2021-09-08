@@ -59,7 +59,7 @@
           </div>
         </div>
 
-        <div class="from_contentIcon" v-show="!iSingle">+</div>
+        <div class="from_contentIcon" v-show="!iSingle"></div>
         <div class="setInput clearfix" v-show="!iSingle">
           <div class="ctx_1 fl_lt">
             <frominput :lable="$t('pool.Input')" placeholder="" showmax :balance='token2.balance' @input="calcToken1Num" v-model="token2Num">
@@ -172,7 +172,7 @@ import ipConfig from '../../config/ipconfig.bak'
 import { container, frominput, setselect } from '../../components/index'
 import selctoken from './selctToken'
 import { PairData } from '../../utils/index'
-import { decimals, allowance, approved, getLpBalanceInPool, getMyBalanceInPool, getTokenDenormalizedWeight } from '../../utils/tronwebFn'
+import { decimals, allowance, approved, getLpBalanceInPool, getMyBalanceInPool,getConfirmedTransaction, getTokenDenormalizedWeight } from '../../utils/tronwebFn'
 import { calcPoolOutGivenSingleIn, getTokenInGivenPoolOut } from '../../utils/calc_comparisons'
 import recevive from './recevive'
 import removealert from './valret'
@@ -635,6 +635,7 @@ export default {
             that.charm1()
             that.charm2()
             that.showAlert1 = true
+            that.changePair()
           }).catch((err) => {
             console.log(err)
             that.charm1()
@@ -674,9 +675,15 @@ export default {
         }
         window.tronWeb.trx.sign(transaction.transaction).then(function(signedTransaction) {
           window.tronWeb.trx.sendRawTransaction(signedTransaction).then(function(res) {
+            getConfirmedTransaction(res.txid).then((e) => {
+              if (e.result == 'FAILED') {
+                that.$message.error(window.tronWeb.toAscii(e.contractResult[0]))
+              }
+            })
             that.$message.success('success')
             that.charm1()
             that.showAlert1 = true
+            that.changePair()
           }).catch(err => {
             that.charm1()
             console.log(err)
@@ -849,6 +856,9 @@ export default {
   background:#C80202;
   color:#FFFFFF;
 }
+.box_sizes{
+  background:#23323C;
+}
 .xzk {
   height: 56px;
   border-radius: 16px;
@@ -905,6 +915,8 @@ export default {
   margin-top: 16px;
   margin-bottom: 12px;
   text-align: center;
+  background:url(../../assets/img/icon_add1.png) no-repeat center;
+  background-size:36px 36px;
 }
 .whe {
   width: 440px;
@@ -958,7 +970,7 @@ export default {
     p:nth-child(2) {
       color: #a6aeb7;
       margin-top: 8px;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
@@ -986,7 +998,7 @@ export default {
   left: 0;
 
   height: 210px;
-  background: #070a0e;
+  background: #23323C;
   z-index: -1;
 }
 .connect_btns {

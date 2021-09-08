@@ -116,6 +116,10 @@ export default {
 >>> .el-dialog__body {
   padding: 0;
 }
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 .alert_type {
   margin-top: 64px;
 }

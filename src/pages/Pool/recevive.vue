@@ -140,6 +140,13 @@ export default {
   top: 24px;
   right: 34px;
 }
+.box_sizes{
+  background:#23323C;
+}
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 img {
   width: 30px;
   height: 30px;

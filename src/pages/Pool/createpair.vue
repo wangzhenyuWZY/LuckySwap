@@ -525,7 +525,10 @@ export default {
 .title {
   // height: 72px;
 }
-
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 .createpair {
 
   padding-top: 50px;
@@ -567,7 +570,7 @@ export default {
     p {
       height: 20px;
       font-size: 14px;
-      color: #878b97;
+      color: #fff;
     }
     .pair_title {
       font-size: 20px;
@@ -839,7 +842,7 @@ export default {
     }
   }
   .connect_boxs {
-    background: #f4f5fa;
+    background: #23323C;
     border-radius: 0 0 20px 20px;
     position: absolute;
     bottom: -275px;

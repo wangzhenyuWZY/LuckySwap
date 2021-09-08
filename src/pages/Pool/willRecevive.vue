@@ -160,6 +160,10 @@ export default {
   top: 24px;
   right: 34px;
 }
+.el-button:focus, .el-button:hover{
+  background:#C80202;
+  color:#fff;
+}
 .title__num {
   font-size: 40px;
   font-weight: normal;

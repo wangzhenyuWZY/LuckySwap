@@ -243,13 +243,13 @@ export default {
 <style lang="scss" scoped>
 .bottun_hei {
   height: 40px;
-  border: 1px solid #0f1730;
-  color: #070a0e;
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
   // font-family: roboto-mediumitalic;
 }
 .bottun_hei1 {
   height: 40px;
-  background: #070a0e;
+  background: #C80202;
 }
 
 .fees {
@@ -275,7 +275,6 @@ export default {
   .cyrny_bg {
     overflow: hidden;
     margin-bottom: 10px;
-    background: #f4f5fa;
     border-radius: 0 0 16px 16px;
     margin-top: 15px;
   }
@@ -361,6 +360,7 @@ export default {
   .transition {
     height: 315px;
     transition: height 0.3s;
+    background:none;
   }
   .liveimg {
     transform: rotate(0deg);
@@ -400,22 +400,21 @@ export default {
     background: #142028;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding:0 15px;
+    padding:0 15px 15px;
     height:auto;
   }
   .pool-box2 .pool-p2 .pool-p3 {
     color: #fa7447;
   }
   .fees .accrued_btn .btn_lt button {
-    background: linear-gradient(122deg, #fa7447 0%, #fe4943 100%);
+    background: #C80202;
   }
 }
 .pool-box1 .tipbox{
-  background: #23323C;
+  background: #C80202;
     border-radius: 16px;
    padding:10px 20px;
-   color:#878b97;
+   color:#F1C5C5;
    font-size:14px;
-   margin-bottom:10px;
 }
 </style>
