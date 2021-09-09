@@ -42,7 +42,7 @@ module.exports = {
     tn: 'Token Name',
     mprompt: 'Your transaction will revert if there is a large,unfavorable price movement before it is confirmed.',
     Pprompt: ' he difference between the market price and estimated price due to trade size',
-    ops: 'Optional pass',
+    ops: 'Select a token',
     mrd: 'Minimum received',
     cts1: 'Your transaction will revert if',
     cts2: 'there is a large,unfavorable ',

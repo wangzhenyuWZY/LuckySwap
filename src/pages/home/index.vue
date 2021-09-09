@@ -30,7 +30,7 @@
         <h2>Programmable Liquidity </h2>
         <h2>Swap TRC-USDT on SheroSwap</h2>
         <p>Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi.</p>
-        <router-link to="/" class="lauchbtn">Launch app</router-link>
+        <router-link to="/exchange" class="lauchbtn">Launch app</router-link>
       </div>
       <div class="homeright">
         <div class="infobox">Liquidity creator can define  token weights & swap fees.</div>
@@ -447,7 +447,6 @@ export default {
   width:169px;
   height:28px;
   line-height:28px;
-  background:#23323C;
   font-size:16px;
   color:#fff;
   text-align:center;
@@ -464,7 +463,6 @@ export default {
       float:none;
       width:96px;
       height:28px;
-      background:#23323C;
       border-radius:4px;
       font-size:16px;
       color:#fff;

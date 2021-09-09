@@ -32,7 +32,7 @@
             <!-- <i class="el-icon-back cursor tran_icon"
              @click="purples"></i> -->
           </div>
-          <div class="setInput clearfix">
+          <div class="setInput clearfix pd30">
             <div class="ctx_1 fl_lt">
               <frominput :lable="$t('pool.to')" showmax :balance="token2.balance" v-model="token2Num" @input="cumpToken1"></frominput>
             </div>
@@ -49,7 +49,7 @@
           <div class="Price_text" v-show="spotPrice">
             <!-- <span>1{{$t('Exc.Price')}}:</span> -->
             <span> 1{{token2.name}} = </span>
-            <span>{{spotPrice.toFixed(4)}} </span>
+            <span>{{floatPrice}} </span>
             
             <!-- <span> {{$t('Exc.per')}}</span> -->
             <span> {{token1.name}} </span>
@@ -216,7 +216,8 @@ export default {
       tolerance: 0.1,
       maxPrice: MAX,
       pairList: [],
-      token1spotPrice: 0
+      token1spotPrice: 0,
+      floatPrice: 0
     }
   },
   computed: {
@@ -315,7 +316,7 @@ export default {
       this.token1Num = ''
       this.token2Num = ''
       this.percentage = 0
-      this.swapFee = 0
+      // this.swapFee = 0
       this.spotPrice = 0
       this.inputFlag()
       this.getPairAddress()
@@ -381,6 +382,19 @@ export default {
       })
       if (pair && pair.length > 0) {
         this.pair = pair[0]
+        this.getSwapFee(this.pair).then((res) => {
+          this.swapFee = res
+          this.thisswapFee = res
+          this.getSpotPrice()
+        })
+        this.getBalanceInPool(this.pair, this.token1).then((res) => {
+          this.token1Balance = res
+          this.getSpotPrice()
+        })
+        this.getBalanceInPool(this.pair, this.token2).then((res) => {
+          this.token2Balance = res
+          this.getSpotPrice()
+        })
       } else {
         this.isPair = false
       }
@@ -391,6 +405,7 @@ export default {
       this.isPair = true
       allowance(that.token1.address, pair.address).then((res) => {
         if (res) {
+          debugger
           let hex = ''
           if (res._hex) {
             hex = parseInt(res._hex, 16)
@@ -400,24 +415,29 @@ export default {
             hex = parseInt(res.constant_result[0], 16)
           }
           that.approveBalance1 = hex
-          allowance(that.token2.address, pair.address).then((res) => {
-            if (res) {
-              let hex1 = ''
-              if (res._hex) {
-                hex1 = parseInt(res._hex, 16)
-              } else if (res.remaining._hex) {
-                hex1 = parseInt(res.remaining._hex, 16)
-              } else {
-                hex1 = parseInt(res.constant_result[0], 16)
-              }
-              that.approveBalance2 = hex1
-              if (that.approveBalance1 == 0 || that.approveBalance2 == 0) {
-                that.isApproved = true
-              } else {
-                that.isApproved = false
-              }
-            }
-          })
+          if (hex == 0) {
+            that.isApproved = true
+          } else {
+            that.isApproved = false
+          }
+          // allowance(that.token2.address, pair.address).then((res) => {
+          //   if (res) {
+          //     let hex1 = ''
+          //     if (res._hex) {
+          //       hex1 = parseInt(res._hex, 16)
+          //     } else if (res.remaining._hex) {
+          //       hex1 = parseInt(res.remaining._hex, 16)
+          //     } else {
+          //       hex1 = parseInt(res.constant_result[0], 16)
+          //     }
+          //     that.approveBalance2 = hex1
+          //     if (that.approveBalance1 == 0 || that.approveBalance2 == 0) {
+          //       that.isApproved = true
+          //     } else {
+          //       that.isApproved = false
+          //     }
+          //   }
+          // })
         }
       })
       this.getBalanceInPool(pair, this.token1).then((res) => {
@@ -461,6 +481,8 @@ export default {
           return
         }
         this.token1Num = token1Num.toFixed(6)
+        const afterPrice = calcOutGivenInAfterPrice(this.token1Balance, this.token1Weight, this.token2Balance, this.token2Weight, this.token1Num, this.swapFee)
+        this.floatPrice = afterPrice.toFixed(4)
       }
     },
     cumpToken2() { // 计算兑换的token2
@@ -485,7 +507,9 @@ export default {
         console.log('afterPrice=======' + afterPrice.toString())
         // console.log('token1spotPrice======='+this.token1spotPrice.toString())
         // this.maxPrice = Decimal(this.spotPrice).mul(1-this.tolerance).mul(this.token1Num).mul(Math.pow(10,this.token2.decimals)).toFixed(0)
+        debugger
         this.percentage = percentage.toFixed(2)
+        this.floatPrice = afterPrice.toFixed(4)
         this.thisswapFee = (this.token1Num * this.swapFee).toFixed(6)
       }
     },
@@ -635,6 +659,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../styles/color.scss";
+.globle_input{
+  text-align:left;
+}
 .tradeBanner{
   text-align:center;
   margin-top:40px;
@@ -663,7 +690,7 @@ export default {
     font-size: 16px;
     .lt{
       font-size: 16px;
-      color: #fff;
+      color: #878B97;
     }
     .rg{
       font-size: 16px;
@@ -675,7 +702,9 @@ export default {
     }
   }
 }
-
+.pd30{
+  padding-bottom:30px;
+}
 .exchange {
 
   .slott {
@@ -844,13 +873,12 @@ export default {
 }
 .setspan {
   line-height: 24px;
-  color: #fc6446;
+  color: #fff;
   padding-bottom: 20px;
 }
 .Price_text {
   font-size: 20px;
   color: #fff;
-  margin-top: 30px;
   margin-bottom: 16px;
   text-align: right;
   > img {
@@ -952,7 +980,6 @@ export default {
   .Price_text {
     font-size: 20px;
     color: #fff;
-    margin-top: 41px;
     margin-bottom: 16px;
     text-align: right;
     > img {

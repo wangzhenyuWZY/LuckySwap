@@ -115,7 +115,7 @@ export default {
       align-items: center;
       justify-items: center;
       min-width: 100%;
-      height: 72px;
+      height: 60px;
       background: #23323C;
       border-radius: 16px;
       cursor: pointer;
@@ -165,7 +165,7 @@ export default {
       }
     }
     .from_size {
-      font-size: 18px;
+      font-size: 16px;
       font-family: roboto-mediumitalic;
       color: #fff;
       // margin-left: 8px;
@@ -187,7 +187,7 @@ export default {
     }
   }
   .from_lable{
-    font-size: 16px;
+    font-size: 12px;
     height: 16px;
     font-family: roboto;
     font-weight: 400;
@@ -198,9 +198,8 @@ export default {
         text-align: right;
         min-width: 300px;
     transform: translateX(-50%);
-    overflow: hidden;
     .balance_size{
-
+        display:block;
         color: #fff;
 
         // position: absolute;
@@ -214,7 +213,7 @@ export default {
   }
   @media screen and (max-width:750px) {
     .input_content{
-      height: 1.4rem;
+      height: 50px;
     }
     .from_select .from_size{
       font-size: 0.3rem;
@@ -236,7 +235,7 @@ export default {
         margin: auto;
         right: 0;
         min-width: 7.2rem;
-        left: 0;
+        left: -6px;
         transform: translateX(-4.6rem);
       }
 

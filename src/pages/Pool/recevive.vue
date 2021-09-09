@@ -14,7 +14,7 @@ custom-class="dialog_recevive"
     <div class="box_sizes">
       <div class="provider receive__Pool">
         <div class="title__num">{{popsData.reciveLptoken}}</div>
-        <div class="">{{popsData.token1.name}}{{popsData.token2.name}}{{$t('pt')}}</div>
+        <div class="">{{popsData.token1.name}}/{{popsData.token2.name}} {{$t('pt')}}</div>
       </div>
     </div>
     <div class="receive__size">{{$t('oiei')}}</div>
@@ -124,10 +124,10 @@ export default {
 }
 >>> .dialog_recevive .el-icon-close {
   font-size: 28px;
-  color: #0f1730;
+  color: #fff;
 }
 >>> .dialog_recevive .el-icon-close:hover {
-  color: #0f1730;
+  color: #fff;
 }
 >>> .el-dialog__body {
   padding: 0 32px;
@@ -154,7 +154,7 @@ img {
 .title__num {
   font-size: 40px;
   font-weight: normal;
-  color: #fc6446;
+  color: #C80202;
   margin-bottom: 8px;
 }
 .receive__Pool {

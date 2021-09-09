@@ -118,10 +118,10 @@ export default {
 }
 >>> .dialog_selct .el-icon-close {
   font-size: 28px;
-  color: #0f1730;
+  color: #fff;
 }
 >>> .dialog_selct .el-icon-close:hover {
-  color: #0f1730;
+  color: #fff;
 }
 >>> .el-dialog__body {
   padding: 0;

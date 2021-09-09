@@ -107,7 +107,7 @@ export default {
 <style lang="scss" scoped>
 .from_data {
   .from_lable {
-    font-size: 16px;
+    font-size: 18px;
     font-family: roboto;
     font-weight: 400;
     color: #878B97;
@@ -207,16 +207,16 @@ export default {
 .globle_input {
   box-sizing: border-box;
   outline: none;
-  height: 72px;
+  height: 60px;
 background: #23323C;
   width: 100%;
   border: none;
   border-radius: 16px;
   font-size: 20px;
-  padding-left: 16px;
   font-weight: 500;
   color: #fff;
   flex: 1;
+  text-indent:10px;
 }
 .globle_input::placeholder{
 
@@ -243,23 +243,24 @@ font-size: 18px;
 }
 @media screen and (max-width:750px) {
     .globle_input{
-      height: 1.4rem;
-       padding-left: 0.2rem;
-      font-size: 0.55rem;
+      height: 50px;
+      padding-left: 0.2rem;
+      font-size: 12px;
     }
     .globle_input::placeholder{
       font-size: 0.5rem;
     }
     .from_data .from_input .input_lt .input_max{
-       width: 1.2rem;
-       height: 0.58rem;
-       line-height: 0.58rem;
+       width: 1rem;
+       height: 0.5rem;
+       line-height: 0.5rem;
        font-size: 0.3rem;
        margin-right: 0.2rem;
     }
      .from_data .from_lable{
       margin-bottom: 0.2rem;
       padding-left: 0.2rem;
+      font-size:12px;
     }
     .from_lable{
       font-size: 14px;

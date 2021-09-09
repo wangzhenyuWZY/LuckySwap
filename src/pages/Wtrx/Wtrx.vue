@@ -211,11 +211,12 @@ export default {
         }
         window.tronWeb.trx.sign(transaction.transaction).then(function(signedTransaction) {
           window.tronWeb.trx.sendRawTransaction(signedTransaction).then(function(res) {
+            debugger
             that.showAlert = true
             that.typeUrl = 'https://shasta.tronscan.org/#/transaction/' + res.txid
             getConfirmedTransaction(res.txid).then((res1) => {
               console.log(res1)
-              that.$message.success(this.$t('aut'))
+              that.$message.success('Success')
               if (that.stup != 1) {
                 that.proNmae = 'Confirm'
               }

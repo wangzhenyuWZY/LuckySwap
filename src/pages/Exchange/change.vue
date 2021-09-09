@@ -140,10 +140,10 @@ export default {
 >>> .dialog_recevive .el-icon-close {
   /* width: 480px; */
   font-size: 28px;
-  color: #0f1730;
+  color: #fff;
 }
 >>> .dialog_recevive .el-icon-close:hover {
-  color: #0f1730;
+  color: #fff;
 }
 >>> .el-dialog__body {
   padding: 0 32px;
@@ -166,7 +166,7 @@ export default {
 .title__num {
   font-size: 40px;
   font-weight: normal;
-  color: #fc6446;
+  color: #C80202;
   margin-bottom: 8px;
 }
 .receive__Pool {

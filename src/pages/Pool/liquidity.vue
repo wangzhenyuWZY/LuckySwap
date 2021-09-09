@@ -81,10 +81,10 @@
                     </div>
                     <span class="rg">{{(share*100).toFixed(2)}}%</span>
                   </div>
-                  <div class="accrued">
+                  <!-- <div class="accrued">
                     {{$t('pool.Vafas')}}
                     <img class="acrued_img" src="@/assets/img/icon_jump_green.png" alt="" />
-                  </div>
+                  </div> -->
                   <div class="accrued_btn clearfix">
                     <div class="btn_lt fl_lt">
                       <el-button class="from_botton" @click="toPool(item)">{{$t('pool.Add')}}</el-button>
@@ -358,7 +358,6 @@ export default {
     transition: transform 0.3s;
   }
   .transition {
-    height: 315px;
     transition: height 0.3s;
     background:none;
   }

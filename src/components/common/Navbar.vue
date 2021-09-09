@@ -9,7 +9,9 @@
 v-for="(idx, index) in tag"
 :key="idx.path"
 @click="handelActive(idx.path, index)"
-                :class="navIndex == index ?'active':''">{{ idx.name }}</span>
+                :class="navIndex == index ?'active':''">
+                <img :src="idx.img">
+                {{ idx.name }}</span>
         </div>
         <!-- <div class="active-bar" :style="{ transform: `translateX(${key}px)` }"></div> -->
       </div>
@@ -55,7 +57,7 @@ v-for="(idx, index) in tag"
 v-for="(idx, index) in tag"
 :key="idx.path+'drawer'+index"
 @click.stop="handelActive(idx.path, index)"
-                :class="navIndex == index ?'drawer_nav_active':''">{{idx.name }}</li>
+                :class="navIndex == index ?'drawer_nav_active':''"><img :src="idx.img">{{idx.name }}</li>
           </ul>
           <div class="langAndSet">
             <div class="setbox" @click.stop="tolerPop=true"><i class="setico"></i>Setting</div>
@@ -115,31 +117,38 @@ export default {
       tag: [
         {
           path: '/',
-          name: this.$t('nav.home1')
+          name: this.$t('nav.home1'),
+          img: require('../../assets/img/icon_home.png')
         },
-        // {
-        //   path: '/inverst',
-        //   name: this.$t('nav.nav1')
-        // },
         {
           path: '/exchange',
-          name: this.$t('nav.nav2')
+          name: this.$t('nav.nav2'),
+          img: require('../../assets/img/icon_trade.png')
         },
         {
           path: '/pool',
-          name: this.$t('nav.nav3')
+          name: this.$t('nav.nav3'),
+          img: require('../../assets/img/icon_liquidity.png')
         },
         {
           path: '/wtrx',
-          name: this.$t('nav.WTRX')
+          name: this.$t('nav.WTRX'),
+          img: require('../../assets/img/icon_wtrx.png')
+        },
+        {
+          path: '/stake',
+          name: this.$t('nav.Stake'),
+          img: require('../../assets/img/icon_staking.png')
         },
         {
           path: '/',
-          name: this.$t('nav.nav4')
+          name: this.$t('nav.nav4'),
+          img: require('../../assets/img/icon_nft.png')
         },
         {
           path: '/',
-          name: this.$t('nav.nav5')
+          name: this.$t('nav.nav5'),
+          img: require('../../assets/img/icon_ido.png')
         }
       ]
     }
@@ -169,31 +178,38 @@ export default {
         var a = [
           {
             path: '/',
-            name: this.$t('nav.home1')
+            name: this.$t('nav.home1'),
+            img: require('../../assets/img/icon_home.png')
           },
           {
             path: '/exchange',
-            name: this.$t('nav.nav2')
+            name: this.$t('nav.nav2'),
+            img: require('../../assets/img/icon_trade.png')
           },
           {
             path: '/pool',
-            name: this.$t('nav.nav3')
+            name: this.$t('nav.nav3'),
+            img: require('../../assets/img/icon_liquidity.png')
           },
           {
             path: '/wtrx',
-            name: this.$t('nav.WTRX')
+            name: this.$t('nav.WTRX'),
+            img: require('../../assets/img/icon_wtrx.png')
           },
           {
             path: '/stake',
-            name: this.$t('nav.Stake')
+            name: this.$t('nav.Stake'),
+            img: require('../../assets/img/icon_staking.png')
           },
           {
             path: '/',
-            name: this.$t('nav.nav4')
+            name: this.$t('nav.nav4'),
+            img: require('../../assets/img/icon_nft.png')
           },
           {
             path: '/',
-            name: this.$t('nav.nav5')
+            name: this.$t('nav.nav5'),
+            img: require('../../assets/img/icon_ido.png')
           }
         ]
         console.log(a)
@@ -311,6 +327,11 @@ export default {
 }
 </script>
 <style >
+.van_list{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .changeToler{
   width:100%;
   height:36px;
@@ -548,7 +569,6 @@ export default {
 }
 .active {
   font-family: roboto-mediumitalic;
-  color: #D9191A;
   position:relative;
   &:after{
     content:'';
@@ -558,7 +578,7 @@ export default {
     width:40px;
     height:3px;
     border-radius:3px;
-    background:#FFFFFF;
+    background:#D9191A;
     margin-left:-20px;
   }
 }
@@ -573,11 +593,16 @@ export default {
   transition: transform 0.6s;
 }
 .nav-header span {
-  font-size: 20px;
+  font-size: 18px;
   padding: 0 16px;
   cursor: pointer;
-  /* color: #B7BFC8; */
+  color: #fff;
+  display:flex;
+  align-items: center;
   /* text-align: center; */
+}
+.nav-header span img{
+  width:28px;
 }
 .on {
   color: #ffffff;
@@ -737,7 +762,6 @@ export default {
     background-size: 100% 100%;
   }
   .active {
-    color: #fc6446;
   }
   .login_wallet {
     color: #fc6446;

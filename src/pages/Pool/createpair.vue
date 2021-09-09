@@ -46,21 +46,29 @@ src="@/assets/img/icon_instructions.svg"
           </div>
         </div>
         <div class="setInput  clearfix">
-          <div class="ctx_1    fl_lt">
+          <div class="ctx_1">
             <frominput
 :lable= "$t('pool.Input')"
                         showmax
                         :balance="token1.balance"
                        v-model="firstTokenNum"></frominput>
           </div>
-          <div class="ctx_2   fl_lt">
+          <div class="ctx_2">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
+              @input="changeRadio"
                        v-model="firstTokenWeight"></frominput>
           </div>
-          <div class="ctx_3 fl_lt">
+          <div class="ctx_4">
+            <frominput
+              lable= "percent"
+              disabled="true"
+                       v-model="firstTokenWeightRadio"></frominput>
+          </div>
+          <div class="ctx_3">
             <setselect
+            @click="showSelect(0)"
 :balance="token1.balance"
                        :imgUrl="token1.img"
                        :showSelect="JSON.stringify(token1)!='{}'"
@@ -72,7 +80,7 @@ src="@/assets/img/icon_instructions.svg"
           <i class="tran_icon"></i>
         </div>
         <div class="setInput  clearfix">
-          <div class="ctx_1    fl_lt">
+          <div class="ctx_1">
             <frominput
 :lable= "$t('pool.Input')"
 
@@ -81,13 +89,20 @@ src="@/assets/img/icon_instructions.svg"
                        :balance="token2.balance"
                        ></frominput>
           </div>
-          <div class="ctx_2   fl_lt">
+          <div class="ctx_2">
             <frominput
 :lable= "$t('pool.Weight')"
                        placeholder="1-50"
+                       @input="changeRadio"
                        v-model="secondTokenWeight"></frominput>
           </div>
-          <div class="ctx_3 fl_lt">
+          <div class="ctx_4">
+            <frominput
+              lable= "percent"
+              disabled="true"
+                       v-model="secondTokenWeightRadio"></frominput>
+          </div>
+          <div class="ctx_3">
             <setselect
 @click="showSelect(1)"
                        :balance="token2.balance"
@@ -109,30 +124,29 @@ src="@/assets/img/icon_slect.png"
                alt="">
         </div>
           <div class="setInput pair_input clearfix">
+            <div class="ctx_1 fl_lt ">
+              <frominput
+              :lable= "$t('Creatorfee')"
+              placeholder="Please Enter"
+              v-model="sponsors">
+              </frominput>
+            </div>
 
-         <span class="ctw"> <div class="ctx_1 fl_lt ">
-            <frominput
-            :lable= "$t('Creatorfee')"
-            placeholder="Please Enter"
-            v-model="sponsors">
-            </frominput>
-          </div></span>
-
-          <div class="ctx_2 fl_lt ">
-            <frominput
-            :lable="$t('FoxDex')"
-            placeholder="Please Enter"
-            v-model="foxDex"
-            :disabled="true">
-            </frominput>
-          </div>
-          <div class="ctx_3 fl_lt ">
-            <frominput
-            lable="LP"
-            placeholder="Please Enter"
-            v-model="lp">
-            </frominput>
-          </div>
+            <div class="ctx_2 fl_lt ">
+              <frominput
+              :lable="$t('FoxDex')"
+              placeholder="Please Enter"
+              v-model="foxDex"
+              :disabled="true">
+              </frominput>
+            </div>
+            <div class="ctx_3 fl_lt ">
+              <frominput
+              lable="LP"
+              placeholder="Please Enter"
+              v-model="lp">
+              </frominput>
+            </div>
         </div>
         <div class="whe clearfix">
 
@@ -232,7 +246,9 @@ export default {
       showAlert1: false,
       typeUrl: '',
       btnLoading1: false,
-      disabled1: false
+      disabled1: false,
+      firstTokenWeightRadio: '50%',
+      secondTokenWeightRadio: '50%'
     }
   },
   components: {
@@ -282,6 +298,15 @@ export default {
     that.init()
   },
   methods: {
+    changeRadio(){
+      let firstTokenWeight = parseInt(this.firstTokenWeight)
+      let secondTokenWeight = parseInt(this.secondTokenWeight)
+      if(firstTokenWeight && secondTokenWeight){
+        debugger
+        this.firstTokenWeightRadio = (firstTokenWeight/(firstTokenWeight+secondTokenWeight)*100).toFixed(0) + '%'
+        this.secondTokenWeightRadio = (secondTokenWeight/(firstTokenWeight+secondTokenWeight)*100).toFixed(0) + '%'
+      }
+    },
     handel() {
       // this.login = !this.login
       if (!this.firstTokenNum || this.firstTokenNum == 0 || this.firstTokenNum == '' || !this.secondTokenNum || this.secondTokenNum == 0 || this.secondTokenNum == '') {
@@ -519,8 +544,8 @@ export default {
   width:100%;
 }
 .from_lable{
-  // width: 200px;
-  // padding-left: -16px;
+  font-size:12px;
+  overflow:auto;
 }
 .title {
   // height: 72px;
@@ -542,23 +567,34 @@ export default {
   .whe_img {
     vertical-align: sub;
   }
+  .setInput{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pair_input {
+      margin-top: 15px;
+      padding-bottom: 0px;
+      .ctx_1,.ctx_2,.ctx_3{
+        width:100%;
+      }
+    }
   .ctx_1 {
-    width: 180px;
-    display: inline-block;
+    width: 44%;
   }
   .ctx_2 {
-    width: 76px;
-    display: inline-block;
-    margin: 0 12px;
+    width: 14%;
+    margin:0 1%;
+  }
+  .ctx_4 {
+    width: 14%;
+    margin-right:1%;
   }
   .ctx_3 {
-    width: 160px;
-    display: inline-block;
-
-    margin: 0;
+    width: 35%;
+    margin-left:0;
   }
   .selct_3 {
-    margin-left: 23px;
     width: 190px;
   }
   .pari__mag {
@@ -917,7 +953,10 @@ export default {
       font-size: 0.37rem !important;
     }
     .ctx_1 {
-      width: 60%;
+      width: 43%;
+      input{
+        font-size:12px;
+      }
     }
     .whe {
       display: flex;
@@ -926,13 +965,21 @@ export default {
     .pair_input {
       margin-top: 15px;
       padding-bottom: 0px;
+      .ctx_1,.ctx_2,.ctx_3{
+        width:100%;
+      }
     }
     .ctx_2 {
-      width: 22%;
-      margin: 0 2.5%;
+      width: 14%;
+      margin:0 2%;
+    }
+    .ctx_4 {
+      width: 14%;
+      margin-right:2%;
     }
     .ctx_3 {
       width: 33%;
+      margin-left:0;
     }
     .pair_mandate {
       // width: 70%;
