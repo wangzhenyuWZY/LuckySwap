@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container homeContainer">
     <!-- <div class="c-top"> -->
     <!-- <samp class="c-mp">FoxDex Protocol Analytics</samp> -->
     <!-- <div class="c-inp">
@@ -27,25 +27,36 @@
     </div> -->
     <div class="homeTop">
       <div class="homeleft">
-        <h2>Programmable Liquidity </h2>
-        <h2>Swap TRC-USDT on SheroSwap</h2>
-        <p>Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi.</p>
-        <router-link to="/exchange" class="lauchbtn">Launch app</router-link>
+        <h2>{{$t('homelang1')}}</h2>
+        <h2>{{$t('homelang2')}}</h2>
+        <p>{{$t('homelang3')}}</p>
+        <router-link to="/exchange" class="lauchbtn">{{$t('homelang16')}}</router-link>
       </div>
       <div class="homeright">
-        <div class="infobox">Liquidity creator can define  token weights & swap fees.</div>
-        <div class="infobox">SheroSwap supports the addition of USDT 
-liquidity, USDT trading pairs can be created.</div>
-        <div class="infobox">Users can add liquidity for a single token, which lowers the threshold of experiencing DEX while minimizes the impermanent loss.</div>
+        <div class="infobox">
+          <img src="../../assets/img/homeico1.png">
+          <h3>{{$t('homelang4')}}</h3>
+          <p>{{$t('homelang5')}}</p>
+        </div>
+        <div class="infobox">
+          <img src="../../assets/img/homeico2.png">
+          <h3>{{$t('homelang6')}}</h3>
+          <p>{{$t('homelang7')}}</p>
+        </div>
+        <div class="infobox">
+          <img src="../../assets/img/homeico3.png">
+          <h3>{{$t('homelang8')}}</h3>
+          <p>{{$t('homelang9')}}</p>
+        </div>
       </div>
     </div>
     
     <div class="c-box2">
       <div class="b2-top">
-        <samp class="top1">Investment Pools</samp>
+        <samp class="top1">{{$t('homelang10')}}</samp>
         <div class="filter">
           <i></i>
-          <input placeholder="Filter by token">
+          <input :placeholder="$t('homelang11')" v-model="sortName" @input="filterToken">
         </div>
         <!-- <template slot-scope="scope">
               <div>
@@ -60,14 +71,14 @@ liquidity, USDT trading pairs can be created.</div>
 
       <div class="table">
         <el-table
-v-if="mobile"
-:data="pairList"
-header-cell-class-name="adddd"
-header-row-class-name="tabe_tr"
-                  :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
-cell-class-name="dddsadsa"
-style="width: 100%">
-          <el-table-column prop="full_name" :label="$t('home.Name')" width="110px">
+          v-if="mobile"
+          :data="pairList"
+          header-cell-class-name="adddd"
+          header-row-class-name="tabe_tr"
+          :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
+          cell-class-name="dddsadsa"
+          style="width: 100%">
+          <el-table-column prop="full_name" width="110px" :render-header="renderHeader">
             <template slot-scope="scope">
               <div class="reqimg">
                 <span class="logos">
@@ -77,15 +88,15 @@ style="width: 100%">
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="full_name" :label="$t('home.Name')">
+          <el-table-column prop="full_name" :label="$t('homelang12')">
             <template slot-scope="scope">
               <div class="reqimg block">
-                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50%</i></span>
-                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50%</i></span>
+                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>{{scope.row.trade_token_weight*100}}%</i></span>
+                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>{{scope.row.base_token_weight*100}}%</i></span>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="trade_token_liquidity" :label="$t('home.Assets')" width="180px">
+          <el-table-column prop="trade_token_liquidity" :label="$t('homelang13')" width="180px">
             <template slot-scope="scope">
               <div class="liquiditybox">
                 {{scope.row.trade_token_liquidity| setAssets  }}
@@ -97,7 +108,7 @@ style="width: 100%">
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="pair_quantity" :label="$t('home.Liquidity')">
+          <el-table-column prop="pair_quantity" :label="$t('homelang14')">
             <template slot-scope="scope">
               <div>
                 {{scope.row.pair_quantity | setAssets }}
@@ -137,11 +148,10 @@ style="width: 100%">
                   <!-- <el-button size="mini" round>{{$t('homeb2')}}</el-button> -->
                 </router-link>
                 <router-link :to="{ path: '/exchange', query: { pairAddress:scope.row.contract_address }}">
-                  <p class="homeb1"> <span> {{$t('nav.nav2')}}</span> </p>
+                  <p class="homeb1"> <span> {{$t('homelang15')}}</span> </p>
                   <!-- <el-button size="mini" round></el-button> -->
                 </router-link>
               </div>
-              
             </template>
             <span></span>
           </el-table-column>
@@ -154,7 +164,7 @@ header-row-class-name="tabe_tr"
                   :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
 cell-class-name="dddsadsa"
 style="width: 1400px">
-          <el-table-column prop="full_name" :label="$t('home.Name')" width="80px">
+          <el-table-column prop="full_name" width="80px" :render-header="renderHeader">
             <template slot-scope="scope">
               <div class="reqimg">
                 <span class="logos">
@@ -164,15 +174,15 @@ style="width: 1400px">
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="full_name" :label="$t('home.Name')" width="160px">
+          <el-table-column prop="full_name" :label="$t('homelang12')" width="160px">
             <template slot-scope="scope">
               <div class="reqimg block">
-                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>50%</i></span>
-                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>50%</i></span>
+                <span>{{scope.row.trade_token_name.toLocaleUpperCase()}}<i>{{scope.row.trade_token_weight*100}}%</i></span>
+                  <span>{{scope.row.base_token_name.toLocaleUpperCase()}}<i>{{scope.row.base_token_weight*100}}%</i></span>
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="trade_token_liquidity" :label="$t('home.Assets')" width="180px">
+          <el-table-column prop="trade_token_liquidity" :label="$t('homelang13')" width="180px">
             <template slot-scope="scope">
               <div class="liquiditybox">
                 {{scope.row.trade_token_liquidity| setAssets  }}
@@ -184,7 +194,7 @@ style="width: 1400px">
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="pair_quantity" :label="$t('home.Liquidity')" width="120px">
+          <el-table-column prop="pair_quantity" :label="$t('homelang14')" width="120px">
             <template slot-scope="scope">
               <div>
                 {{scope.row.pair_quantity | setAssets }}
@@ -224,11 +234,10 @@ style="width: 1400px">
                   <!-- <el-button size="mini" round>{{$t('homeb2')}}</el-button> -->
                 </router-link>
                 <router-link :to="{ path: '/exchange', query: { pairAddress:scope.row.contract_address }}">
-                  <p class="homeb1"> <span> {{$t('nav.nav2')}}</span> </p>
+                  <p class="homeb1"> <span> {{$t('homelang15')}}</span> </p>
                   <!-- <el-button size="mini" round></el-button> -->
                 </router-link>
               </div>
-              
             </template>
             <span></span>
           </el-table-column>
@@ -272,13 +281,26 @@ export default {
   data() {
     return {
       pairList: [],
-      mobile: IsPc()
+      mobile: IsPc(),
+      sortName: ''
     }
   },
   mounted() {
     this.getVolPrice24()
   },
   methods: {
+    renderHeader (h,{column}) { // h即为cerateElement的简写，具体可看vue官方文档
+      return h(
+        'div',
+        [ 
+          h('span', column.label),
+          h('div', {
+            class:'tableicon',
+            style:''
+          })
+        ],
+      );
+    },
     async init() {
       // const that = this
       // const pairList = []
@@ -323,6 +345,16 @@ export default {
         //   })
         // })
       }
+    },
+    filterToken() {
+      let that = this
+      if (this.sortName == '') {
+        this.getVolPrice24()
+        return
+      }
+      this.pairList = this.pairList.filter(item => {
+        return item.full_name.indexOf(that.sortName) !== -1
+      })
     }
   },
   filters: {
@@ -370,6 +402,11 @@ export default {
     margin-left: 0;
     font-size: 0.3rem !important;
   }
+  .tableicon{
+    width:32px;
+    height:32px;
+background:url(../../assets/img/img_huan.png) no-repeat center;background-size:32px 32px;
+  }
   .el-table{
   color:#fff;
 }
@@ -388,49 +425,64 @@ export default {
 </style>
 <style  lang="scss" scoped>
 .homeTop{
-  display:flex;
-  justify-content: center;
   padding-bottom:64px;
+  padding-top:80px;
   .homeleft{
     width:670px;
-    margin-right:87px;
     padding-top:20px;
+    margin:0 auto;
     h2{
-      font-size:48px;
+      font-size:38px;
       color:#FFFFFF;
       line-height:57px;
       font-weight: bold;
       padding-bottom:16px;
+      text-align:center;
     }
     p{
-      font-size:20px;
+      font-size:18px;
       color:#FFFFFF;
       line-height:28px;
       padding-bottom:24px;
+      text-align:center;
     }
     .lauchbtn{
       display:block;
       width:256px;
-      height:56px;
+      height:48px;
       background:#C80202;
-      line-height:56px;
+      line-height:48px;
       text-align:center;
       border-radius:28px;
       font-size:20px;
       color:#fff;
+      margin:0 auto;
     }
   }
   .homeright{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-top:56px;
     .infobox{
-      padding:28px;
-      box-sizing: border-box;
-      width:440px;
-      background:#142028;
-      border-radius:16px;
-      font-size:20px;
-      line-height:28px;
-      color:#fff;
-      margin-bottom:24px;
+      margin:0 50px;
+      img{
+        width:32px;
+        height:32px;
+      }
+      h3{
+        font-size:18px;
+        color:#fff;
+        line-height:21px;
+        padding-top:12px;
+      }
+      p{
+        font-size:14px;
+        color:#fff;
+        line-height:18px;
+        padding-top:12px;
+        width:300px;
+      }
     }
   }
 }
@@ -449,25 +501,25 @@ export default {
   line-height:28px;
   font-size:16px;
   color:#fff;
-  text-align:center;
+  text-align:left;
   border-radius:4px;
   margin-bottom:4px;
 }
 .reqimg {
   display: flex;
   align-items: center;
+  width:100%;
   &.block{
     display:block;
     span{
       display:block;
       float:none;
-      width:96px;
       height:28px;
       border-radius:4px;
       font-size:16px;
       color:#fff;
       line-height:28px;
-      text-align:center;
+      text-align:left;
       margin-bottom:4px;
       i{
         color:#878B97;
@@ -480,24 +532,27 @@ export default {
     float: left;
     position: relative;
     &.logos{
-      width: 40px;
       height: 25px;
     }
   }
+  .logos{
+    display:flex;
+  }
   img {
-    position: absolute;
-    left: 12px;
-    top: 0;
+    // position: absolute;
+    // left: 12px;
+    // top: 0;
     width: 25px;
     height: 25px;
   }
 
-  img:nth-child(2) {
-    transform: translateX(-12px);
-  }
+  // img:nth-child(2) {
+  //   transform: translateX(-12px);
+  // }
 }
 .container {
   padding-top: 70px;
+  padding-bottom:100px;
 }
 .t-img {
   width: 22px;
@@ -615,7 +670,7 @@ margin-right:8px;
   border-radius: 16px;
   overflow: hidden;
   background: #142028;
-
+  box-shadow: 0px 2px 16px 0px rgba(113,137,153,1);
   .b2-top {
     height: 80px;
     display:flex;
@@ -652,7 +707,7 @@ margin-right:8px;
     }
     .top1 {
       margin-left: 30px;
-      font-size: 28px;
+      font-size: 24px;
       font-family: roboto-mediumitalice;
       font-weight: 500;
       color: #FFFFFF;
@@ -770,12 +825,18 @@ margin-right:8px;
       }
     }
     .homeright{
+      display:block;
+      padding-top:0;
+      padding-bottom:30px;
       .infobox{
         width:100%;
-        padding:20px;
-        font-size:15px;
-        line-height:22px;
-        margin-bottom:18px;
+        padding:20px 0;
+        text-align:center;
+        margin:0;
+        p{
+          text-align:left;
+          width:100%;
+        }
       }
     }
   }

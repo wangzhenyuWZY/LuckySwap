@@ -4,7 +4,7 @@ module.exports = {
     home1: 'Home',
     Exchange: 'Exchange',
     Pool: 'Pool',
-    FoxDex: 'Abelo',
+    FoxDex: 'Shero',
     WTRX: 'WTRX',
     Stake: 'Stake',
     CWet: 'Connect to a wallet',
@@ -22,14 +22,14 @@ module.exports = {
     Name: 'Name',
     Assets: 'Assets',
     Liquidity: 'Liquidity',
-    Volume: 'Volume(24hrs)',
+    Volume: 'Volume(24h)',
     price: 'price',
-    Change: 'Price Change(24hrs)'
+    Change: 'Price Change(24h)'
   },
   Exc: {
     plsec: 'Please select transac tion pair',
     Vpcs: 'View pair analytics',
-    Liyee: 'Liquidity Provider Fee',
+    Liyee: 'Swap fee ',
     Pre: 'Price Impacte',
     Mrd: 'Minimum received',
     Mandate: 'Mandate',
@@ -52,7 +52,7 @@ module.exports = {
     cpe1: 'The difference between the',
     cpe2: 'market price and estimated',
     cpe3: 'price due to trade size.',
-    lpf: 'Liquidity Provider Fee',
+    lpf: 'Swap fee',
     lpf1: 'A protion of each trade(0.3%)',
     lpf2: 'goes to liquidity providers as a',
     lpf3: 'protocal incentive.',
@@ -74,7 +74,7 @@ module.exports = {
     Remove: 'Remove',
     to: 'TO',
     Lpr: 'Liquidity provider rewards',
-    Lpr2: 'Liquidity providers can obtain fee income from the liquidity pools they participate in;The fee income is ’ distributed according to the proportion of liquidity providers liquidity funds The allocated fees are added to the corresponding pool in real time, and the liquidity provider can withdraw as required',
+    Lpr2: 'Tip: When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.',
     Yly: 'Your liquidity',
     cj1: 'Create a pair',
     al: 'Add Liquidity',
@@ -113,7 +113,7 @@ module.exports = {
     titn: 'TRX is the native asset of TRON, and WTRX is a TRC20 Token with the equivalent value to TRX.',
     titn1: 'Deposit TRX to mint an equivalent amount of WTRX, and burn WTRX to get an equivalent amount of TRX.',
     CWetTRC20: 'Can WTRX exchange to other TRC20 Tokens?',
-    wtitn: 'WTRX is a TRC20 Token, you can swap to any other TRC20 Tokens on Abelo.',
+    wtitn: 'WTRX is a TRC20 Token, you can swap to any other TRC20 Tokens on Shero.',
     petao: 'Please enter the amout of WTRX',
     petao1: 'Please enter the amout of TRX'
 
@@ -125,10 +125,10 @@ module.exports = {
 
     Total: 'To obtain the total',
 
-    sfox: 'To stake Abelo_LP tokens, acquire',
-    stfe: 'Total Abelo Earned',
-    syuf: 'Your Unstaked Abelo_LP',
-    sysfl: 'Your Staked Abelo_LP',
+    sfox: 'To stake Shero_LP tokens, acquire',
+    stfe: 'Total Shero Earned',
+    syuf: 'Your Unstaked Shero_LP',
+    sysfl: 'Your Staked Shero_LP',
 
     RLty: 'Eliminate liquidity page',
     Account: 'Account',
@@ -188,8 +188,8 @@ module.exports = {
     foxp7: 'You can also customize the distribution ratio of the pool fee income',
     foxp8: 'please click "Confirm" when you have confirmedthe above proportion.',
 
-    fb1: 'What is Abelo.Finance?',
-    fb2: 'Abelo.finance is a DEX protocol to exchange TRC-20 tokens on TRON. It requires no trusted intermediaries or unnecessary forms of commission, thus enabling fast and efficient transactions. Advantages include decentralization, censorship resistance and safety. DEX is anopen source software under GPL.',
+    fb1: 'What is Shero.Finance?',
+    fb2: 'Shero.finance is a DEX protocol to exchange TRC-20 tokens on TRON. It requires no trusted intermediaries or unnecessary forms of commission, thus enabling fast and efficient transactions. Advantages include decentralization, censorship resistance and safety. DEX is anopen source software under GPL.',
 
     fc1: 'Features',
     fc2: '● Users can add liquidity for a single token, which lowers the threshold of experiencing DEX while minimizes the impermanent loss.',
@@ -198,12 +198,12 @@ module.exports = {
     fd1: '● USDT trading pairs can be created',
     fd2: '● Protocol fee will be used in full to repurchase and burn, as well as add liquidity for the platform token.',
     fd3: '● All trading pairs that meet certain conditions will be incentivized.',
-    fdd: 'What is Abelo？',
-    fd4: 'Abelo is the protocol token that empowers the token economy for the DEX platform. In addition, it is also the governance token for voting on proposals.Protocol fee will be used in full to repurchase and burn, as well as add liquidity for Abelo. This will be open to users who meet certain conditions, enabling a transparent system.',
-    fd5: '● The total supply of Abelo is 31 million. A new block is generated about every 3 seconds and 3 Bees are registered in one block. Thus 86,400 Bees are issued per day and will be reduced by 2% every week.',
-    fd6: '● Abelo will be used to incentivize trading pairs that meet certain conditions on the DEX.',
+    fdd: 'What is Shero？',
+    fd4: 'Shero is the protocol token that empowers the token economy for the DEX platform. In addition, it is also the governance token for voting on proposals.Protocol fee will be used in full to repurchase and burn, as well as add liquidity for Shero. This will be open to users who meet certain conditions, enabling a transparent system.',
+    fd5: '● The total supply of Shero is 31 million. A new block is generated about every 3 seconds and 3 Bees are registered in one block. Thus 86,400 Bees are issued per day and will be reduced by 2% every week.',
+    fd6: '● Shero will be used to incentivize trading pairs that meet certain conditions on the DEX.',
 
-    fe1: '2.1 Abelo Security',
+    fe1: '2.1 Shero Security',
     fe2: 'Security lies in two aspects. The first is the smart contract security of the DEX and the other is to ensure that the team will always do the right thing.',
     fe3: '2.1.1 The security of the smart contract',
     fe4: 'It has been audited by KnownSec. ',
@@ -211,10 +211,10 @@ module.exports = {
     ff1: '2.1.2 How to prevent the team from being evil',
     ff2: 'The great significance of smart contracts is to ensure that no one will be evil during the cooperation of two or more parties. And never test humanity by money. ',
     ff3: '● In the DEX contract, users will be responsible for their own assets. The contract only provides functions such as trading, liquidity creation, liquidity addition and withdrawal, and the contract does not have the right to use or manage users’ assets.',
-    ff4: '● No one has the right to withdraw assets from the fee address, and it only provides the operation interface to repurchase and burn,as well as add liquidity for Abelo. Users who meet certain conditions can execute it. '
+    ff4: '● No one has the right to withdraw assets from the fee address, and it only provides the operation interface to repurchase and burn,as well as add liquidity for Shero. Users who meet certain conditions can execute it. '
 
   },
-  FoxDex: 'Abelo',
+  FoxDex: 'SheroSwap',
   Creatorfee: 'Creator fee',
   Supply: 'Supply',
   confirm: 'Confirm',
@@ -248,7 +248,7 @@ module.exports = {
   dex3: 'Circulationg supply',
   dex4: 'Uncirculated supply',
   dex5: 'Repurchase for liquidity',
-  dex6: 'Abelo added',
+  dex6: 'Shero added',
   dex7: 'USDT added',
   dex8: 'Repurchase',
   dex9: 'Burn',
@@ -256,6 +256,27 @@ module.exports = {
   unstb2: 'CLAIM REWARDS',
   homeb1: 'Exchange',
   homeb2: 'AddLiquidity',
-  operation: 'Operation'
+  operation: 'Operation',
+  homelang1: 'Programmable Liquidity',
+  homelang2: 'Swap TRC-USDT on SheroSwap',
+  homelang3: 'Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi.',
+  homelang4: 'Define Weights and Fee',
+  homelang5: 'Liquidity creator can define token weights & swap fees.',
+  homelang6: 'Support USDT Swap',
+  homelang7: 'SheroSwap supports the addition of USDT liquidity, USDT trading pairs can be created.',
+  homelang8: 'Add Single Token',
+  homelang9: 'Users can add liquidity for a single token, which lowers the threshold of experiencing DEX.',
+  homelang10: 'Investment Pools',
+  homelang11: 'Filter by token',
+  homelang12: 'Composition',
+  homelang13: 'Pooled Tokens',
+  homelang14: 'Liquidity',
+  homelang15: 'Trade',
+  homelang16: 'Launch app',
+  homelang17: 'You will be the first liquidity provider of this pool,and your added token proportion will determine the initial price,You can also customize the distribution ratio of the pool fee incomeplease click "Confirm" when you have confirmed the above proportion.',
+  homelang18: 'percent',
+  homelang19: 'Lquidity Provider',
+  homelang20: '',
+  homelang21: ''
 
 }

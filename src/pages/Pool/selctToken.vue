@@ -14,7 +14,7 @@
 
       <div class="search__box">
         <el-input class="search__input" style="width:80%;padding-left:20px;" v-model="newTokenAddress" :placeholder="$t('snop')"></el-input>
-        <i class="el-icon-plus tran_icon" style="font-size: 30px;padding-left: 20px;position: relative;top: 3px;" @click="checkToken"></i>
+        <i class="el-icon-plus tran_icon" style="color:#C80202;font-size: 30px;padding-left: 20px;position: relative;top: 3px;" @click="checkToken"></i>
       </div>
       <div class="select_size select__bases" hidden>
         <span> {{$t('pool.Cos')}} </span>

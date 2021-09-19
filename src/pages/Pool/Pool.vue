@@ -9,7 +9,7 @@
         <!-- <willRecevive/> -->
               <!-- <liquidity/> -->
     <!-- <vAlret/> -->
-    <p class="swapinfo">SheroSwap is a protocol for programmable liquidity and support usdt trading pairs on TRON</p>
+    <!-- <p class="swapinfo">Programmable Liquidity<br>Swap TRC-USDT on SheroSwap</p> -->
       <router-view></router-view>
     <!-- <liquidity/> -->
     <!-- <Pool1/> -->

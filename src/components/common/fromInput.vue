@@ -107,12 +107,13 @@ export default {
 <style lang="scss" scoped>
 .from_data {
   .from_lable {
-    font-size: 18px;
+    font-size: 16px;
     font-family: roboto;
     font-weight: 400;
     color: #878B97;
     margin-bottom: 12px;
     padding-left: 16px;
+    white-space: nowrap;
   }
   .from_input {
 
@@ -212,7 +213,7 @@ background: #23323C;
   width: 100%;
   border: none;
   border-radius: 16px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #fff;
   flex: 1;

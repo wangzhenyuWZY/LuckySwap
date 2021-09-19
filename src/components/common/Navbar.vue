@@ -1,5 +1,5 @@
 <template>
-  <div :class="dark?'dark':''">
+  <div :class="dark?'dark':''" class="headerPanel">
     <div class="bimg"> </div>
     <div class="nav ">
       <div class="logo"> </div>
@@ -28,7 +28,7 @@ v-for="(idx, index) in tag"
           </div>
         </div>
         <div class="nav_merge" v-show="!moble">
-          <img class="merge_img" src="@/assets/img/icon_nav.svg" @click="drawer = true" alt="">
+          <img class="merge_img" src="@/assets/img/icon_red.png" @click="drawer = true" alt="">
         </div>
         <el-drawer title="我是标题" :visible.sync="drawer" :show-close="false" custom-class="drawer_body" :with-header="false" @click="tolerPop=false">
           <div class="drawer_logo">
@@ -74,6 +74,7 @@ v-for="(idx, index) in tag"
         <div class="lang" @click="hdel">{{this.$i18n.locale=='zh'?'简体中文':'English'}}<i></i></div>
         <i class="setting" @click="tolerPop=!tolerPop"></i>
         <div class="setPanel" v-show="tolerPop">
+          <i class="closeico" @click="tolerPop = false"></i>
           <h2> {{$t('Tnos')}}</h2>
           <p class="totletitle"> {{$t('Sete')}} <i></i></p>
           <input class="changeToler" @input="changeToler(toler)" v-model="toler">
@@ -81,7 +82,7 @@ v-for="(idx, index) in tag"
             <span @click="changeToler(0.01);num=1" :class="num==1?'active':''">1%</span>
             <span @click="changeToler(0.05);num=2" :class="num==2?'active':''">5%</span>
             <span @click="changeToler(0.1);num=3" :class="num==3?'active':''">10%</span>
-            <span @click="changeToler(0.3);num=4" :class="num==4?'active':''">30%</span>
+            <span class="default">{{$store.state.tolerance}}</span>
           </div>
         </div>
       </div>
@@ -98,11 +99,11 @@ export default {
     return {
       defaultAddress:'',
       tolerPop: false,
-      num: 0,
+      num: 2,
       key: '31',
       navIndex: 0,
       drawer: false,
-      toler: '',
+      toler: this.$store.state.tolerance,
       childrenNode: [
         85, 118, 71, 84, 87, 80],
       childrenNode1: [
@@ -243,20 +244,21 @@ export default {
 
   methods: {
     open2() {
-      window.open('https://twitter.com/AbeloFinance')
+      window.open('https://twitter.com/SheroEco')
     },
     open3() {
-      window.open('https://t.me/AbeloFinance')
+      window.open('https://t.me/SheroEcoGroup')
     },
     open4() {
-      window.open('https://discord.gg/tSD6cjXJqw')
+      // window.open('https://discord.gg/tSD6cjXJqw')
     },
     open5() {
-      window.open('https://medium.com/@AbeloFinance')
+      // window.open('https://medium.com/@AbeloFinance')
     },
 
     changeToler(num) {
       this.$store.commit('changeTolerance', num)
+      this.toler = num
     },
     btnClick() {
       this.$popup({
@@ -327,6 +329,9 @@ export default {
 }
 </script>
 <style >
+.headerPanel{
+  
+}
 .van_list{
   display:flex;
   justify-content: space-between;
@@ -363,6 +368,17 @@ export default {
   right: 48px;
   top: 80px;
   z-index: 9999;
+  box-shadow: 0px 2px 16px 0px rgba(113,137,153,1);
+  .closeico{
+    width:24px;
+    height:24px;
+    background:url(../../assets/img/icon_guanbi.png) no-repeat center;
+    background-size:100% 100%;
+    position:absolute;
+    top:10px;
+    right:10px;
+    cursor: pointer;
+  }
 }
 .setPanel h2 {
   font-size: 18px;
@@ -374,7 +390,6 @@ export default {
   font-size: 16px;
   color: #fff;
   line-height: 100%;
-  padding-bottom: 11px;
 }
 .setPanel .totletitle i {
   display: inline-block;
@@ -388,6 +403,7 @@ export default {
 .setPanel .tolerTab {
   overflow: hidden;
 }
+
 .setPanel .tolerTab span {
   float: left;
   width: 72px;
@@ -401,11 +417,16 @@ export default {
   margin-left: 12px;
   cursor: pointer;
 }
+.setPanel .tolerTab .default{
+  background:none;
+  border:1px solid #C80202;
+  color:#C80202;
+}
 .setPanel .tolerTab span:first-child {
   margin-left: 0;
 }
 .setPanel .tolerTab span.active {
-  background: #fc6446;
+  background: #C80202;
   color: #ffffff;
 }
 .setting {
@@ -565,7 +586,7 @@ export default {
 .nav-header {
   color: #a6aeb7;
   position: relative;
-  // margin-left: 22px;
+  left: -37px;
 }
 .active {
   font-family: roboto-mediumitalic;
@@ -593,8 +614,8 @@ export default {
   transition: transform 0.6s;
 }
 .nav-header span {
-  font-size: 18px;
-  padding: 0 16px;
+  font-size: 16px;
+  padding: 0 10px;
   cursor: pointer;
   color: #fff;
   display:flex;
@@ -650,6 +671,9 @@ export default {
   margin-right: 8px;
 }
 @media screen and (max-width: 750px) {
+  .tolerTab{
+    padding-top: 15px;
+  }
   .nav {
     padding-top: 0px;
     height: auto;
@@ -764,7 +788,7 @@ export default {
   .active {
   }
   .login_wallet {
-    color: #fc6446;
+    color: #C80202;
   }
   .active-bar {
     background: #fc6446;

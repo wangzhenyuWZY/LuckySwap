@@ -274,16 +274,16 @@ export default {
     //    window.open('https://twitter.com/AbeloFinance')
     // },
     open2() {
-      window.open('https://twitter.com/AbeloFinance')
+      // window.open('https://twitter.com/AbeloFinance')
     },
     open3() {
-      window.open('https://t.me/AbeloFinance')
+      // window.open('https://t.me/AbeloFinance')
     },
     open4() {
-      window.open('https://discord.gg/tSD6cjXJqw')
+      // window.open('https://discord.gg/tSD6cjXJqw')
     },
     open5() {
-      window.open('https://medium.com/@AbeloFinance')
+      // window.open('https://medium.com/@AbeloFinance')
     }
     // open6(){
     //    window.open('https://twitter.com/AbeloFinance')

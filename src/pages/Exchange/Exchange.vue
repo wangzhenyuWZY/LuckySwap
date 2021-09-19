@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="tradeBanner">
+    <!-- <div class="tradeBanner">
       <p>Programmable Liquidity </p>
       <p>Swap TRC-USDT on SheroSwap</p>
-    </div>
+    </div> -->
     <div class="exchange ">
       <container top="40" :mobile="isPc">
          
@@ -119,14 +119,14 @@
               <div class="received">
                 <div class="lt">
                   <span>{{$t('Exc.lpf')}}
-                    <el-tooltip placement="right" effect="light">
+                    <!-- <el-tooltip placement="right" effect="light">
                       <div slot="content">
                         {{$t('Exc.lpf1')}}<br>
                         {{$t('Exc.lpf2')}}<br>
                         {{$t('Exc.lpf3')}}<br>
                       </div>
                       <img src="@/assets/img/icon_instructions.svg" alt="">
-                    </el-tooltip>
+                    </el-tooltip> -->
                   </span>
                 </div>
                 <span class="setspan">{{thisswapFee}} {{token1.name}}</span>
@@ -213,7 +213,7 @@ export default {
       tips: '',
       typeUrl: '',
       minAmountOut: 0,
-      tolerance: 0.1,
+      tolerance: this.$store.state.tolerance,
       maxPrice: MAX,
       pairList: [],
       token1spotPrice: 0,
@@ -471,6 +471,11 @@ export default {
         })
         return
       }
+      if (this.token2Num == 0) {
+        this.percentage = 0
+        this.thisswapFee = 0
+        return
+      }
       if (this.token1Balance && this.token1Weight && this.token2Balance && this.token2Weight && this.swapFee && this.token2Num) {
         const token1Num = calcInGivenOut(this.token1Balance, this.token1Weight, this.token2Balance, this.token2Weight, this.token2Num, this.swapFee)
         if (token1Num.toString() == 'NaN') {
@@ -483,6 +488,11 @@ export default {
         this.token1Num = token1Num.toFixed(6)
         const afterPrice = calcOutGivenInAfterPrice(this.token1Balance, this.token1Weight, this.token2Balance, this.token2Weight, this.token1Num, this.swapFee)
         this.floatPrice = afterPrice.toFixed(4)
+        const percentage = (Decimal(afterPrice).minus(this.spotPrice)).div(this.spotPrice).mul(Decimal(100))
+        this.percentage = percentage.toFixed(2)
+        if(this.token2.name == 'USDT'){
+          this.percentage = '-' + this.percentage
+        }
       }
     },
     cumpToken2() { // 计算兑换的token2
@@ -509,6 +519,9 @@ export default {
         // this.maxPrice = Decimal(this.spotPrice).mul(1-this.tolerance).mul(this.token1Num).mul(Math.pow(10,this.token2.decimals)).toFixed(0)
         debugger
         this.percentage = percentage.toFixed(2)
+        if(this.token2.name == 'USDT'){
+          this.percentage = '-' + this.percentage
+        }
         this.floatPrice = afterPrice.toFixed(4)
         this.thisswapFee = (this.token1Num * this.swapFee).toFixed(6)
       }

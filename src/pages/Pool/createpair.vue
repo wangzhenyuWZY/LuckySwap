@@ -35,11 +35,7 @@ src="@/assets/img/icon_instructions.svg"
             <div class="">
               <div class=" pair_ved">
 
-                <p class="pair_size pair_mag "> {{$t('pool.yat')}} </p>
-                <p>{{$t('pool.tro')}}</p>
-                <p>{{$t('pool.tro1')}}</p>
-
-                <p>{{$t('pool.tro2')}}</p>
+                <p class="pair_size pair_mag ">{{$t('homelang17')}}</p>
 
               </div>
             </div>
@@ -98,7 +94,7 @@ src="@/assets/img/icon_instructions.svg"
           </div>
           <div class="ctx_4">
             <frominput
-              lable= "percent"
+              :lable= "$t('homelang18')"
               disabled="true"
                        v-model="secondTokenWeightRadio"></frominput>
           </div>
@@ -142,7 +138,7 @@ src="@/assets/img/icon_slect.png"
             </div>
             <div class="ctx_3 fl_lt ">
               <frominput
-              lable="LP"
+              :lable="$t('homelang19')"
               placeholder="Please Enter"
               v-model="lp">
               </frominput>
@@ -259,7 +255,7 @@ export default {
     valert
   },
   computed: {
-    ...mapState(['tokenData'])
+    ...mapState(['tokenData', 'pairData'])
   },
   watch: {
     tokenData(list) {
@@ -270,10 +266,10 @@ export default {
           return res.name.toUpperCase() == 'USDT'
         })
         if (token && token.length > 0) {
-          this.token1 = token[0]
+          this.token2 = token[0]
           this.token1.item = 0
           this.$initTronWeb().then(function(tronWeb) {
-            that.changeCoin(that.token1)
+            that.changeCoin(that.token2)
           })
         }
       }
@@ -288,10 +284,10 @@ export default {
         return res.name.toUpperCase() == 'USDT'
       })
       if (token && token.length > 0) {
-        this.token1 = token[0]
+        this.token2 = token[0]
         this.token1.item = 0
         this.$initTronWeb().then(function(tronWeb) {
-          that.changeCoin(that.token1)
+          that.changeCoin(that.token2)
         })
       }
     }
@@ -324,6 +320,22 @@ export default {
       } else if ((parseFloat(this.firstTokenWeight) + parseFloat(this.secondTokenWeight)) > 50) {
         this.$message({
           message: this.$t('pewe5'),
+          type: 'error'
+        })
+        return
+      }
+      let hasPair = false
+      this.pairData.forEach(item => {
+        if (
+          (item.token1.address == this.token1.address && item.token2.address == this.token2.address)
+          ||(item.token2.address == this.token1.address && item.token1.address == this.token2.address)
+        ) {
+          hasPair = true
+        }
+      })
+      if (hasPair) {
+        this.$message({
+          message: 'Trading pair already exists',
           type: 'error'
         })
         return
@@ -368,7 +380,7 @@ export default {
         message: this.$t('pewe6'),
         type: 'success'
       })
-      try {
+      // try {
         if (this.BFactoryContract) {
           const res = await that.BFactoryContract['newBPool']().send({
             feeLimit: 1000000000,
@@ -391,14 +403,14 @@ export default {
             })
           }
         }
-      } catch (error) {
-        that.loading1()
-        this.$message({
-          message: this.$t('pewe7'),
-          type: 'error'
-        })
-        console.log(error)
-      }
+      // } catch (error) {
+      //   that.loading1()
+      //   this.$message({
+      //     message: this.$t('pewe7'),
+      //     type: 'error'
+      //   })
+      //   console.log(error)
+      // }
     },
     async setSwapLpFee() { // 设置LP
       const that = this
@@ -554,6 +566,9 @@ export default {
   background:#C80202;
   color:#fff;
 }
+.box_sizes{
+  background: #C80202;
+}
 .createpair {
 
   padding-top: 50px;
@@ -602,11 +617,12 @@ export default {
   }
   .pair_ved {
     text-align: center;
-    padding: 18px 0;
+    padding: 12px;
     p {
-      height: 20px;
       font-size: 14px;
-      color: #fff;
+      color: #F1C5C5;
+      text-align:left;
+      line-height:21px;
     }
     .pair_title {
       font-size: 20px;
@@ -953,7 +969,7 @@ export default {
       font-size: 0.37rem !important;
     }
     .ctx_1 {
-      width: 43%;
+      width: 32%;
       input{
         font-size:12px;
       }
@@ -999,7 +1015,6 @@ export default {
         font-size: 0.35rem;
       }
       p {
-        height: 0.7rem;
         font-size: 0.35rem;
       }
     }

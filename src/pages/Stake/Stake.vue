@@ -32,7 +32,7 @@
             </div>
             <div class="mrg">
               <span class="lt_addres">{{ $t("Stake.Earn") }}:</span>
-              <span class="rg_addres">ABELO</span>
+              <span class="rg_addres">Shero</span>
             </div>
           </div>
           <div class="stake_btn" @click="showModels(idx)">

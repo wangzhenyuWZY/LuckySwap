@@ -4,8 +4,8 @@
       <div class="wtrx-box">
         <div class="wtrx-box1">
           <div class="wtrx-left">
-            <samp class="trx">TRX <img class="wtrx_img" src="@/assets/img/icon_arrow_right.svg" alt=""> WTRX</samp>
-            <div class="trx-a"> <samp class="trx-a1">TRX{{$t('Exc.Balance')}} :</samp><samp class="trx-a2"> {{trxBalance}}</samp> </div>
+            <samp class="trx">TRX <img class="wtrx_img" src="@/assets/img/icon_arrow_right.png" alt=""> WTRX</samp>
+            <div class="trx-a"> <samp class="trx-a1">TRX {{$t('Exc.Balance')}} :</samp><samp class="trx-a2"> {{trxBalance}}</samp> </div>
             <input
               type="number"
               v-model="trxNum"
@@ -17,7 +17,7 @@
             </div>
           </div>
           <div class="wtrx-right">
-            <samp class="wtrx1">WTRX <img class="wtrx_img" src="@/assets/img/icon_arrow_right.svg" alt=""> TRX</samp>
+            <samp class="wtrx1">WTRX <img class="wtrx_img" src="@/assets/img/icon_arrow_right.png" alt=""> TRX</samp>
             <div class="wtrx-a"> <samp class="wtrx-a1">WTRX {{$t('Exc.Balance')}} :</samp><samp class="wtrx-a2">{{wtrxBalance}}</samp> </div>
             <input
 type="number"
@@ -32,10 +32,12 @@ onKeypress="return (/[\d,.]/.test(String.fromCharCode(event.keyCode)))"
         </div>
 
         <div class="wtrx-bottom">
+          <img src="../../assets/img/boc.png">
           <p>{{$t('wtrx.Whatis')}} WTRX?</p>
           <p>{{$t('wtrx.titn')}}
             <br> {{$t('wtrx.titn1')}}
           </p>
+          <img src="../../assets/img/trans.png">
           <p>{{$t('wtrx.CWetTRC20')}}</p>
           <p>{{$t('wtrx.wtitn')}}</p>
         </div>
@@ -267,6 +269,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+  overflow-y:scroll;
+}
 .wtrx {
   color: #fff;
 }
@@ -277,8 +282,6 @@ export default {
 .wtrx-box {
   height: 800px;
   /* background: #cccc; */
-  padding-top: 120px;
-
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -449,41 +452,43 @@ export default {
 
 .wtrx-bottom {
   width: 860px;
-  height: 300px;
+  padding-bottom:200px;
+  padding-top:40px;
 }
-.wtrx-bottom p:nth-child(1) {
+.wtrx-bottom img{
+  width:32px;
+  margin-top:1rem;
+  margin-left:0.5rem;
+}
+.wtrx-bottom p:nth-child(2) {
   font-family: roboto-mediumitalic;
   font-weight: 400;
   font-size: 18px;
-  margin-top: 42px;
-  text-align: center;
+  margin-top: 15px;
   line-height: 21px;
   color: #fff;
 }
-.wtrx-bottom p:nth-child(2) {
+.wtrx-bottom p:nth-child(3) {
   font-family: roboto;
   font-weight: 400;
   margin-top: 8px;
   font-size: 16px;
-  color: #fff;
-  text-align: center;
+  color: #A2A5AE;
   line-height: 22px;
 }
-.wtrx-bottom p:nth-child(3) {
+.wtrx-bottom p:nth-child(5) {
   font-family: roboto-mediumitalic;
   font-weight: 500;
   margin-top: 20px;
   font-size: 18px;
   color: #fff;
-  text-align: center;
 }
-.wtrx-bottom p:nth-child(4) {
+.wtrx-bottom p:nth-child(6) {
   font-family: roboto;
   font-weight: 400;
   margin-top: 8px;
   font-size: 16px;
-  color: #fff;
-  text-align: center;
+  color: #A2A5AE;
   line-height: 22px;
 }
 .wtrx_img {
@@ -554,15 +559,20 @@ export default {
     .wtrx-bottom {
       width: 100%;
       font-size: 0.4rem;
-      p:nth-child(2),
-      p:nth-child(4) {
+      text-align:left;
+      p:nth-child(2),p:nth-child(5) {
+        padding: 0 0.5rem;
+      }
+      p:nth-child(3),
+      p:nth-child(6) {
         font-size: 0.3rem;
         padding: 0 0.5rem;
       }
-      p:nth-child(4) {
+      p:nth-child(6) {
         padding-bottom: 1rem;
       }
       p {
+        text-align:left;
       }
     }
   }
