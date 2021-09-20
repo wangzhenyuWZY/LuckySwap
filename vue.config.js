@@ -9,7 +9,7 @@ module.exports = {
     proxy: {
         '/api': {
             // target: 'https://www.kakanft.com',
-            target: 'http://54.151.206.77:8085/',
+            target: 'https://www.sheroswap.org/',
             // target: 'http://localhost:9100',
             ws: true,
             changeOrigin: true

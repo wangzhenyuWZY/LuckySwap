@@ -296,7 +296,10 @@ export default {
 
     handelActive(e, index) {
       this.drawer = false
-
+      if(e == '/stake'){
+        window.open("http://54.151.206.77:8089/","_blank");
+        return
+      }
       if (e == '/') {
         this.navIndex = 0
       } else {
