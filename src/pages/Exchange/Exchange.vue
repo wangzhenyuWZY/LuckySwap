@@ -490,6 +490,7 @@ export default {
         this.floatPrice = afterPrice.toFixed(4)
         const percentage = (Decimal(afterPrice).minus(this.spotPrice)).div(this.spotPrice).mul(Decimal(100))
         this.percentage = percentage.toFixed(2)
+        this.thisswapFee = (this.token1Num * this.swapFee).toFixed(6)
         if(this.token2.name == 'USDT'){
           this.percentage = '-' + this.percentage
         }

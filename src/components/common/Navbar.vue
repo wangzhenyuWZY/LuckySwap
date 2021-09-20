@@ -79,9 +79,9 @@ v-for="(idx, index) in tag"
           <p class="totletitle"> {{$t('Sete')}} <i></i></p>
           <input class="changeToler" @input="changeToler(toler)" v-model="toler">
           <div class="tolerTab">
-            <span @click="changeToler(0.01);num=1" :class="num==1?'active':''">1%</span>
-            <span @click="changeToler(0.05);num=2" :class="num==2?'active':''">5%</span>
-            <span @click="changeToler(0.1);num=3" :class="num==3?'active':''">10%</span>
+            <span @click="changeToler(0.001);num=1" :class="num==1?'active':''">0.1%</span>
+            <span @click="changeToler(0.005);num=2" :class="num==2?'active':''">0.5%</span>
+            <span @click="changeToler(0.01);num=3" :class="num==3?'active':''">1%</span>
             <span class="default">{{$store.state.tolerance}}</span>
           </div>
         </div>
