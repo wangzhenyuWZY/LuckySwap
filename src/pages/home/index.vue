@@ -386,6 +386,8 @@ export default {
 }
 </script>
 <style scope>
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell,.el-table th.el-table__cell{background:#142028 !important;}
+.el-table th.el-table__cell{background:#23323C !important;border:none !important;}
   >>> .cell {
   /* margin-left: 30px; */
 }

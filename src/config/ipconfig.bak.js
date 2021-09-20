@@ -4,18 +4,18 @@
 let ipConfig = {}
 if (process.env.NODE_ENV === 'development') {
   ipConfig = {
-    wtrxAddress: 'TYGiBFqvqkxaqn8JUQ6t6vv1pNZWdNnGjP',
-    BFactory: 'THjUTBrVo1VCbpitzQuzCbfwAK42pETeKf',
+    wtrxAddress: 'TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR',
+    BFactory: 'TEtHLYooGrS1ZYKxrcctuqJW3Cj2Pt9BMh',
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
-    FactoryManager: 'TLHVtyyMwoiDjQQgEPvyXnRqSTVQ5E9wqS',
+    FactoryManager: 'TCiPisZVGYeSuir6z3ioUMLHwzemn7EEAQ',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k'
   }
 } else {
   ipConfig = {
-    wtrxAddress: 'TYGiBFqvqkxaqn8JUQ6t6vv1pNZWdNnGjP',
-    BFactory: 'THjUTBrVo1VCbpitzQuzCbfwAK42pETeKf',
+    wtrxAddress: 'TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR',
+    BFactory: 'TEtHLYooGrS1ZYKxrcctuqJW3Cj2Pt9BMh',
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
-    FactoryManager: 'TLHVtyyMwoiDjQQgEPvyXnRqSTVQ5E9wqS',
+    FactoryManager: 'TCiPisZVGYeSuir6z3ioUMLHwzemn7EEAQ',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k'
   }
 }
