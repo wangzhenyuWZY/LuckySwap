@@ -28,7 +28,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
  line-height: 1;
- background:#0A1217;
+ background:url(../assets/img/dexbg.jpg) no-repeat center;
+ background-size:cover;
 }
 ol, ul {
  list-style: none;
@@ -253,7 +254,8 @@ img{
         }
     }
   body{
-      background:#0A1217;
+      background:url(../assets/img/dexbgh5.jpg) no-repeat center;
+      background-size:cover;
   }
     html,body{
         height: 100%;

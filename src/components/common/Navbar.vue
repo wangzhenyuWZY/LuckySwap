@@ -142,12 +142,12 @@ export default {
           img: require('../../assets/img/icon_staking.png')
         },
         {
-          path: '/',
+          path: '/nft',
           name: this.$t('nav.nav4'),
           img: require('../../assets/img/icon_nft.png')
         },
         {
-          path: '/',
+          path: '/ido',
           name: this.$t('nav.nav5'),
           img: require('../../assets/img/icon_ido.png')
         }
@@ -203,12 +203,12 @@ export default {
             img: require('../../assets/img/icon_staking.png')
           },
           {
-            path: '/',
+            path: '/nft',
             name: this.$t('nav.nav4'),
             img: require('../../assets/img/icon_nft.png')
           },
           {
-            path: '/',
+            path: '/ido',
             name: this.$t('nav.nav5'),
             img: require('../../assets/img/icon_ido.png')
           }
@@ -297,7 +297,11 @@ export default {
     handelActive(e, index) {
       this.drawer = false
       if(e == '/stake'){
-        window.open("http://54.151.206.77:8089/","_blank");
+        window.open("https://www.sheroswap.org/","_blank");
+        return
+      }
+      if(e == '/nft' || e=='/ido'){
+        this.$message.success('Comming Soon!')
         return
       }
       if (e == '/') {
