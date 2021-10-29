@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
  line-height: 1;
- background:url(../assets/img/dexbg.jpg) no-repeat center;
+ background:url(../assets/img/dexbg.png) no-repeat center;
  background-size:cover;
 }
 ol, ul {
@@ -76,7 +76,7 @@ img{
     border-radius: 32px;
     height: 56px;
     text-align: center;
-    background: #C80202;
+    background: #EB831D;
     margin:0 auto;
     padding: 0;
     font-size: 18px;
@@ -98,7 +98,7 @@ img{
     background:none;
 }
 .pool-butt2 .el-button:focus,.pool-butt2 .el-button:hover{
-    background:#C80202;
+    background:#EB831D;
     color:#FFFFFF;
 }
 .black_botton{
@@ -154,7 +154,7 @@ img{
 .fff_button{
     padding: 0 12px;
     color: #fff;
-    background: #C80202;
+    background: #EB831D;
 }
 .fl_lt{
     float: left;
@@ -233,13 +233,13 @@ img{
     overflow: hidden;
 }
 .el-dialog,.el-dialog, .el-pager li{
-    background:#142028;
+    background:#10090D;
 }
 .el-dialog__header{
     color:#fff;
 }
 .el-table--enable-row-hover .el-table__body tr:hover>td{
-    background:#142028;
+    background:#10090D;
 }
 .el-table td, .el-table th.is-leaf{
     border:none;
@@ -254,7 +254,7 @@ img{
         }
     }
   body{
-      background:url(../assets/img/dexbgh5.jpg) no-repeat center;
+      background:url(../assets/img/dexbg.png) no-repeat center;
       background-size:cover;
   }
     html,body{

@@ -7,13 +7,13 @@ module.exports = {
   publicPath: './',
   devServer: {
     proxy: {
-        '/api': {
-            // target: 'https://www.kakanft.com',
-            target: 'https://www.sheroswap.org/',
-            // target: 'http://localhost:9100',
-            ws: true,
-            changeOrigin: true
-        }
+      '/api': {
+        // target: 'https://www.kakanft.com',
+        target: 'http://8.218.15.165:8011/',
+        // target: 'http://localhost:9100',
+        ws: true,
+        changeOrigin: true
+      }
     }
   },
   css: {

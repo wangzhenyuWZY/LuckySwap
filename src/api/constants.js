@@ -1,8 +1,8 @@
 import axios from 'axios'
 const qs = require('qs')
 const server = {
-  development: 'https://www.sheroswap.org/',
-  production: 'https://www.sheroswap.org/'
+  development: 'http://8.218.15.165:8011/',
+  production: 'http://8.218.15.165:8011/'
 }
 
 const jsonUrl = (json) => {
@@ -19,6 +19,13 @@ export const fet = (url, data, method, postHeaders) => {
   const realUrl = server[process.env.NODE_ENV] + url
   const type = method.toLowerCase()
   let res = {}
+  const onetoken = sessionStorage.getItem('oneToken')
+  if (onetoken && url !== 'api/connection') {
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + onetoken
+  }
+  if (url == 'api/connection') {
+    axios.defaults.headers.common['Authorization'] = ''
+  }
   if (type === 'get') {
     res = axios.get(realUrl + '?' + jsonUrl(data))
       .catch(function(error) {

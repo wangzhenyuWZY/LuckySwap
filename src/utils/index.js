@@ -1,11 +1,12 @@
 import Vue from 'vue'
+import axios from 'axios'
 import { getTokenList, getPairList } from '../api/api'
 // import tokenDataDev from './token'
 // import tokenProdData from './token.prod.js'
 /* eslint-disable */
 export const TokenData = function(){
   return new Promise(function (resolve, reject) {
-    getTokenList().then((res)=>{
+    axios.get('http://8.218.15.165:8083/api/token/getToken').then((res)=>{
       if(res.data.code==0){
         resolve(res.data.data)
       }else{
@@ -16,7 +17,7 @@ export const TokenData = function(){
 }
 export const PairData = function(){
   return new Promise(function (resolve, reject) {
-    getPairList().then((res)=>{
+    axios.get('http://8.218.15.165:8083/api/token/getPair').then((res)=>{
       if(res.data.code==0){
         resolve(res.data.data)
       }else{

@@ -117,7 +117,7 @@ export default {
   padding: 0;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#fff;
 }
 .alert_type {

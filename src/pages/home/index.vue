@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="c-box2">
       <div class="b2-top">
         <samp class="top1">{{$t('homelang10')}}</samp>
@@ -254,6 +254,7 @@ style="width: 1400px">
 </template>
 
 <script>
+import axios from 'axios'
 // import { mapState } from 'vuex'
 import { api } from '../../api/api'
 // import chart from './chart.vue'
@@ -289,17 +290,17 @@ export default {
     this.getVolPrice24()
   },
   methods: {
-    renderHeader (h,{column}) { // h即为cerateElement的简写，具体可看vue官方文档
+    renderHeader(h, { column }) { // h即为cerateElement的简写，具体可看vue官方文档
       return h(
         'div',
-        [ 
+        [
           h('span', column.label),
           h('div', {
-            class:'tableicon',
-            style:''
+            class: 'tableicon',
+            style: ''
           })
-        ],
-      );
+        ]
+      )
     },
     async init() {
       // const that = this
@@ -330,24 +331,16 @@ export default {
       }
       // this.pairList = pairList
     },
-    async getVolPrice24() { // 获取24小时量和价格
-      const res = await api.get24HourTradingVolume()
-      if (res.data.code == 0) {
-        this.pairList = res.data.data
-        // this.pairList.forEach((rsp)=>{
-        //   data.forEach((rsp2)=>{
-        //     if(rsp.pair.toUpperCase() == rsp2.full_name.toUpperCase()){
-        //       rsp.pair_quantity = rsp2.pair_quantity
-        //       rsp.base_quantity_24 = rsp2.base_quantity_24.toFixed(4)
-        //       rsp.trade_price = rsp2.trade_price.toFixed(4)
-        //       rsp.price_change_24 = rsp2.price_change_24.toFixed(4)
-        //     }
-        //   })
-        // })
-      }
+    getVolPrice24() { // 获取24小时量和价格
+      // const res = await api.get24HourTradingVolume()
+      axios.get('http://8.218.15.165:8083/api/trade/getTradingVolume').then((res) => {
+        if (res.data.code == 0) {
+          this.pairList = res.data.data
+        }
+      })
     },
     filterToken() {
-      let that = this
+      const that = this
       if (this.sortName == '') {
         this.getVolPrice24()
         return
@@ -386,7 +379,7 @@ export default {
 }
 </script>
 <style scope>
-.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell,.el-table th.el-table__cell{background:#142028 !important;}
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell,.el-table th.el-table__cell{background:#10090D !important;}
 .el-table th.el-table__cell{background:#23323C !important;border:none !important;}
   >>> .cell {
   /* margin-left: 30px; */
@@ -398,7 +391,7 @@ export default {
 
 >>> .el-table__row {
   height: 72px;
-  background: #142028;
+  background: #10090D;
 }
 >>> .cell {
     margin-left: 0;
@@ -413,16 +406,16 @@ background:url(../../assets/img/img_huan.png) no-repeat center;background-size:3
   color:#fff;
 }
 .el-table, .el-table__expanded-cell,.el-table--enable-row-hover .el-table__body tr:hover>td{
-  background:#142028;
+  background:#10090D;
 }
 .el-table--border::after, .el-table--group::after, .el-table::before{
-  background-color:#142028;
+  background-color:#10090D;
 }
 .el-table tr{
-  background-color:#142028;
+  background-color:#10090D;
 }
 .el-table th{
-  background-color:#23323C;
+  background-color:#10090D;
 }
 </style>
 <style  lang="scss" scoped>
@@ -452,7 +445,7 @@ background:url(../../assets/img/img_huan.png) no-repeat center;background-size:3
       display:block;
       width:256px;
       height:48px;
-      background:#C80202;
+      background:#EB831D;
       line-height:48px;
       text-align:center;
       border-radius:28px;
@@ -566,7 +559,7 @@ background:url(../../assets/img/img_huan.png) no-repeat center;background-size:3
 }
 .homeb1{
    color: #fc6446;
-   border: 1px solid #C80202;
+   border: 1px solid #EB831D;
    border-radius: 4px;
    line-height:37px;
    width:72px;
@@ -576,7 +569,7 @@ background:url(../../assets/img/img_huan.png) no-repeat center;background-size:3
    box-sizing: border-box;
 }
 .homeb2{
-background: #C80202;
+background: #EB831D;
 border-radius: 4px;
 width: 128px;
 font-size:16px;
@@ -671,8 +664,8 @@ margin-right:8px;
   height: 960px;
   border-radius: 16px;
   overflow: hidden;
-  background: #142028;
-  box-shadow: 0px 2px 16px 0px rgba(113,137,153,1);
+  background: #10090D;
+  box-shadow: 0px 2px 16px 0px #FE9936 inset;
   .b2-top {
     height: 80px;
     display:flex;
@@ -744,8 +737,9 @@ margin-right:8px;
   }
   .table {
     height: 760px;
-    background: #142028;
-
+    background: #10090D;
+    width:99%;
+    margin:0 auto;
     .tabe_tr {
       /* background-image: linear-gradient(131deg, #FFA61B 0%, #F3330E 100%) ; */
       height: 40px;
@@ -770,7 +764,6 @@ margin-right:8px;
 </style>
 <style lang="scss" scoped>
 
-
 @media screen and (max-width: 750px) {
   .container {
     padding-top: 50px;
@@ -781,6 +774,8 @@ margin-right:8px;
   }
   .c-box2 .table {
     height: auto;
+    width:99%;
+    margin:0 auto;
   }
   .c-box2 .b2-top {
     height:auto;

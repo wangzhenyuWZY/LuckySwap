@@ -113,7 +113,7 @@ export default {
 >>> .dialog_selct {
   width: 480px;
   height: 273px;
-  background: #142028;
+  background: #10090D;
   border-radius: 20px;
 }
 >>> .dialog_selct .el-icon-close {

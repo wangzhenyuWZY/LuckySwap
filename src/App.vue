@@ -9,6 +9,7 @@
 import navBar from './components/common/Navbar'
 import { mapActions } from 'vuex'
 import { TokenData, PairData } from './utils/index'
+import { joinConnection } from '@/api/api'
 export default {
   name: 'App',
   components: {
@@ -28,9 +29,24 @@ export default {
     async init() {
       this.$initTronWeb().then((tronWeb) => {
         this.connectWallett()
+        this.joinClub()
+      })
+    },
+    joinClub() {
+      const that = this
+      const params = {
+        address: window.tronWeb.defaultAddress.base58,
+        invitedAddress: ''
+      }
+      joinConnection(params).then(result => {
+        debugger
+        if (result.data.code == 0) {
+          sessionStorage.setItem('oneToken', result.data.data.token)
+        } else {
+          sessionStorage.setItem('oneToken', null)
+        }
       })
     }
-
   }
 
 }

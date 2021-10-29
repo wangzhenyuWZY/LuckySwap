@@ -131,10 +131,10 @@ export default {
         line-height: 28px;
         text-align: center;
         cursor: pointer;
-          background: #142028;
+          background: #10090D;
         border-radius: 18px;
         font-size: 14px;
-        color: #C80202;
+        color: #EB831D;
       }
     }
     .input_rg {

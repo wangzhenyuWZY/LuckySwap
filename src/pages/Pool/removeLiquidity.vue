@@ -373,7 +373,7 @@ color: #0F1730;
     font-weight: normal;
     color: #ffffff;
     font-size: 20px;
-    background: #142028;
+    background: #10090D;
     text-align: center;
     cursor: pointer;
   }
@@ -459,10 +459,10 @@ color: #0F1730;
     margin: auto;
   }
   .el-slider__bar {
-    background: #142028;
+    background: #10090D;
   }
   .el-slider__runway {
-    background: #142028;
+    background: #10090D;
   }
 }
 @media screen and (max-width: 750px) {

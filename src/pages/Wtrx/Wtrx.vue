@@ -276,7 +276,7 @@ export default {
   color: #fff;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#fff;
 }
 .wtrx-box {
@@ -296,7 +296,7 @@ export default {
 .wtrx-left {
   margin-right: 15px;
   border-radius: 20px;
-  background: #142028;
+  background: #10090D;
   width: 400px;
   height: 386px;
   top: 240px;
@@ -374,7 +374,7 @@ export default {
   width: 400px;
   height: 386px;
   border-radius: 20px;
-  background: #142028;
+  background: #10090D;
   margin-left: 15px;
   display: flex;
   flex-direction: column;

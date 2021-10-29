@@ -6,7 +6,7 @@
     </div> -->
     <div class="exchange ">
       <container top="40" :mobile="isPc">
-         
+
         <div slot="body">
           <div class="setInput clearfix">
             <div class="ctx_1 fl_lt">
@@ -50,7 +50,7 @@
             <!-- <span>1{{$t('Exc.Price')}}:</span> -->
             <span> 1{{token2.name}} = </span>
             <span>{{floatPrice}} </span>
-            
+
             <!-- <span> {{$t('Exc.per')}}</span> -->
             <span> {{token1.name}} </span>
             <!-- <img src="@/assets/img/icon_slect.png" alt="" @click="convert"> -->
@@ -79,7 +79,7 @@
           </div>
 
         </div>
-       
+
         <div slot="footer" v-show="connectFlag&&JSON.stringify(token1)!='{}'&&JSON.stringify(token2)!='{}'" class="position">
           <div class="box_sizes connect_boxs">
             <div class="provider c_receove_Share ">
@@ -100,7 +100,7 @@
                   </div>
                   <span class="rg">{{token2Num}} {{token2.name}}</span>
                 </div>
-              
+
               <div class="received setmage">
                 <div class="lt">
                   <span>{{$t('Exc.cpe')}}
@@ -491,7 +491,7 @@ export default {
         const percentage = (Decimal(afterPrice).minus(this.spotPrice)).div(this.spotPrice).mul(Decimal(100))
         this.percentage = percentage.toFixed(2)
         this.thisswapFee = (this.token1Num * this.swapFee).toFixed(6)
-        if(this.token2.name == 'USDT'){
+        if (this.token2.name == 'USDT') {
           this.percentage = '-' + this.percentage
         }
       }
@@ -520,7 +520,7 @@ export default {
         // this.maxPrice = Decimal(this.spotPrice).mul(1-this.tolerance).mul(this.token1Num).mul(Math.pow(10,this.token2.decimals)).toFixed(0)
         debugger
         this.percentage = percentage.toFixed(2)
-        if(this.token2.name == 'USDT'){
+        if (this.token2.name == 'USDT') {
           this.percentage = '-' + this.percentage
         }
         this.floatPrice = afterPrice.toFixed(4)
@@ -692,14 +692,14 @@ export default {
   background:none;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#fff;
 }
 .provider1{
   // margin-top: -50px;
   border-radius: 0 0 20px 20px;
   .received{
-    
+
     margin: 20px 10px;
     font-size: 16px;
     .lt{

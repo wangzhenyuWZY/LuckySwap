@@ -249,7 +249,7 @@ export default {
 }
 .bottun_hei1 {
   height: 40px;
-  background: #C80202;
+  background: #EB831D;
 }
 
 .fees {
@@ -396,7 +396,7 @@ export default {
 }
 .dark {
   .pool-box1 {
-    background: #142028;
+    background: #10090D;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     padding:0 15px 15px;
@@ -406,11 +406,11 @@ export default {
     color: #fa7447;
   }
   .fees .accrued_btn .btn_lt button {
-    background: #C80202;
+    background: #EB831D;
   }
 }
 .pool-box1 .tipbox{
-  background: #C80202;
+  background: #EB831D;
     border-radius: 16px;
    padding:10px 20px;
    color:#F1C5C5;

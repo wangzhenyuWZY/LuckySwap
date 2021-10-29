@@ -96,9 +96,8 @@
                   </div>
 
               </div>
-            
-            </div>
 
+            </div>
 
         </div>
         <div class="dec">
@@ -138,8 +137,8 @@
   border: none;
 }
 .logo {
-  width: 297px;
-  height: 64px;
+  width: 226px;
+  height: 56px;
 }
 .navbar-nav li a {
   display: inline-block;

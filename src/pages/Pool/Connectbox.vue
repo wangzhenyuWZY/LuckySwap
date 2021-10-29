@@ -172,7 +172,7 @@ import ipConfig from '../../config/ipconfig.bak'
 import { container, frominput, setselect } from '../../components/index'
 import selctoken from './selctToken'
 import { PairData } from '../../utils/index'
-import { decimals, allowance, approved, getLpBalanceInPool, getMyBalanceInPool,getConfirmedTransaction, getTokenDenormalizedWeight } from '../../utils/tronwebFn'
+import { decimals, allowance, approved, getLpBalanceInPool, getMyBalanceInPool, getConfirmedTransaction, getTokenDenormalizedWeight } from '../../utils/tronwebFn'
 import { calcPoolOutGivenSingleIn, getTokenInGivenPoolOut } from '../../utils/calc_comparisons'
 import recevive from './recevive'
 import removealert from './valret'
@@ -770,7 +770,7 @@ export default {
             this.justPrice = justPrice / Math.pow(10, Math.abs(differ))
           } else if (differ !== 0 && differ < 0) {
             this.justPrice = justPrice * Math.pow(10, Math.abs(differ))
-          }else{
+          } else {
             this.justPrice = justPrice
           }
         } else {
@@ -780,7 +780,7 @@ export default {
             this.reversePrice = reversePrice / Math.pow(10, Math.abs(differ))
           } else if (differ !== 0 && differ < 0) {
             this.reversePrice = reversePrice * Math.pow(10, Math.abs(differ))
-          }else{
+          } else {
             this.reversePrice = reversePrice
           }
         }
@@ -853,7 +853,7 @@ export default {
   padding-bottom: 100px;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#FFFFFF;
 }
 .box_sizes{

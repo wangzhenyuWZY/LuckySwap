@@ -83,13 +83,7 @@ export default new VueRouter({
     { path: '/foxdex', component: Foxdex },
     { path: '/wtrx', component: Wtrx },
     { path: '/stake', component: Stake },
-    {
-      path: '/test',
-      component: Stakes
-    },
-    {
-      path: '/inverst',
-      component: inverst
-    }
+    { path: '/invite', name: 'invite', component: () => import('@/pages/invite/invite') },
+    { path: '/farm', name: 'farm', component: () => import('@/pages/farm/farm') }
   ]
 })

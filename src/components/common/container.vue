@@ -44,7 +44,7 @@ export default {
 .toal_bg {
   position:relative;
   z-index:2;
-  background: #142028;
+  background: #10090D;
   border-radius: 20px;
   box-sizing: border-box;
   // margin-top: 115px;

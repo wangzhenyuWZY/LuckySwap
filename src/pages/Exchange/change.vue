@@ -1,6 +1,6 @@
 <template>
   <div class="change">
-   
+
     <el-dialog title="" :visible.sync="showAlert" :width="mobile?'480px':'90%'" custom-class="dialog_recevive" :before-close="handleClose">
       <span slot="title" class="select_size">
         <span>{{$t('confirm')}} {{$t('Exc.Swap')}}</span>
@@ -160,13 +160,13 @@ export default {
   overflow: auto;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#fff;
 }
 .title__num {
   font-size: 40px;
   font-weight: normal;
-  color: #C80202;
+  color: #EB831D;
   margin-bottom: 8px;
 }
 .receive__Pool {

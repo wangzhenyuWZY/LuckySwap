@@ -91,13 +91,13 @@ v-for="(idx, index) in tag"
 </template>
 
 <script>
-import {plusXing} from '@/utils/tronwebFn'
+import { plusXing } from '@/utils/tronwebFn'
 import { mapState } from 'vuex'
 import { IsPc } from '../../utils/index'
 export default {
   data() {
     return {
-      defaultAddress:'',
+      defaultAddress: '',
       tolerPop: false,
       num: 2,
       key: '31',
@@ -150,17 +150,27 @@ export default {
           path: '/ido',
           name: this.$t('nav.nav5'),
           img: require('../../assets/img/icon_ido.png')
+        },
+        {
+          path: '/invite',
+          name: this.$t('nav.nav6'),
+          img: require('../../assets/img/invitation.png')
+        },
+        {
+          path: '/farm',
+          name: this.$t('nav.nav7'),
+          img: require('../../assets/img/farm.png')
         }
       ]
     }
   },
 
   created() {
-    let that = this
+    const that = this
     this.moble = IsPc()
     this.$initTronWeb().then(function(tronWeb) {
-      let defaultAddress = window.tronWeb.defaultAddress.base58
-      that.defaultAddress = plusXing(defaultAddress,5,5)
+      const defaultAddress = window.tronWeb.defaultAddress.base58
+      that.defaultAddress = plusXing(defaultAddress, 5, 5)
     })
   },
   computed: {
@@ -211,6 +221,16 @@ export default {
             path: '/ido',
             name: this.$t('nav.nav5'),
             img: require('../../assets/img/icon_ido.png')
+          },
+          {
+            path: '/invite',
+            name: this.$t('nav.nav6'),
+            img: require('../../assets/img/invitation.png')
+          },
+          {
+            path: '/farm',
+            name: this.$t('nav.nav7'),
+            img: require('../../assets/img/farm.png')
           }
         ]
         console.log(a)
@@ -296,11 +316,7 @@ export default {
 
     handelActive(e, index) {
       this.drawer = false
-      if(e == '/stake'){
-        window.open("https://www.sheroswap.org/","_blank");
-        return
-      }
-      if(e == '/nft' || e=='/ido'){
+      if (e == '/nft' || e == '/ido' || e == '/stake') {
         this.$message.success('Comming Soon!')
         return
       }
@@ -337,7 +353,7 @@ export default {
 </script>
 <style >
 .headerPanel{
-  
+
 }
 .van_list{
   display:flex;
@@ -366,7 +382,7 @@ export default {
 </style>
 <style lang="scss" scoped>
 .setPanel {
-  background: #142028;
+  background: #10090D;
   padding: 24px 20px;
   border-radius: 20px;
   box-sizing: border-box;
@@ -426,14 +442,14 @@ export default {
 }
 .setPanel .tolerTab .default{
   background:none;
-  border:1px solid #C80202;
-  color:#C80202;
+  border:1px solid #EB831D;
+  color:#EB831D;
 }
 .setPanel .tolerTab span:first-child {
   margin-left: 0;
 }
 .setPanel .tolerTab span.active {
-  background: #C80202;
+  background: #EB831D;
   color: #ffffff;
 }
 .setting {
@@ -579,9 +595,10 @@ export default {
   float: left;
   display: flex;
   align-items: center;
-  width: 297px;
-  height: 64px;
+  width: 226px;
+  height: 56px;
   margin-left: 38px;
+  margin-top:5px;
   background: url("../../assets/img/logo.png") no-repeat;
   background-size: 100% 100%;
   // .logop{
@@ -593,7 +610,7 @@ export default {
 .nav-header {
   color: #a6aeb7;
   position: relative;
-  left: -37px;
+  left: 37px;
 }
 .active {
   font-family: roboto-mediumitalic;
@@ -795,7 +812,7 @@ export default {
   .active {
   }
   .login_wallet {
-    color: #C80202;
+    color: #EB831D;
   }
   .active-bar {
     background: #fc6446;

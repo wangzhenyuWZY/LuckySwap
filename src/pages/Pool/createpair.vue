@@ -294,13 +294,13 @@ export default {
     that.init()
   },
   methods: {
-    changeRadio(){
-      let firstTokenWeight = parseInt(this.firstTokenWeight)
-      let secondTokenWeight = parseInt(this.secondTokenWeight)
-      if(firstTokenWeight && secondTokenWeight){
+    changeRadio() {
+      const firstTokenWeight = parseInt(this.firstTokenWeight)
+      const secondTokenWeight = parseInt(this.secondTokenWeight)
+      if (firstTokenWeight && secondTokenWeight) {
         debugger
-        this.firstTokenWeightRadio = (firstTokenWeight/(firstTokenWeight+secondTokenWeight)*100).toFixed(0) + '%'
-        this.secondTokenWeightRadio = (secondTokenWeight/(firstTokenWeight+secondTokenWeight)*100).toFixed(0) + '%'
+        this.firstTokenWeightRadio = (firstTokenWeight / (firstTokenWeight + secondTokenWeight) * 100).toFixed(0) + '%'
+        this.secondTokenWeightRadio = (secondTokenWeight / (firstTokenWeight + secondTokenWeight) * 100).toFixed(0) + '%'
       }
     },
     handel() {
@@ -327,8 +327,8 @@ export default {
       let hasPair = false
       this.pairData.forEach(item => {
         if (
-          (item.token1.address == this.token1.address && item.token2.address == this.token2.address)
-          ||(item.token2.address == this.token1.address && item.token1.address == this.token2.address)
+          (item.token1.address == this.token1.address && item.token2.address == this.token2.address) ||
+          (item.token2.address == this.token1.address && item.token1.address == this.token2.address)
         ) {
           hasPair = true
         }
@@ -381,28 +381,28 @@ export default {
         type: 'success'
       })
       // try {
-        if (this.BFactoryContract) {
-          const res = await that.BFactoryContract['newBPool']().send({
-            feeLimit: 1000000000,
-            callValue: 0,
-            tokenId: 0,
-            shouldPollResponse: true
-          })
-          if (res) {
-            that.bPoolContract = res
-            that.setSwapLpFee()
-            that.setSponsors()
-            approved(that.token1.address, that.bPoolContract).then(() => {
-              approved(that.token2.address, that.bPoolContract).then(() => {
-                const number = window.tronWeb.toBigNumber(that.firstTokenNum * Math.pow(10, that.token1.decimals)).toString(10)
-                const weight = window.tronWeb.toBigNumber(that.firstTokenWeight * Math.pow(10, 18)).toString(10)
-                const number2 = window.tronWeb.toBigNumber(that.secondTokenNum * Math.pow(10, that.token2.decimals)).toString(10)
-                const weight2 = window.tronWeb.toBigNumber(that.secondTokenWeight * Math.pow(10, 18)).toString(10)
-                that.bindCoin(that.token1.address, number, weight, that.token2.address, number2, weight2)
-              })
+      if (this.BFactoryContract) {
+        const res = await that.BFactoryContract['newBPool']().send({
+          feeLimit: 1000000000,
+          callValue: 0,
+          tokenId: 0,
+          shouldPollResponse: true
+        })
+        if (res) {
+          that.bPoolContract = res
+          that.setSwapLpFee()
+          that.setSponsors()
+          approved(that.token1.address, that.bPoolContract).then(() => {
+            approved(that.token2.address, that.bPoolContract).then(() => {
+              const number = window.tronWeb.toBigNumber(that.firstTokenNum * Math.pow(10, that.token1.decimals)).toString(10)
+              const weight = window.tronWeb.toBigNumber(that.firstTokenWeight * Math.pow(10, 18)).toString(10)
+              const number2 = window.tronWeb.toBigNumber(that.secondTokenNum * Math.pow(10, that.token2.decimals)).toString(10)
+              const weight2 = window.tronWeb.toBigNumber(that.secondTokenWeight * Math.pow(10, 18)).toString(10)
+              that.bindCoin(that.token1.address, number, weight, that.token2.address, number2, weight2)
             })
-          }
+          })
         }
+      }
       // } catch (error) {
       //   that.loading1()
       //   this.$message({
@@ -563,11 +563,11 @@ export default {
   // height: 72px;
 }
 .el-button:focus, .el-button:hover{
-  background:#C80202;
+  background:#EB831D;
   color:#fff;
 }
 .box_sizes{
-  background: #C80202;
+  background: #EB831D;
 }
 .createpair {
 
