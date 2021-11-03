@@ -99,8 +99,8 @@
           </div> -->
         </div>
         <div class="btn-container">
-          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
-          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdrawLpc">{{$t('lang24')}} LPC</el-button>
+          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw(0)" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
+          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdraw(1)">{{$t('lang24')}} LPC</el-button>
           <el-button :loading="false" :disabled='isWithdraw' class="btn confirm unselect" @click="back">{{$t('lang25')}}</el-button>
         </div>
       </div>
@@ -172,8 +172,8 @@ export default {
       }
       this.$emit('deposit', this.depostNum)
     },
-    withdraw() {
-      this.$emit('withdraw')
+    withdraw(n) {
+      this.$emit('withdraw', n)
     }
   },
   mounted() {}

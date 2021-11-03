@@ -62,7 +62,7 @@ export function getPools(params) {
 }
 
 export function getCoinList(params) {
-  return fet('api/v1/currency/list', params, 'post')
+  return fet('api/v1/currency/list', params, 'get')
 }
 
 export { api }
