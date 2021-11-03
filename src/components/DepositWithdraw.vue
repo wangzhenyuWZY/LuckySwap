@@ -46,11 +46,19 @@
                 <div class="key">{{$t('lang28')}}</div><!--已赚取-->
                 <div class="value">
                   <div class="num">{{(parseFloat(userInfo.withdrawTotal)+parseFloat(userInfo.notExtractedIncome)).toFixed(2)}}</div>
+                  <div class="unit">USDT</div>
+                </div>
+                <div class="value">
+                  <div class="num">{{(parseFloat(userInfo.lpcWithdrawTotal)+parseFloat(userInfo.lpcAmount)).toFixed(2)}}</div>
                   <div class="unit">LPC</div>
                 </div>
               </div>
-              <div class="info-item">
+              <div class="info-item" v-show="false">
                 <div class="key">{{$t('lang29')}}</div><!--待提取-->
+                <div class="value">
+                  <div class="num">{{userInfo.notExtractedIncome}}</div>
+                  <div class="unit">USDT</div>
+                </div>
                 <div class="value">
                   <div class="num">{{userInfo.notExtractedIncome}}</div>
                   <div class="unit">LPC</div>
@@ -59,7 +67,11 @@
               <div class="info-item">
                 <div class="key">{{$t('lang47')}}</div><!--可提取-->
                 <div class="value">
-                  <div class="num">{{userInfo.canExtractedIncome}}</div>
+                  <div class="num">{{userInfo.notExtractedIncome}}</div>
+                  <div class="unit">USDT</div>
+                </div>
+                <div class="value">
+                  <div class="num">{{userInfo.lpcAmount}}</div>
                   <div class="unit">LPC</div>
                 </div>
               </div>
@@ -87,7 +99,8 @@
           </div> -->
         </div>
         <div class="btn-container">
-          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw">{{$t('lang24')}}</el-button>
+          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
+          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdrawLpc">{{$t('lang24')}} LPC</el-button>
           <el-button :loading="false" :disabled='isWithdraw' class="btn confirm unselect" @click="back">{{$t('lang25')}}</el-button>
         </div>
       </div>
@@ -114,6 +127,9 @@ export default {
       default: {}
     },
     isWithdraw: {
+      default: false
+    },
+    isWithdrawLpc: {
       default: false
     },
     isDeposit: {

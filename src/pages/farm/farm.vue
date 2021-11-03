@@ -1,7 +1,18 @@
 <template>
   <div id="farm" class="farm container">
     <!-- 弹窗 -->
-    <deposit-withdraw :show="showDepositWithdraw" :isDeposit='isDeposit' :isWithdraw='isWithdraw' selectedIndex='deposit' :tnsBalance='tnsBalance' :userInfo='userInfoData' @deposit='toDeposit' @withdraw='toWithdraw' @close="depositWithdrawClose"></deposit-withdraw>
+    <deposit-withdraw
+:show="showDepositWithdraw"
+:isDeposit='isDeposit'
+:isWithdraw='isWithdraw'
+:isWithdrawLpc='isWithdrawLpc'
+selectedIndex='deposit'
+:tnsBalance='tnsBalance'
+:userInfo='userInfoData'
+@deposit='toDeposit'
+@withdraw='toWithdraw(0)'
+@withdrawLpc='toWithdraw(1)'
+@close="depositWithdrawClose"></deposit-withdraw>
     <div class="farm-content-1">
       <div class="tns-pool">
         <div class="txt">{{$t('lang6')}}</div>
@@ -11,15 +22,15 @@
           <div class="info-item important">
             <div class="key">{{$t('lang7')}}</div>
             <div class="value">
-              <div class="num">{{parseFloat(userInfoData.lockAmount).toFixed(2)}}</div>
-              <div class="unit">LPC</div>
+              <div class="num">{{parseFloat(userInfoData.depositTotal).toFixed(2)}}</div>
+              <div class="unit">USDT</div>
             </div>
           </div>
           <div class="info-item">
             <div class="key">{{$t('Exc.Balance')}}</div>
             <div class="value">
               <div class="num">{{parseFloat(tnsBalance).toFixed(2)}}</div>
-              <div class="unit">LPC</div>
+              <div class="unit">USDT</div>
             </div>
           </div>
           <div class="info-item">
@@ -38,7 +49,7 @@
       <div class="pool-info">
         <div class="info-item">
           <div class="key">{{$t('lang9')}}</div>
-          <div class="value">{{parseFloat(userInfoData.depositTotal).toFixed(2)}}</div>
+          <div class="value">{{parseFloat(userInfoData.enlargeTotal).toFixed(2)}}</div>
         </div>
         <div class="info-item">
           <div class="key">{{$t('lang10')}}</div>
@@ -76,7 +87,7 @@
 import BigNumber from 'bignumber.js'
 import ipConfig from '../../config/ipconfig.bak'
 import { approved, allowance, getConfirmedTransaction } from '../../utils/tronwebFn'
-import { getPools, doDeposit, userInfo, doWithdraw, getInvitedAddress, doWithdrawByTxid } from '@/api/api'
+import { getPools, doDeposit, userInfo, doWithdraw, getInvitedAddress, getCoinList } from '@/api/api'
 import DepositWithdraw from '@/components/DepositWithdraw'
 export default {
   name: 'Farm',
@@ -91,6 +102,7 @@ export default {
       userInfoData: {},
       claimHasNum: 0,
       isWithdraw: false,
+      isWithdrawLpc: false,
       isDeposit: false,
       trxBalance: 0
     }
@@ -130,7 +142,8 @@ export default {
       })
     },
     async getTnsContract() { // 链接tns合约
-      this.tnsContract = await window.tronWeb.contract().at(ipConfig.TnsAddress)
+      console.log(ipConfig.UsdtAddress)
+      this.tnsContract = await window.tronWeb.contract().at(ipConfig.UsdtAddress)
       if (this.tnsContract) {
         this.getTns()
       }
@@ -139,14 +152,14 @@ export default {
       const that = this
       try {
         const res = await that.tnsContract['balanceOf'](window.tronWeb.defaultAddress.base58).call()
-        that.tnsBalance = res / Math.pow(10, 8)
+        debugger
+        that.tnsBalance = res / Math.pow(10, 6)
       } catch (error) {
         console.log(error)
       }
     },
     toDeposit(num) {
       const that = this
-      debugger
       getInvitedAddress().then(result => {
         if (result.data.code == 0) {
           if (result.data.data) {
@@ -176,24 +189,35 @@ export default {
       //   }
       // })
     },
-    toWithdraw() {
+    toWithdraw(n) {
       const that = this
       // if(this.trxBalance<20){
       //   this.$message.error('请保证钱包至少有二十个TRX才能进行合约操作')
       //   return
       // }
-      this.isWithdraw = true
-      doWithdraw().then(res => {
-        if (res.data.code == 0) {
-          that.$message.success('提币发起成功，请等待区块确认')
-          setTimeout(function() {
-            window.location.reload()
-          }, 3000)
-        } else if (res.data.code == 20004) {
-          that.isWithdraw = false
-        } else {
-          that.isWithdraw = false
-          that.$message.success(res.data.msg)
+      if (n == 0) {
+        this.isWithdraw = true
+      } else {
+        this.isWithdrawLpc = true
+      }
+
+      getCoinList().then(list => {
+        if (list.data.code == 0) {
+          doWithdraw({ currencyId: n == 0 ? 1 : 2 }).then(res => {
+            if (res.data.code == 0) {
+              that.$message.success('提币发起成功，请等待区块确认')
+              setTimeout(function() {
+                window.location.reload()
+              }, 3000)
+            } else if (res.data.code == 20004) {
+              that.isWithdraw = false
+              that.isWithdrawLpc = false
+            } else {
+              that.isWithdraw = false
+              that.isWithdrawLpc = false
+              that.$message.success(res.data.msg)
+            }
+          })
         }
       })
     },
@@ -241,22 +265,29 @@ export default {
         return
       }
       if (num < 10) {
-        that.$message.error('质押不得少于10个LPC')
+        that.$message.error('质押不得少于10个USDT')
         this.isDeposit = false
         return
       }
       const func = 'pledge(uint256)'
       let transnum = new BigNumber(num)
-      transnum = transnum.times(Math.pow(10, 8))
+      transnum = transnum.times(Math.pow(10, 6))
       const params = [
         { 'type': 'uint256', 'value': transnum.toFixed() }
       ]
-      const transfer = await window.tronWeb.transactionBuilder.triggerSmartContract(ipConfig.TnsAddress, func, {}, params)
+      const transfer = await window.tronWeb.transactionBuilder.triggerSmartContract(ipConfig.FarmAddress, func, {}, params)
       window.tronWeb.trx.sign(transfer.transaction).then(function(signedTransaction) {
         window.tronWeb.trx
           .sendRawTransaction(signedTransaction)
           .then(function(res) {
             that.$message.error('正在进行区块确认请勿退出！')
+            // getConfirmedTransaction(res.txid).then((e) => {
+            //   if (e.result == 'FAILED') {
+            //     that.$message.error(window.tronWeb.toAscii(e.contractResult[0]))
+            //   }
+            // }).catch((err) => {
+            //   console.log(err)
+            // })
             const data = {
               address: window.tronWeb.defaultAddress.base58,
               amount: num,

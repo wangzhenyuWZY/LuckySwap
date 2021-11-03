@@ -9,7 +9,9 @@ if (process.env.NODE_ENV === 'development') {
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
     FactoryManager: 'TE3svoiN7evPwpbwsqBHeZ7WXTpiFu3UT6',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
-    TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX'
+    TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
+    UsdtAddress: 'TCykFQ8rwiqpphmNRC8wN3CmTkmrW3eeyN',
+    FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
   }
 } else {
   ipConfig = {
@@ -18,7 +20,9 @@ if (process.env.NODE_ENV === 'development') {
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
     FactoryManager: 'TCiPisZVGYeSuir6z3ioUMLHwzemn7EEAQ',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
-    TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX'
+    TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
+    UsdtAddress: 'TCykFQ8rwiqpphmNRC8wN3CmTkmrW3eeyN',
+    FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
   }
 }
 export default ipConfig
