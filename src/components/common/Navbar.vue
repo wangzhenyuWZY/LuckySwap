@@ -63,12 +63,12 @@ v-for="(idx, index) in tag"
             <div class="setbox" @click.stop="tolerPop=true"><i class="setico"></i>Setting</div>
             <div class="setbox fr" @click="hdel"><i class="langico"></i>{{this.$i18n.locale=='zh'?'简体中文':'English'}}</div>
           </div>
-          <ul class="drawer_nav_aubt">
+          <!-- <ul class="drawer_nav_aubt">
             <li @click="open2 "> <img src="@/assets/img/foxdex/icon_推特.svg" alt=""> </li>
             <li @click="open3"> <img src="@/assets/img/foxdex/icon_telegram.svg" alt=""> </li>
             <li @click="open4 "> <img src="@/assets/img/foxdex/icon_discord.svg" alt=""> </li>
             <li @click="open5 "> <img src="@/assets/img/foxdex/icon_medium.svg" alt=""> </li>
-          </ul>
+          </ul> -->
         </el-drawer>
 
         <div class="lang" @click="hdel">{{this.$i18n.locale=='zh'?'简体中文':'English'}}<i></i></div>
@@ -514,8 +514,11 @@ export default {
   font-size: 0.426667rem;
   margin-top: 0.5rem;
   li {
-    line-height: 1.3rem;
+    line-height: 1.1rem;
     padding-left: 0.8rem;
+    img{
+      margin-right:0.1rem;
+    }
   }
 }
 .drawer_nav_active {
@@ -638,8 +641,8 @@ export default {
   transition: transform 0.6s;
 }
 .nav-header span {
-  font-size: 16px;
-  padding: 0 10px;
+  font-size: 14px;
+  padding: 0 6px;
   cursor: pointer;
   color: #fff;
   display:flex;
@@ -671,7 +674,7 @@ export default {
     vertical-align: sub;
   }
   .wallet_addrs {
-    font-size: 18px;
+    font-size: 14px;
     font-family: roboto-mediumitalic;
     margin-left: 4px;
   }
@@ -771,7 +774,7 @@ export default {
   }
   .langAndSet {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     width: 100%;
     text-align: center;
   }

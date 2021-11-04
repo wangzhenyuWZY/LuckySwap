@@ -15,7 +15,7 @@ module.exports = {
     nav2: 'Trade',
     nav3: 'Liquidity',
     nav4: 'NFT',
-    nav5: 'IDO',
+    nav5: 'GameFi',
     nav6: 'Invite',
     nav7: 'Farm'
   },
@@ -292,7 +292,7 @@ module.exports = {
   lang10: 'Total amount of USDT withdrawn',
   lang11: 'Time Countdown Benefit',
   lang12: 'today income',
-  lang13: 'Unclaimed income',
+  lang13: 'LPC can withdraw income',
   lang14: 'income',
   lang15: 'Invite',
   lang16: 'My Address',
@@ -324,7 +324,7 @@ module.exports = {
   lang42: 'Select',
   lang43: 'Please enter the exchange limit',
   lang44: 'Personal performance',
-  lang45: 'Farming income',
-  lang46: 'Team benefits',
-  lang47: 'Recoverable income'
+  lang45: 'LPC Farming income',
+  lang46: 'USDT Team benefits',
+  lang47: 'USDT Recoverable income'
 }

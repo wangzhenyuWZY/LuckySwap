@@ -130,12 +130,12 @@ export default {
       // 获取推荐人
       if (that.myAddress == 'TX6L1SURCZh4j63q8Tdj7ttCdYkWFZ4aXy') {
         that.myInviterAddress = '0x0'
-        that.myInvitationLink = 'http://8.218.15.165:8011/#/invite/?inviter=' + tronWeb.defaultAddress.base58
+        that.myInvitationLink = 'http://8.218.15.165/#/invite/?inviter=' + tronWeb.defaultAddress.base58
       } else {
         getInvitedAddress().then(result => {
           if (result.data.code == 0) {
             if (result.data.data) {
-              that.myInvitationLink = 'http://8.218.15.165:8011/#/invite/?inviter=' + tronWeb.defaultAddress.base58
+              that.myInvitationLink = 'http://8.218.15.165/#/invite/?inviter=' + tronWeb.defaultAddress.base58
               that.myInviterAddress = result.data.data.invitedAddress
             } else {
               that.myInviterAddress = 'Please contact your superior'

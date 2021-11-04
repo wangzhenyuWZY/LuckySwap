@@ -61,7 +61,7 @@ const approved = (coinAddress, contractAddress) => { // 授权
     try {
       // console.log('MAX================'+MAX)
       window.tronWeb.contract().at(coinAddress).then((Contract) => {
-        Contract['approve'](contractAddress, '100000000000000000000000000').send({ shouldPollResponse: true }).then((res) => {
+        Contract['approve'](contractAddress, '100000000000000000000000000').send({ shouldPollResponse: false }).then((res) => {
           if (res) {
             resolve(res)
           }
@@ -154,13 +154,13 @@ const getTokenDenormalizedWeight = (coinAddress, contractAddress) => { // 获取
     })
   })
 }
-const plusXing = (str,frontLen,endLen) => { 
-  var len = str.length-frontLen-endLen;
-  var xing = '';
-  for (var i=0;i<len;i++) {
-    xing ='*******';
+const plusXing = (str, frontLen, endLen) => {
+  var len = str.length - frontLen - endLen
+  var xing = ''
+  for (var i = 0; i < len; i++) {
+    xing = '*******'
   }
-  return str.substring(0,frontLen)+xing+str.substring(str.length-endLen);
+  return str.substring(0, frontLen) + xing + str.substring(str.length - endLen)
 }
 export {
   approved,

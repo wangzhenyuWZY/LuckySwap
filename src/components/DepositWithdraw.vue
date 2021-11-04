@@ -12,14 +12,14 @@
         <div class="top-container">
           <div class="input-container">
             <input type="text" v-model="depostNum" />
-            <div class="unit">LPC</div>
+            <div class="unit">USDT</div>
           </div>
           <div class="info-container">
             <div class="info-item">
               <div class="key">{{$t('Exc.Balance')}}</div>
               <div class="value">
                 <div class="num">{{parseFloat(tnsBalance).toFixed(2)}}</div>
-                <div class="unit">LPC</div>
+                <div class="unit">USDT</div>
               </div>
             </div>
             <div class="info-item">

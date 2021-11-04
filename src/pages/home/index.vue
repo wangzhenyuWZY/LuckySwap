@@ -665,6 +665,8 @@ margin-right:8px;
   border-radius: 16px;
   overflow: hidden;
   background: #10090D;
+
+border: 2px solid #FE9936;
   .b2-top {
     height: 80px;
     display:flex;

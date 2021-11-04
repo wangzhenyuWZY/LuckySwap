@@ -1,9 +1,13 @@
 .invite {
   // padding-bottom: 100px;
+  &.container{
+    padding-top:20px !important;
+  }
   .banner {
     // height: 700px;
     padding: 30px 30px 50px;
     background: #fff;
+    
     .banner-image {
       width: 368px;
       height: 343px;
@@ -95,7 +99,7 @@
   .content {
     position: relative;
     margin: 40px 0 0;
-    padding: 0 30px 100px 30px;
+    padding: 0 20px 100px 20px;
     .background {
       opacity: 0.6;
       position: absolute;
@@ -118,48 +122,50 @@
       border: 1px solid #cccccc;
       .container-title {
         transform: scale(1);
-        padding: 0 0 0 30px;
-        font-size: 34px;
+        padding: 0 0 0 15px;
+        font-size: 18px;
         text-align: left;
         font-family: AlibabaSans-Bold, AlibabaSans;
         font-weight: bold;
         color: #191919;
-        line-height: 100px;
+        line-height: 40px;
         border-bottom: 1px solid #d8d8d8;
       }
       .info-container {
-        padding: 0px 30px 40px;
+        padding: 0px 10px 20px;
         .title {
-          height: 43px;
-          margin: 50px 0 0;
-          font-size: 28px;
+          height: 20px;
+          margin: 20px 0 0;
+          font-size: 16px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           font-weight: 400;
           color: #888d97;
-          line-height: 43px;
+          line-height: 24px;
+          padding:0;
         }
         .value {
           margin: 10px 0 0;
-          font-size: 24px;
+          font-size: 16px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           font-weight: bold;
           color: #323232;
-          line-height: 38px;
+          line-height: 24px;
+          word-wrap: break-word;
         }
       }
     }
     .copy-all {
       transform: scale(1);
       // width: 100%;
-      height: 74px;
-      margin: 50px 40px;
+      height: 45px;
+      margin: 20px 40px;
       background: linear-gradient(180deg, #ff8b18 0%, #ff5206 100%);
       border-radius: 37px;
-      font-size: 28px;
+      font-size: 18px;
       font-family: AlibabaSans-Medium, AlibabaSans;
       font-weight: 500;
       color: #ffffff;
-      line-height: 74px;
+      line-height: 45px;
       text-align: center;
     }
   }
@@ -174,66 +180,66 @@
 
     &.organization {
       .title {
-        height: 99.5px;
+        height: 40px;
         padding: 0 0 0 30px;
-        font-size: 34px;
+        font-size: 18px;
         font-family: AlibabaSans-Bold, AlibabaSans;
         font-weight: bold;
         color: #323232;
-        line-height: 99.5px;
+        line-height:40px;
         border-bottom: 1px solid #d8d8d8;
       }
       .tab-container {
-        margin: 0 30px 0;
+        margin: 0 10px 0;
         .cell {
           padding: 0;
         }
         .tab-title-line {
-          font-size: 34px;
+          font-size: 16px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           font-weight: bold;
           color: #323232;
-          line-height: 100px;
+          line-height: 24px;
         }
         .organization-value {
-          font-size: 30px;
+          font-size: 16px;
           font-weight: bold;
           color: #323232;
-          line-height: 47px;
+          line-height: 24px;
         }
         .el-table_1_column_1 {
-          font-size: 24px;
+          font-size: 16px;
           color: #323232;
-          line-height: 78px;
+          line-height: 24px;
         }
         .el-table_1_column_2 {
           text-align: right;
-          font-size: 30px;
+          font-size: 16px;
           font-weight: bold;
           color: #323232;
-          line-height: 78px;
+          line-height: 24px;
         }
       }
     }
     &.referral {
       .title {
-        height: 99.5px;
+        height: 40px;
         padding: 0 0 0 30px;
-        font-size: 30px;
+        font-size: 18px;
         font-family: AlibabaSans-Bold, AlibabaSans;
         font-weight: bold;
         color: #323232;
-        line-height: 99.5px;
+        line-height: 40px;
         border-bottom: 1px solid #d8d8d8;
       }
       .tab-container {
         .tab-title-line {
           background: #f7f7f7;
-          font-size: 24px;
+          font-size: 16px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           font-weight: bold;
           color: #323232;
-          line-height: 70px;
+          line-height: 24px;
           th {
             padding: 0;
             background: #f7f7f7;
@@ -246,20 +252,20 @@
           font-size: 18px;
           font-family: AlibabaSans-Regular, AlibabaSans;
           color: #323232;
-          line-height: 80px;
+          line-height: 24px;
         }
         td.el-table_2_column_4 {
           text-align: right;
           font-size: 18px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           color: #323232;
-          line-height: 80px;
+          line-height: 24px;
         }
         td.el-table_2_column_5 {
           font-size: 18px;
           font-family: AlibabaSans-Medium, AlibabaSans;
           color: #ff652b;
-          line-height: 80px;
+          line-height: 24px;
         }
       }
     }
@@ -268,6 +274,7 @@
 @media screen and (min-width: 750px) {
   .invite {
     display: block;
+    
     .banner {
       height: 467px;
       // background: #fff url(../images/invite/fish.png) no-repeat center 100px ~'/' 800px auto;

@@ -21,7 +21,7 @@ selectedIndex='deposit'
           <div class="info-item important">
             <div class="key">{{$t('lang7')}}</div>
             <div class="value">
-              <div class="num">{{parseFloat(userInfoData.depositTotal).toFixed(2)}}</div>
+              <div class="num">{{parseFloat(userInfoData.lpcAmount).toFixed(2)}}</div>
               <div class="unit">USDT</div>
             </div>
           </div>
@@ -35,7 +35,7 @@ selectedIndex='deposit'
           <div class="info-item">
             <div class="key">APY</div>
             <div class="value">
-              <div class="num">200</div>
+              <div class="num">{{apy}}</div>
               <div class="percent">%</div>
             </div>
           </div>
@@ -64,7 +64,7 @@ selectedIndex='deposit'
         </div>
         <div class="info-item">
           <div class="key">{{$t('lang45')}}</div>
-          <div class="value">{{parseFloat(userInfoData.staticIncome).toFixed(2)}}</div>
+          <div class="value">{{parseFloat(userInfoData.lpcQuota).toFixed(2)}}</div>
         </div>
         <div class="info-item">
           <div class="key">{{$t('lang46')}}</div>
@@ -72,7 +72,7 @@ selectedIndex='deposit'
         </div>
         <div class="info-item">
           <div class="key">{{$t('lang13')}}</div>
-          <div class="value">{{userInfoData.notExtractedIncome}}</div>
+          <div class="value">{{userInfoData.lpcAmount}}</div>
         </div>
         <div class="info-item">
           <div class="key">{{$t('lang47')}}</div>
@@ -86,7 +86,7 @@ selectedIndex='deposit'
 import BigNumber from 'bignumber.js'
 import ipConfig from '../../config/ipconfig.bak'
 import { approved, allowance, getConfirmedTransaction } from '../../utils/tronwebFn'
-import { getPools, doDeposit, userInfo, doWithdraw, getInvitedAddress, getCoinList } from '@/api/api'
+import { getPools, doDeposit, userInfo, doWithdraw, getInvitedAddress, getCoinList, getTnsPrice } from '@/api/api'
 import DepositWithdraw from '@/components/DepositWithdraw'
 export default {
   name: 'Farm',
@@ -103,7 +103,8 @@ export default {
       isWithdraw: false,
       isWithdrawLpc: false,
       isDeposit: false,
-      trxBalance: 0
+      trxBalance: 0,
+      apy: 200
     }
   },
   created() {
@@ -120,6 +121,15 @@ export default {
       this.$initTronWeb().then(function(tronWeb) {
         that.getTrxBalance()
         that.getTnsContract()
+        that.getApy()
+      })
+    },
+    getApy() {
+      const that = this
+      getTnsPrice().then(res => {
+        if (res.data.code == 0) {
+          that.apy = res.data.data.usdtMultipleScale * 100
+        }
       })
     },
     getTrxBalance() {
@@ -151,7 +161,6 @@ export default {
       const that = this
       try {
         const res = await that.tnsContract['balanceOf'](window.tronWeb.defaultAddress.base58).call()
-        debugger
         that.tnsBalance = res / Math.pow(10, 6)
       } catch (error) {
         console.log(error)
@@ -159,34 +168,41 @@ export default {
     },
     toDeposit(num) {
       const that = this
-      getInvitedAddress().then(result => {
-        if (result.data.code == 0) {
-          if (result.data.data) {
-            that.deposit(num)
+      this.isDeposit = true
+      allowance(ipConfig.UsdtAddress, ipConfig.FarmAddress).then((res) => {
+        if (res) {
+          if (res._hex) {
+            that.approveTnsBalance = parseInt(res._hex, 16)
+          } else if (res.constant_result) {
+            that.approveTnsBalance = parseInt(res.constant_result[0], 16)
+          } else if (res.remaining) {
+            that.approveTnsBalance = parseInt(res.remaining._hex, 16)
+          }
+          if (that.approveTnsBalance == 0) {
+            approved(ipConfig.UsdtAddress, ipConfig.FarmAddress).then(res => {
+              getInvitedAddress().then(result => {
+                if (result.data.code == 0) {
+                  if (result.data.data) {
+                    that.deposit(num)
+                  } else {
+                    that.$message.error('邀请人不存在')
+                  }
+                }
+              })
+            })
           } else {
-            that.$message.error('邀请人不存在')
+            getInvitedAddress().then(result => {
+              if (result.data.code == 0) {
+                if (result.data.data) {
+                  that.deposit(num)
+                } else {
+                  that.$message.error('邀请人不存在')
+                }
+              }
+            })
           }
         }
       })
-
-      // allowance(ipConfig.TnsAddress, ipConfig.TnsAddress).then((res) => {
-      //   if (res) {
-      //     if(res._hex){
-      //       that.approveTnsBalance = parseInt(res._hex,16)
-      //     }else if(res.constant_result){
-      //       that.approveTnsBalance = parseInt(res.constant_result[0],16)
-      //     }else if(res.remaining){
-      //       that.approveTnsBalance = parseInt(res.remaining._hex,16)
-      //     }
-      //     if (that.approveTnsBalance == 0) {
-      //       approved(ipConfig.TnsAddress, ipConfig.TnsAddress).then(res => {
-      //         that.deposit(num)
-      //       })
-      //     } else {
-      //       that.deposit(num)
-      //     }
-      //   }
-      // })
     },
     toWithdraw(n) {
       const that = this
@@ -256,7 +272,7 @@ export default {
     },
     async deposit(num) {
       const that = this
-      this.isDeposit = true
+
       const oneToken = sessionStorage.getItem('oneToken')
       if (!oneToken) {
         that.$message.error('邀请人不存在')

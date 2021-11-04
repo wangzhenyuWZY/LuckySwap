@@ -39,7 +39,6 @@ export default {
         invitedAddress: ''
       }
       joinConnection(params).then(result => {
-        debugger
         if (result.data.code == 0) {
           sessionStorage.setItem('oneToken', result.data.data.token)
         } else {
