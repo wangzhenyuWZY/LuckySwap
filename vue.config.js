@@ -9,7 +9,7 @@ module.exports = {
     proxy: {
       '/api': {
         // target: 'https://www.kakanft.com',
-        target: 'http://8.218.15.165:8011/',
+        target: 'https://api.lpbswap.com/',
         // target: 'http://localhost:9100',
         ws: true,
         changeOrigin: true

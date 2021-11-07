@@ -8,13 +8,13 @@ api.getLpComputeApy = params => {
   return fet('api/flowcell/getApy', params, 'get')
 }
 export function getTokenList(params) {
-  return fet('api/token/getToken', params, 'get')
+  return fet('node/api/token/getToken', params, 'get')
 }
 export function getPairList(params) {
-  return fet('api/token/getPair', params, 'get')
+  return fet('node/api/token/getPair', params, 'get')
 }
 export function getToken(params) {
-  return fet('api/token/addToken', params, 'post')
+  return fet('node/api/token/addToken', params, 'post')
 }
 
 // 获取一次性TOKEN

@@ -6,7 +6,7 @@ import { getTokenList, getPairList } from '../api/api'
 /* eslint-disable */
 export const TokenData = function(){
   return new Promise(function (resolve, reject) {
-    axios.get('http://8.218.15.165:8083/api/token/getToken').then((res)=>{
+    axios.get('https://api.lpbswap.com/node/api/token/getToken').then((res)=>{
       if(res.data.code==0){
         resolve(res.data.data)
       }else{
@@ -17,7 +17,7 @@ export const TokenData = function(){
 }
 export const PairData = function(){
   return new Promise(function (resolve, reject) {
-    axios.get('http://8.218.15.165:8083/api/token/getPair').then((res)=>{
+    axios.get('https://api.lpbswap.com/node/api/token/getPair').then((res)=>{
       if(res.data.code==0){
         resolve(res.data.data)
       }else{

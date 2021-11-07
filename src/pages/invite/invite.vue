@@ -47,7 +47,7 @@
         <div class="border-container referral">
           <div class="title">{{$t('lang20')}}</div>
           <div class="tab-container">
-            <el-table :data="referralData" style="width: 100%" :header-row-class-name="'tab-title-line'">
+            <el-table :data="referralData" empty-text="No Data" style="width: 100%" :header-row-class-name="'tab-title-line'">
               <el-table-column prop="address" :label="$t('lang39')"></el-table-column>
               <el-table-column prop="teamNum" :label="$t('lang40')" align="center"></el-table-column>
               <el-table-column prop="performance" :label="$t('lang44')" align="center"></el-table-column>
@@ -74,11 +74,8 @@ export default {
       myInvitationLink: '',
       tnsPrice: 0,
       referralData: [],
+      hasInviter:false,
       origanizationData: [
-        {
-          name: this.$t('lang35'),
-          value: '0'
-        },
         {
           name: this.$t('lang36'),
           value: '0'
@@ -111,6 +108,11 @@ export default {
       )
     },
     tapHandle(e) {
+      if(!this.hasInviter){
+
+        this.$message.error(this.$t('lang48'))
+        return
+      }
       const self = this
       handleClipboard(
         self.myInvitationLink,
@@ -128,17 +130,18 @@ export default {
     getInviter() {
       const that = this
       // 获取推荐人
-      if (that.myAddress == 'TX6L1SURCZh4j63q8Tdj7ttCdYkWFZ4aXy') {
+      if (that.myAddress == 'TP3EUMq8mT5xzxKb4ooLeX1KNHg9W5YQkf') {
         that.myInviterAddress = '0x0'
-        that.myInvitationLink = 'http://8.218.15.165/#/invite/?inviter=' + tronWeb.defaultAddress.base58
+        that.myInvitationLink = 'https://www.lpbswap.com/?inviter=' + tronWeb.defaultAddress.base58
       } else {
         getInvitedAddress().then(result => {
           if (result.data.code == 0) {
             if (result.data.data) {
-              that.myInvitationLink = 'http://8.218.15.165/#/invite/?inviter=' + tronWeb.defaultAddress.base58
+              that.myInvitationLink = 'https://www.lpbswap.com/?inviter=' + tronWeb.defaultAddress.base58
               that.myInviterAddress = result.data.data.invitedAddress
+              that.hasInviter = true
             } else {
-              that.myInviterAddress = 'Please contact your superior'
+              that.myInviterAddress = that.$t('lang49')
             }
           }
         })
@@ -172,10 +175,10 @@ export default {
       const that = this
       getUserTeam().then(res => {
         if (res.data.code == 0) {
-          that.origanizationData[0].value = res.data.data.wholeNetworkNum
-          that.origanizationData[1].value = res.data.data.teamTotalNum
-          that.origanizationData[2].value = parseInt(res.data.data.teamTotalPerformance)
-          that.origanizationData[3].value = res.data.data.grade
+          // that.origanizationData[0].value = res.data.data.wholeNetworkNum
+          that.origanizationData[0].value = res.data.data.teamTotalNum
+          that.origanizationData[1].value = parseInt(res.data.data.teamTotalPerformance)
+          that.origanizationData[2].value = res.data.data.grade
           that.referralData = res.data.data.teamDto
           if (that.referralData.length > 0) {
             that.referralData.forEach((item, index) => {
@@ -210,5 +213,9 @@ export default {
 }
 .el-table__row{
   padding:0 !important;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell, .el-table th.el-table__cell{
+background:#fff !important;
+padding:12px 0;
 }
 </style>

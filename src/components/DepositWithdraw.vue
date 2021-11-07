@@ -25,7 +25,7 @@
             <div class="info-item">
               <div class="key">APY</div>
               <div class="value">
-                <div class="num">200</div>
+                <div class="num">{{apy}}</div>
                 <div class="pecent">%</div>
               </div>
             </div>
@@ -134,6 +134,9 @@ export default {
     },
     isDeposit: {
       default: false
+    },
+    apy: {
+      default: 200
     }
   },
   data() {

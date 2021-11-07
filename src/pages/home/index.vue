@@ -75,7 +75,7 @@
           :data="pairList"
           header-cell-class-name="adddd"
           header-row-class-name="tabe_tr"
-          :header-row-style="{backgroundColor:'#23323C',color:'#878B97'}"
+          :header-row-style="{backgroundColor:'#00447B',color:'#878B97'}"
           cell-class-name="dddsadsa"
           style="width: 100%">
           <el-table-column prop="full_name" width="110px" :render-header="renderHeader">
@@ -333,7 +333,7 @@ export default {
     },
     getVolPrice24() { // 获取24小时量和价格
       // const res = await api.get24HourTradingVolume()
-      axios.get('http://8.218.15.165:8083/api/trade/getTradingVolume').then((res) => {
+      axios.get('https://api.lpbswap.com/node/api/trade/getTradingVolume').then((res) => {
         if (res.data.code == 0) {
           this.pairList = res.data.data
         }
@@ -378,9 +378,9 @@ export default {
   }
 }
 </script>
-<style scope>
-.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell,.el-table th.el-table__cell{background:#10090D !important;}
-.el-table th.el-table__cell{background:#23323C !important;border:none !important;}
+<style>
+.el-table--enable-row-hover .el-table__body tr:hover>td.el-table__cell,.el-table th.el-table__cell{background:#00447B !important;}
+.el-table th.el-table__cell{background:#00447B !important;border:none !important;}
   >>> .cell {
   /* margin-left: 30px; */
 }
@@ -391,7 +391,7 @@ export default {
 
 >>> .el-table__row {
   height: 72px;
-  background: #10090D;
+  background: #00447B;
 }
 >>> .cell {
     margin-left: 0;
@@ -406,16 +406,16 @@ background:url(../../assets/img/img_huan.png) no-repeat center;background-size:3
   color:#fff;
 }
 .el-table, .el-table__expanded-cell,.el-table--enable-row-hover .el-table__body tr:hover>td{
-  background:#10090D;
+  background:#00447B;
 }
 .el-table--border::after, .el-table--group::after, .el-table::before{
-  background-color:#10090D;
+  background-color:#00447B;
 }
 .el-table tr{
-  background-color:#10090D;
+  background-color:#00447B;
 }
 .el-table th{
-  background-color:#10090D;
+  background-color:#00447B;
 }
 </style>
 <style  lang="scss" scoped>
@@ -664,7 +664,7 @@ margin-right:8px;
   height: 960px;
   border-radius: 16px;
   overflow: hidden;
-  background: #10090D;
+  background: #00447B;
 
 border: 2px solid #FE9936;
   .b2-top {
@@ -681,7 +681,7 @@ border: 2px solid #FE9936;
       width:480px;
       height:48px;
       line-height:48px;
-      background:#23323C;
+      background:#01386D;
       display:flex;
       border-radius:28px;
       align-items: center;
@@ -738,7 +738,7 @@ border: 2px solid #FE9936;
   }
   .table {
     height: 760px;
-    background: #10090D;
+    background: #00447B;
     width:99%;
     margin:0 auto;
     .tabe_tr {

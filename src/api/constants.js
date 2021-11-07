@@ -1,8 +1,8 @@
 import axios from 'axios'
 const qs = require('qs')
 const server = {
-  development: 'http://8.218.15.165:8011/',
-  production: 'http://8.218.15.165:8011/'
+  development: 'https://api.lpbswap.com/',
+  production: 'https://api.lpbswap.com/'
 }
 
 const jsonUrl = (json) => {

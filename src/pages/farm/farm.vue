@@ -9,6 +9,7 @@
 selectedIndex='deposit'
 :tnsBalance='tnsBalance'
 :userInfo='userInfoData'
+:apy='apy'
 @deposit='toDeposit'
 @withdraw='toWithdraw'
 @close="depositWithdrawClose"></deposit-withdraw>
@@ -279,8 +280,8 @@ export default {
         this.isDeposit = false
         return
       }
-      if (num < 10) {
-        that.$message.error('质押不得少于10个USDT')
+      if (num < 100) {
+        that.$message.error('质押不得少于100个USDT')
         this.isDeposit = false
         return
       }

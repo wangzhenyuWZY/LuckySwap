@@ -4,24 +4,24 @@
 let ipConfig = {}
 if (process.env.NODE_ENV === 'development') {
   ipConfig = {
-    wtrxAddress: 'TGizSAxpQ1fQAbnkrQo3qPVH38S1oT2obt',
-    BFactory: 'TGPkMjkFmgDbir4EpYWoqevJtW95RFxwrJ',
+    wtrxAddress: 'TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR',
+    BFactory: 'TYbHXVsbLTz52SwB9VfiWbkdGr3VFBGKXu',
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
-    FactoryManager: 'TE3svoiN7evPwpbwsqBHeZ7WXTpiFu3UT6',
+    FactoryManager: 'TARFbaMcbza8REjTmAjZpQRnmpo4jjGGcX',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
     TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
-    UsdtAddress: 'TCykFQ8rwiqpphmNRC8wN3CmTkmrW3eeyN',
+    UsdtAddress: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
     FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
   }
 } else {
   ipConfig = {
     wtrxAddress: 'TNUC9Qb1rRpS5CbWLmNMxXBjyFoydXjWFR',
-    BFactory: 'TEtHLYooGrS1ZYKxrcctuqJW3Cj2Pt9BMh',
+    BFactory: 'TYbHXVsbLTz52SwB9VfiWbkdGr3VFBGKXu',
     MasterChef: 'TNHDUtroDsdPc5oVDo4QmrL3ueSnwQKiLb',
-    FactoryManager: 'TCiPisZVGYeSuir6z3ioUMLHwzemn7EEAQ',
+    FactoryManager: 'TARFbaMcbza8REjTmAjZpQRnmpo4jjGGcX',
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
     TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
-    UsdtAddress: 'TCykFQ8rwiqpphmNRC8wN3CmTkmrW3eeyN',
+    UsdtAddress: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
     FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
   }
 }

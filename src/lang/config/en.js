@@ -326,5 +326,11 @@ module.exports = {
   lang44: 'Personal performance',
   lang45: 'LPC Farming income',
   lang46: 'USDT Team benefits',
-  lang47: 'USDT Recoverable income'
+  lang47: 'USDT Recoverable income',
+  lang48: 'You have no inviter yet, unable to generate invitation link',
+  lang49: 'Please contact your superior',
+  lang50: '',
+  lang51: '',
+  lang52: '',
+  lang53: ''
 }
