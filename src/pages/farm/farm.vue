@@ -10,6 +10,7 @@ selectedIndex='deposit'
 :tnsBalance='tnsBalance'
 :userInfo='userInfoData'
 :apy='apy'
+:tokenlist='tokenlist'
 @deposit='toDeposit'
 @withdraw='toWithdraw'
 @close="depositWithdrawClose"></deposit-withdraw>
@@ -22,7 +23,7 @@ selectedIndex='deposit'
           <div class="info-item important">
             <div class="key">{{$t('lang7')}}</div>
             <div class="value">
-              <div class="num">{{parseFloat(userInfoData.lpcAmount).toFixed(2)}}</div>
+              <div class="num">{{parseFloat(userInfoData.depositTotal).toFixed(2)}}</div>
               <div class="unit">USDT</div>
             </div>
           </div>
@@ -60,7 +61,7 @@ selectedIndex='deposit'
           <div class="value">{{userInfoData.unlockTime}}</div>
         </div>
         <div class="info-item">
-          <div class="key">200% {{$t('lang14')}}</div>
+          <div class="key">{{$t('lang53')}}</div>
           <div class="value">{{parseFloat(userInfoData.lockAmount).toFixed(2)}}</div>
         </div>
         <div class="info-item">
@@ -105,7 +106,7 @@ export default {
       isWithdrawLpc: false,
       isDeposit: false,
       trxBalance: 0,
-      apy: 200
+      apy: 125
     }
   },
   created() {
@@ -115,6 +116,7 @@ export default {
     this.getPool()
     this.init()
     this.getUserInfo()
+    this.getFee()
   },
   methods: {
     init() { // 初始化tronweb
@@ -183,25 +185,29 @@ export default {
             approved(ipConfig.UsdtAddress, ipConfig.FarmAddress).then(res => {
               getInvitedAddress().then(result => {
                 if (result.data.code == 0) {
-                  if (result.data.data) {
-                    that.deposit(num)
-                  } else {
-                    that.$message.error('邀请人不存在')
-                  }
+                  that.deposit(num)
+                } else {
+                  that.$message.error('邀请人不存在')
                 }
               })
             })
           } else {
             getInvitedAddress().then(result => {
               if (result.data.code == 0) {
-                if (result.data.data) {
-                  that.deposit(num)
-                } else {
-                  that.$message.error('邀请人不存在')
-                }
+                that.deposit(num)
+              } else {
+                that.$message.error('邀请人不存在')
               }
             })
           }
+        }
+      })
+    },
+    getFee() {
+      const that = this
+      getCoinList().then(list => {
+        if (list.data.code == 0) {
+          that.tokenlist = list.data.data
         }
       })
     },
@@ -211,29 +217,25 @@ export default {
       //   this.$message.error('请保证钱包至少有二十个TRX才能进行合约操作')
       //   return
       // }
-      if (n == 0) {
+      if (n == 1) {
         this.isWithdraw = true
       } else {
         this.isWithdrawLpc = true
       }
 
-      getCoinList().then(list => {
-        if (list.data.code == 0) {
-          doWithdraw({ currencyId: n == 0 ? 1 : 2 }).then(res => {
-            if (res.data.code == 0) {
-              that.$message.success('提币发起成功，请等待区块确认')
-              setTimeout(function() {
-                window.location.reload()
-              }, 3000)
-            } else if (res.data.code == 20004) {
-              that.isWithdraw = false
-              that.isWithdrawLpc = false
-            } else {
-              that.isWithdraw = false
-              that.isWithdrawLpc = false
-              that.$message.success(res.data.msg)
-            }
-          })
+      doWithdraw({ currencyId: n }).then(res => {
+        if (res.data.code == 0) {
+          that.$message.success('提币发起成功，请等待区块确认')
+          setTimeout(function() {
+            window.location.reload()
+          }, 3000)
+        } else if (res.data.code == 20004) {
+          that.isWithdraw = false
+          that.isWithdrawLpc = false
+        } else {
+          that.isWithdraw = false
+          that.isWithdrawLpc = false
+          that.$message.success(res.data.msg)
         }
       })
     },
@@ -280,7 +282,7 @@ export default {
         this.isDeposit = false
         return
       }
-      if (num < 100) {
+      if (num < 1) {
         that.$message.error('质押不得少于100个USDT')
         this.isDeposit = false
         return

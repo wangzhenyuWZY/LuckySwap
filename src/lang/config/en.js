@@ -329,8 +329,8 @@ module.exports = {
   lang47: 'USDT Recoverable income',
   lang48: 'You have no inviter yet, unable to generate invitation link',
   lang49: 'Please contact your superior',
-  lang50: '',
-  lang51: '',
-  lang52: '',
-  lang53: ''
+  lang50: 'Fee',
+  lang51: "Yesterday's performance",
+  lang52: 'Team performance yesterday',
+  lang53: 'USDT released quantity'
 }

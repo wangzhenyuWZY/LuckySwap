@@ -323,9 +323,9 @@ module.exports = {
   lang47: 'USDT可提收益',
   lang48: '您还没有邀请人，无法生成邀请链接',
   lang49: '请联系您的上级',
-  lang50: '',
-  lang51: '',
-  lang52: '',
-  lang53: ''
+  lang50: '手续费',
+  lang51: '昨日业绩',
+  lang52: '昨日团队业绩',
+  lang53: 'USDT释放数量'
 }
 

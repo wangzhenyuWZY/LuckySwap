@@ -51,6 +51,7 @@
               <el-table-column prop="address" :label="$t('lang39')"></el-table-column>
               <el-table-column prop="teamNum" :label="$t('lang40')" align="center"></el-table-column>
               <el-table-column prop="performance" :label="$t('lang44')" align="center"></el-table-column>
+              <el-table-column prop="solidifyPerformance" :label="$t('lang51')" align="center"></el-table-column>
               <el-table-column prop="teamPerformance" :label="$t('lang41')" align="right"></el-table-column>
             </el-table>
           </div>
@@ -74,7 +75,7 @@ export default {
       myInvitationLink: '',
       tnsPrice: 0,
       referralData: [],
-      hasInviter:false,
+      hasInviter: false,
       origanizationData: [
         {
           name: this.$t('lang36'),
@@ -83,6 +84,10 @@ export default {
         {
           name: this.$t('lang37'),
           value: '0'
+        },
+        {
+          name: this.$t('lang52'),
+          value: 0
         },
         {
           name: this.$t('lang38'),
@@ -108,8 +113,7 @@ export default {
       )
     },
     tapHandle(e) {
-      if(!this.hasInviter){
-
+      if (!this.hasInviter) {
         this.$message.error(this.$t('lang48'))
         return
       }
@@ -178,12 +182,13 @@ export default {
           // that.origanizationData[0].value = res.data.data.wholeNetworkNum
           that.origanizationData[0].value = res.data.data.teamTotalNum
           that.origanizationData[1].value = parseInt(res.data.data.teamTotalPerformance)
-          that.origanizationData[2].value = res.data.data.grade
+          that.origanizationData[3].value = res.data.data.grade
           that.referralData = res.data.data.teamDto
           if (that.referralData.length > 0) {
             that.referralData.forEach((item, index) => {
               item.teamPerformance = parseInt(item.teamPerformance)
               item.performance = parseInt(item.performance)
+              that.origanizationData[2].value += parseInt(item.solidifyPerformance)
             })
           }
         }
@@ -198,18 +203,13 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-@import '@/themes/style/invite.less';
-
-</style>
 <style>
 .el-table, .el-table__expanded-cell, .el-table--enable-row-hover .el-table__body tr:hover>td,.el-table tr,.el-table th{
-  background:#fff !important;
+  background:none !important;
   padding:0;
 }
 .el-table .cell{
-  color:#000;
+  color:#909399;
 }
 .el-table__row{
   padding:0 !important;
@@ -218,4 +218,12 @@ export default {
 background:#fff !important;
 padding:12px 0;
 }
+.el-table, .el-table__expanded-cell, .el-table--enable-row-hover .el-table__body tr:hover>td, .el-table tr, .el-table th{
+  padding:12px 0;
+}
 </style>
+<style lang="less" scoped>
+@import '@/themes/style/invite.less';
+
+</style>
+

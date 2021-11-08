@@ -400,7 +400,7 @@ export default {
   .tableicon{
     width:32px;
     height:32px;
-background:url(../../assets/img/img_huan.png) no-repeat center;background-size:32px 32px;
+    background:url(../../assets/img/img_huan.png) no-repeat center;background-size:32px 32px;
   }
   .el-table{
   color:#fff;

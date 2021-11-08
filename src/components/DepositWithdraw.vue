@@ -75,6 +75,17 @@
                   <div class="unit">LPC</div>
                 </div>
               </div>
+              <div class="info-item">
+                <div class="key">{{$t('lang50')}}</div><!--手续费-->
+                <div class="value">
+                  <div class="num">{{tokenlist[0].percentageFee}}%</div>
+                  <div class="unit">USDT</div>
+                </div>
+                <div class="value">
+                  <div class="num">{{tokenlist[1].percentageFee}}%</div>
+                  <div class="unit">LPC</div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- <div class="revenue sec" v-show="false">
@@ -99,8 +110,8 @@
           </div> -->
         </div>
         <div class="btn-container">
-          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw(0)" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
-          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdraw(1)">{{$t('lang24')}} LPC</el-button>
+          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw(1)" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
+          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdraw(2)">{{$t('lang24')}} LPC</el-button>
           <el-button :loading="false" :disabled='isWithdraw' class="btn confirm unselect" @click="back">{{$t('lang25')}}</el-button>
         </div>
       </div>
@@ -137,6 +148,9 @@ export default {
     },
     apy: {
       default: 200
+    },
+    tokenlist: {
+      default: []
     }
   },
   data() {

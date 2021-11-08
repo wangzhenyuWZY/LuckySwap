@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
     TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
     UsdtAddress: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
-    FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
+    FarmAddress: 'TM18A565eSWVfUDgxwWDVfFCCm2cpAvpBZ'
   }
 } else {
   ipConfig = {
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
     RewardToken: 'TRU8aDiSoY11Qa7FbvguKqoFLmymA2s41k',
     TnsAddress: 'TAfHTAi38RuNoqcspp3GNaQrtVKubbxyiX',
     UsdtAddress: 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
-    FarmAddress: 'TRLcQnfNuHVrYdhVKcMBcaRu61Zwfwknu6'
+    FarmAddress: 'TM18A565eSWVfUDgxwWDVfFCCm2cpAvpBZ'
   }
 }
 export default ipConfig
