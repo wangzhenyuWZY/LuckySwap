@@ -282,7 +282,7 @@ export default {
         this.isDeposit = false
         return
       }
-      if (num < 1) {
+      if (num < 100) {
         that.$message.error('质押不得少于100个USDT')
         this.isDeposit = false
         return

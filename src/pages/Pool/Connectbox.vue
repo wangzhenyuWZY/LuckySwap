@@ -473,6 +473,7 @@ export default {
       var functionSelector = 'swapFeeForDex()'
       var parameter = []
       const transaction = await window.tronWeb.transactionBuilder.triggerConstantContract(ipConfig.FactoryManager, functionSelector, {}, parameter)
+      debugger
       this.foxDex = parseInt(transaction.constant_result[0], 16)
     },
     async getCreateToken(item) {

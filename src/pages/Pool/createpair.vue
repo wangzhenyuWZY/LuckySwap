@@ -383,7 +383,7 @@ export default {
       // try {
       if (this.BFactoryContract) {
         const res = await that.BFactoryContract['newBPool']().send({
-          feeLimit: 1000000000,
+          feeLimit: 5000000000,
           callValue: 0,
           tokenId: 0,
           shouldPollResponse: true

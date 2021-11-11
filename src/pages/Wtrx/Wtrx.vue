@@ -144,7 +144,7 @@ export default {
       this.loading1(1)
       try {
         const res = await that.wtrxContract['deposit']().send({
-          feeLimit: 100000000,
+          feeLimit: 500000000,
           callValue: window.tronWeb.toSun(that.trxNum),
           tokenId: 0,
           shouldPollResponse: true

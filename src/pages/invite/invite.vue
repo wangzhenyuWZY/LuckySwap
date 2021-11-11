@@ -47,7 +47,7 @@
         <div class="border-container referral">
           <div class="title">{{$t('lang20')}}</div>
           <div class="tab-container">
-            <el-table :data="referralData" empty-text="No Data" style="width: 100%" :header-row-class-name="'tab-title-line'">
+            <el-table :data="referralData" empty-text="No Data" style="width: 100%;width:450px;" :header-row-class-name="'tab-title-line'">
               <el-table-column prop="address" :label="$t('lang39')"></el-table-column>
               <el-table-column prop="teamNum" :label="$t('lang40')" align="center"></el-table-column>
               <el-table-column prop="performance" :label="$t('lang44')" align="center"></el-table-column>
@@ -220,6 +220,9 @@ padding:12px 0;
 }
 .el-table, .el-table__expanded-cell, .el-table--enable-row-hover .el-table__body tr:hover>td, .el-table tr, .el-table th{
   padding:12px 0;
+}
+.tab-container{
+  overflow-x: scroll;
 }
 </style>
 <style lang="less" scoped>
