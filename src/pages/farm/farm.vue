@@ -211,19 +211,23 @@ export default {
         }
       })
     },
-    toWithdraw(n) {
+    toWithdraw(n, withNum) {
       const that = this
       // if(this.trxBalance<20){
       //   this.$message.error('请保证钱包至少有二十个TRX才能进行合约操作')
       //   return
       // }
+      if (withNum < 1) {
+        that.$message.error('提币数量不能小于1')
+        return
+      }
       if (n == 1) {
         this.isWithdraw = true
       } else {
         this.isWithdrawLpc = true
       }
 
-      doWithdraw({ currencyId: n }).then(res => {
+      doWithdraw({ currencyId: n, amount: withNum }).then(res => {
         if (res.data.code == 0) {
           that.$message.success('提币发起成功，请等待区块确认')
           setTimeout(function() {

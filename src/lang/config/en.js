@@ -332,5 +332,6 @@ module.exports = {
   lang50: 'Fee',
   lang51: "Yesterday's performance",
   lang52: 'Team performance yesterday',
-  lang53: 'USDT released quantity'
+  lang53: 'USDT released quantity',
+  lang54: 'Please enter the withdrawal quantity'
 }

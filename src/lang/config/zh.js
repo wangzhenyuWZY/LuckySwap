@@ -326,6 +326,7 @@ module.exports = {
   lang50: '手续费',
   lang51: '昨日业绩',
   lang52: '昨日团队业绩',
-  lang53: 'USDT释放数量'
+  lang53: 'USDT释放数量',
+  lang54: '请输入提币数量'
 }
 

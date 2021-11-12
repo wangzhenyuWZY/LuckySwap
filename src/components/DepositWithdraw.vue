@@ -109,9 +109,10 @@
             </div>
           </div> -->
         </div>
+        <input class="amountlpc" :placeholder="$t('lang54')" v-model="withNum">
         <div class="btn-container">
-          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw(1)" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
-          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdraw(2)">{{$t('lang24')}} LPC</el-button>
+          <el-button :loading="isWithdraw" :disabled='isWithdraw' class="btn confirm" @click="withdraw(1,withNum)" style="margin-bottom:0;">{{$t('lang24')}} USDT</el-button>
+          <el-button :loading="isWithdrawLpc" :disabled='isWithdrawLpc' class="btn confirm" @click="withdraw(2,withNum)">{{$t('lang24')}} LPC</el-button>
           <el-button :loading="false" :disabled='isWithdraw' class="btn confirm unselect" @click="back">{{$t('lang25')}}</el-button>
         </div>
       </div>
@@ -157,7 +158,8 @@ export default {
     return {
       isShow: false,
       tabSelected: this.selectedIndex,
-      depostNum: ''
+      depostNum: '',
+      withNum: ''
     }
   },
   watch: {
@@ -189,8 +191,8 @@ export default {
       }
       this.$emit('deposit', this.depostNum)
     },
-    withdraw(n) {
-      this.$emit('withdraw', n)
+    withdraw(n, w) {
+      this.$emit('withdraw', n, w)
     }
   },
   mounted() {}
@@ -203,4 +205,5 @@ export default {
   padding-top:0;
   height:auto;
 }
+
 </style>

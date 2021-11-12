@@ -50,7 +50,8 @@ export function doWithdrawByTxid(params) {
 }
 // 提币
 export function doWithdraw(params) {
-  return fet('api/withdraw', params, 'post')
+  // return fet('api/withdraw', params, 'post')
+  return fet('api/withdrawByAmount', params, 'post')
 }
 // 个人数据统计
 export function userInfo(params) {
