@@ -512,7 +512,6 @@ export default {
 .drawer_nav {
   // font-size: 0.5rem;
   font-size: 0.426667rem;
-  margin-top: 0.5rem;
   li {
     line-height: 1.1rem;
     padding-left: 0.8rem;
@@ -527,7 +526,7 @@ export default {
 }
 
 .drawer_btn {
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 0.2rem;
   .drawer_wallet {
     display: flex;
     justify-content: center;
@@ -774,7 +773,7 @@ export default {
   }
   .langAndSet {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.2rem;
     width: 100%;
     text-align: center;
   }
